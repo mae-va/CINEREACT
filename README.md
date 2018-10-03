@@ -12,9 +12,9 @@ ES6, Bootstrap, JSX, HTML5 and CSS 3 are here too.
 
 ## Table of contents
 
-1.  [Files structure](https://github.com/WildCodeShool/nantes-0918-javascript-clap#Structure)
-2.  [Installation](https://github.com/WildCodeShool/nantes-0918-javascript-clap#Installation)
-3.  [Credits](https://github.com/WildCodeShool/nantes-0918-javascript-clap#Credits)
+1.  [Files structure](https://github.com/WildCodeSchool/nantes-0918-javascript-clap#Structure)
+2.  [Installation](https://github.com/WildCodeSchool/nantes-0918-javascript-clap#Installation)
+3.  [Credits](https://github.com/WildCodeSchool/nantes-0918-javascript-clap#Credits)
 
 
 ## Structure
