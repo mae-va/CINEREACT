@@ -1,0 +1,61 @@
+
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar {
+    height: 60px;
+    background-color:  #1F2224;
+}
+
+.nav-link:hover {
+    color: #5FD4F4 !important;
+}
+
+.nav-link {
+    color:  #F1F1F1 !important;
+    display: flex !important;
+    align-items: center;
+    
+}
+
+.icon {
+    color: #5FD4F4 !important;
+    
+}
+
+.navbar-toggler {
+    color: #5FD4F4 !important;
+    border-color: transparent !important;
+
+}
+
+.btn, .btn-link {
+    color: #5FD4F4 !important;
+   
+}
+
+.search {
+    padding-left: 30px !important;
+}
+
+.navbar-collapse {
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 768px)
+
+{
+
+    .menu-bottom {
+        display: none !important;
+    }
+
+   
+
+}
+
+
+
+

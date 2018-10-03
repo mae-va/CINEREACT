@@ -8,7 +8,9 @@ import SearchBar from "./components/SearchBar/SearchBar";
 class App extends Component {
   render() {
     return (
-      <div></div>
+      <div>
+        <Navbar/>
+      </div>
     );
   }
 }
