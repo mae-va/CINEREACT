@@ -20,6 +20,10 @@
     
 }
 
+.navbar-nav {
+    flex-direction: row !important;
+}
+
 .icon {
     color: #5FD4F4 !important;
     
@@ -56,6 +60,13 @@
 
 }
 
+.icon-bottom {
+    display: flex !important;
+}
+
+.menu-bottom {
+    justify-content: space-between !important;
+}
 
 
 

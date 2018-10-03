@@ -49,14 +49,14 @@ class Navbar extends Component {
                     </div>
                 </div>
 
-                <div className= " menu-bottom navbar navbar-expand-lg navbar-light fixed-bottom" id="navbarNav">
+                <div className= "menu-bottom navbar navbar-expand-sm  fixed-bottom" id="navbarNav">
                   <div>
-                    <button className="btn btn-link search" type="button" >
+                    <button className="btn btn-link" type="button" >
                           <i class="fa fa-search fa-2x"></i>
                     </button>
                     </div>
 
-                    <div>
+                    <div className="icon-bottom">
                       <ul className="navbar-nav">
                           <li className="nav-item active pr-5">
                               
