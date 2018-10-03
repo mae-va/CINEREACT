@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-//import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 //import Actuality from "./components/Actuality/Actuality";
 //import Favoris from "./components/Favoris/Favoris";
 //import SearchBar from "./components/SearchBar/SearchBar";
@@ -11,6 +11,7 @@ class App extends Component {
     return (
       <div>
         <Bdd/>
+        <Navbar/>
       </div>
     );
   }
