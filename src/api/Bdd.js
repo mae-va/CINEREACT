@@ -42,14 +42,6 @@ class Bdd extends Component {
         
         return(
             <div>                      
-                
-                <ul>
-                    {                        
-                        this.state.movies.map((movie, index) => {
-                            return <li key={index}>{movie.director}{movie.casting}</li>
-                        })
-                    }
-                </ul>         
             </div>
         )
     }
