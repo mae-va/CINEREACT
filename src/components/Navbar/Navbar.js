@@ -3,8 +3,8 @@ import './Navbar.css';
 
 
 class Navbar extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
 
     render(){
@@ -67,7 +67,7 @@ class Navbar extends Component {
                     </div>
                 </div>
             </nav>
-
+      
           </div>
 
         )
