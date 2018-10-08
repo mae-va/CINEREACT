@@ -12,8 +12,6 @@ class App extends Component {
     this.state = {
         movies : []
     }
-
-    this.getDirectorFromMovieId = this.getDirectorFromMovieId.bind(this);
   }
 
   componentDidMount() {
@@ -25,7 +23,7 @@ class App extends Component {
       })
   }
 
-  getDirectorFromMovieId() {
+  getDirectorFromMovieId = () => {
       this.state.movies.map((movie, index) => {
       fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
         .then(response => response.json())
