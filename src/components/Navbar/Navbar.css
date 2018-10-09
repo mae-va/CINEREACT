@@ -1,3 +1,29 @@
+@font-face {
+    font-family: "Univers";
+    src: "./fonts/Univers-Condensed.otf";
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: O.1 em;
+
+  }
+
+h1 {
+    display: inline;
+}
+
+
+.logo-cine {
+    font-family: "Univers";
+    color: #F1F1F1;
+
+}
+
+.logo-react {
+    font-family: "Univers";
+    color: #5FD4F4;
+
+}
+
 
 .navbar {
     height: 60px;

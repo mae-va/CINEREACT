@@ -14,7 +14,8 @@ class Navbar extends Component {
           
             <nav className="navbar navbar-expand-lg fixed-top"> {/* Navbar du haut*/}
                 <a href="index.html">
-                    <img src="./logo_cine-react.png" alt="logo de CineReact"/> {/* Logo */}
+                    <h1 class="logo-cine">CINE</h1>
+                    <h1 class="logo-react"> REACT</h1> {/* Logo */}
                 </a>
 
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
