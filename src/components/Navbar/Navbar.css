@@ -69,15 +69,20 @@ h1 {
     justify-content: space-between;
 }
 
-@media screen and (min-width: 768px)
-
-{
-
+@media screen and (min-width: 768px){
     .menu-bottom {
         display: none !important;
     }
 
    
+
+}
+
+@media screen and (min-width: 576px)and (max-width: 1024px){
+    .text-nav{
+        display: none;
+    }
+  
 
 }
 
