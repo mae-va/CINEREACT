@@ -1,86 +1,101 @@
 import React, {Component} from "react";
 import './Favoris.css';
+import Rating from "react-star-rating-lite";
 
 
 class Favoris extends Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      movies:[]
+    }
+  }
+  componentDidMount() {
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.getRandomInt(5)}&primary_release_year=${new Date().getFullYear()}`)
+      .then(response => response.json())        
+      .then(json => {this.setState({movies : json.results[this.getRandomInt(20)]})})
+      .then(() => {this.getDirectorFromMovieId()})
+      .then(() => {this.state.movies.release_date = this.state.movies.release_date.slice(0,4)
+      this.state.movies.average_note = Math.round(this.state.movies.average_note/2).toString()
+      console.log(this.state.movies.average_note)
+      })
+   
+  }
+  
+  getDirectorFromMovieId = () => {
+    fetch(`https://api.themoviedb.org/3/movie/${this.state.movies.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
+      .then(response => response.json())
+      .then(json =>{
+        this.state.movies.director = json.crew[0].name;
+        let results = json.cast.slice(0,4);
+        let fullCast ="";
+        for(let i=0; i<results.length ; i++){
+            fullCast +=`${results[i].name}, `;
+        }
+        this.state.movies.casting = fullCast;
+        this.forceUpdate(); 
+      })
+    
+  } 
+  
+  
+  getRandomInt = (max) => {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
     render(){
-        return(
-        <div class="container">
-            <div class="row">
-                
-                    <div class="col-md-6">
-                            <div>
-                             <div class="row align-items-center">
-                               <div class="col-xs-6 col-md-6"><img width="100%" alt="star wars" src="http://fr.web.img5.acsta.net/r_1280_720/medias/nmedia/18/35/41/59/18867130.jpg"></img></div>
-                               <div class="col-xs-6 col-md-6">
-                                   <div>
-                                       <h3>STAR WARS 4</h3> 
-                                    </div>  
-                                    <ul>
-                                      <li>1977</li> 
-                                      <li>121 min</li> 
-                                      <li>Sci Fi</li>
-                                    </ul>     
-            
-                                    <div>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                    </div> 
-                          
-                                    <div class= "heart">
-                                          <i class="fa fa-heart"></i>
-                                   </div>   
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                       
-                        
-                      
-
-                          
-                 
-                    <div class="col-md-6">
-                         <div>
-                            <div class="row align-items-center">
-                               <div class="col-xs-6 col-md-6"><img width="100%" alt="kill bill" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/h8fnwL1.png"></img></div>
-                               <div class="col-xs-6 col-md-6">
-                                    <div>
-                                       <h3>KILL  BILL:  VOL.  1</h3> 
-                                    </div>   
-                                        <ul>
-                                          <li>2003</li> 
-                                          <li>111 min</li> 
-                                          <li>Action</li>
-                                        </ul>    
-
-                                      <div>
-                                          <i class="fa fa-star"></i>
-                                          <i class="fa fa-star"></i>
-                                          <i class="fa fa-star"></i>
-                                          <i class="fa fa-star"></i>
-                                          <i class="fa fa-star"></i>
-                                      </div> 
-                              
-                                      <div class= "heart">
-                                              <i class="fa fa-heart"></i>
-                                      </div> 
-
-                                   </div>
-                                </div>
-                             </div>
-                          </div>  
-                      </div>    
-                </div>       
-                       
-          
-        
-             
-                        
+        return (
        
+          
+        <div className="container">
+           <div className= "row">
+          
+            <div className="blog-card">
+             <div className="photo-block"><img className="img-fluid" width="100%" alt="Kill Bill" src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`}></img></div>
+               <div className="Titre">
+                     <h3>{this.state.movies.title}</h3>
+               </div>
+                 
+                  <ul>
+                   <li>{this.state.movies.release_date}</li> 
+                   <li> {this.state.movies.director}</li> 
+                 </ul>    
+
+             <div className="stars">
+                <Rating value={this.state.movies.average_note} readonly/>
+             </div> 
+                              
+             <div className= "heart">
+                <i className="fa fa-heart"></i>
+            </div>   
+                
+          </div> 
+          
+
+            <div className="blog-card">
+              <div className="photo-block"><img className="img-fluid" width="100%" alt="Star Wars" src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`}></img></div>
+              
+              <div className="Titre">
+                <h3>{this.state.movies.title}</h3>   
+              </div>  
+              <ul>
+                 <li>{this.state.movies.release_date}</li> 
+                 <li>{this.state.movies.director}</li> 
+             </ul>     
+            
+             <div>
+             <div className="stars">
+                <Rating value="3" readonly/>
+             </div> 
+            </div> 
+                          
+            <div className= "heart">
+               <i className="fa fa-heart"></i>
+           </div>     
+
+           
+        </div>   
+    </div>            
+  </div>     
      
         )
     }
