@@ -1,1 +1,12 @@
-
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image:-webkit-linear-gradient(-20deg, rgb(0, 0, 0, 0)30%, rgb(0, 0, 0, 1) 55%)!important; 
+    z-index: 4;
+  }
+  
+  .container-fluid{
+    margin: 0;
+    padding: 0;  
+  }

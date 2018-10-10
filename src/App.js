@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import Actuality from "./components/Actuality/Actuality";
-import Favoris from "./components/Favoris/Favoris";
 import SearchBar from "./components/SearchBar/SearchBar";
+import {Route} from "react-router-dom";
 
 
 class App extends Component {
@@ -43,10 +43,13 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div className="container-fluid">
         <Navbar loadBdd={this.componentDidMount}
                 loadCrew={this.getDirectorFromMovieId}
                 state={this.state}/>
-        <Favoris/>     
+        <Route exact path="/" component={Actuality}/>
+     
+        </div>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Navbar.css';
+import {Link} from "react-router-dom";
 
 
 class Navbar extends Component {
@@ -9,14 +10,13 @@ class Navbar extends Component {
 
     render(){
         return (
-          <div className="container-fluid">
+          
 
           
             <nav className="navbar navbar-expand-lg fixed-top"> {/* Navbar du haut*/}
-                <a href="index.html">
-                    <img src="./logo_cine-react.png" alt="logo de CineReact"/> {/* Logo */}
-                </a>
-
+              <Link exact to="/">
+                <img src="./logo_cine-react.png" alt="logo de CineReact"/> {/* Logo */}
+              </Link>
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
                     <button className="btn btn-link search" type="button" >
@@ -29,7 +29,7 @@ class Navbar extends Component {
                       <li className="nav-item active pr-5">
                         <a className="nav-link" href="#">
                           <i className="fa fa-heart icon mt-1"></i>
-                          <p className="ml-3 mt-3">Favoris</p>
+                          <Link to="/favoris" className="ml-3 mt-3">Favoris</Link>
                         </a>
                       </li>
                       <li className="nav-item">
@@ -68,7 +68,7 @@ class Navbar extends Component {
                 </div>
             </nav>
       
-          </div>
+      
 
         )
     }
