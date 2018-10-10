@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import {Route} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Actuality from "./components/Actuality/Actuality";
 import Favoris from "./components/Favoris/Favoris";
@@ -46,7 +47,10 @@ class App extends Component {
         <Navbar loadBdd={this.componentDidMount}
                 loadCrew={this.getDirectorFromMovieId}
                 state={this.state}/>
-        <Favoris/>     
+        <Route exact path="/" component={Actuality}/>
+        <Route path="/favoris" component={Favoris}/>            
+        
+
       </div>
     );
   }
