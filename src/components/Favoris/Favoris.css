@@ -1,9 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
 body{
-    background: #2e302c !important;
+    background-color: #061417 !important;
+        
 }
 
-  
+.container{
+    margin-top: 100px;
+}  
   
   /*
   border-radius:10px;
@@ -18,11 +22,8 @@ body{
     left: -40px;
 }
 
-img {
-      
-      border-radius:10px 0 0 10px;
-
-      
+img { 
+      border-radius:10px 0 0 10px;    
     }
 
 .container h3{
@@ -44,13 +45,49 @@ img {
 }
 
 
+@media screen and (min-width: 521px) and (max-width:800px){
+   
 
+}
 
 @media screen and (max-width:520px){
   .container h3{
     font-size: 15px;
   }
+  .container{
+      margin-top: 70px;
+      margin-left: 0;
+     
+  }
+  .container img{
+      width: 50%;
+      height: 200px;
+  }   
+  .container ul li {
+      position: relative;
+      top: -195px;
+      left: 46%;
+      font-size: 12px;
+  }
+
+  .container h3{
+      position: relative;
+      top: -195px;
+      left: 55%;
+  }
+
+  .container i{
+      position: relative;
+      top: -195px;
+      left: 55%;
+      font-size: 20px;
+      letter-spacing: 8px;
+  }
+
+  .container .heart i{
+      top: -180px;
+  }
+
   
-    
 }
 

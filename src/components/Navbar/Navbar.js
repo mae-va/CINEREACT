@@ -4,6 +4,7 @@ import './Navbar.css';
 import {Link} from "react-router-dom";
 
 
+
 class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -17,7 +18,6 @@ class Navbar extends Component {
                     <h1 class="logo-cine">CINE</h1>
                     <h1 class="logo-react">REACT</h1> {/* Logo */}
             </Link>
-
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
                     <button className="btn btn-link search" type="button" >
