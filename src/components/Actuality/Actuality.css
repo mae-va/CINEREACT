@@ -5,15 +5,15 @@
 }
 
 .container-overlay {
-    background-image:-webkit-linear-gradient(-90deg rgba(31,34,36,0)35%, rgba(31,34,36,1)74%)!important; 
+    background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)30%, rgb(0, 0, 0, 1)70%)!important; 
     z-index:19 !important;
     position:absolute !important;
-    height:100vh;
-    width: 50vh;
-    }
+    height:100%;
+    width: 140vh;
+}
 
 .black{
-    background-color:  #1F2224;
+    background-color:  black;
     color: whitesmoke; 
     z-index: 38; 
     }
@@ -36,35 +36,34 @@
 }
 
 .title{
-    padding-top: 20%;
-    font-size: 1.7em;
+    padding-top: 25%;
+    font-size: 1.8em;
 }
 
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 950px) {
     .container-overlay {
-        background-image:-webkit-linear-gradient(-90deg, rgba(31,34,36,0)15%, rgba(31,34,36,1)50%)!important; 
-        background-repeat: no-repeat;
+        background-image:-webkit-linear-gradient(-90deg, rgba(0,0,0,0)15%, rgba(0,0,0,1)50%)!important; 
         background-attachment: fixed;
         background-position: bottom;
         z-index:19 !important;
         position:absolute !important;
-        height:100vh;
-        width: 150vh;
+        background-repeat: no-repeat !important;
         }
     }
 
-@media screen and (max-width: 880px) {
-  
-}
 
-
-@media screen and (max-width: 762px) {
+@media screen and (max-width: 850px) {
 .title{
     padding-top: 0;
     font-size: 1em;
     }
+.black{
+    margin-top: 40%;
+    }
 }
+
+
 
 
 
