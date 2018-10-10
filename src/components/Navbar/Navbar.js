@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 import './Navbar.css';
+
 
 
 class Navbar extends Component {
@@ -13,9 +15,9 @@ class Navbar extends Component {
 
           
             <nav className="navbar navbar-expand-lg fixed-top"> {/* Navbar du haut*/}
-                <a href="index.html">
-                    <img src="./logo_cine-react.png" alt="logo de CineReact"/> {/* Logo */}
-                </a>
+            <Link exact to="/">
+              <img src="./logo_cine-react.png" alt="logo de CineReact"/> {/* Logo */}
+           </Link>
 
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
@@ -29,7 +31,7 @@ class Navbar extends Component {
                       <li className="nav-item active pr-5">
                         <a className="nav-link" href="#">
                           <i className="fa fa-heart icon mt-1"></i>
-                          <p className="ml-3 mt-3">Favoris</p>
+                          <Link to="/favoris" className="ml-3 mt-3">Favoris</Link>
                         </a>
                       </li>
                       <li className="nav-item">

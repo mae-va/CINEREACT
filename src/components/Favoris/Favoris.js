@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import './Favoris.css';
 
+
 class Favoris extends Component {
     render(){
         return(
@@ -22,15 +23,15 @@ class Favoris extends Component {
                                     </ul>     
             
                                     <div>
-                                      <i class="fas fa-star"></i>
-                                      <i class="fas fa-star"></i>
-                                      <i class="fas fa-star"></i>
-                                      <i class="fas fa-star"></i>
-                                      <i class="fas fa-star"></i>
+                                      <i class="fa fa-star"></i>
+                                      <i class="fa fa-star"></i>
+                                      <i class="fa fa-star"></i>
+                                      <i class="fa fa-star"></i>
+                                      <i class="fa fa-star"></i>
                                     </div> 
                           
                                     <div class= "heart">
-                                          <i class="fas fa-heart"></i>
+                                          <i class="fa fa-heart"></i>
                                    </div>   
                                 </div>
                               </div>
@@ -57,15 +58,15 @@ class Favoris extends Component {
                                         </ul>    
 
                                       <div>
-                                          <i class="fas fa-star"></i>
-                                          <i class="fas fa-star"></i>
-                                          <i class="fas fa-star"></i>
-                                          <i class="fas fa-star"></i>
-                                          <i class="fas fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
                                       </div> 
                               
                                       <div class= "heart">
-                                              <i class="fas fa-heart"></i>
+                                              <i class="fa fa-heart"></i>
                                       </div> 
 
                                    </div>
