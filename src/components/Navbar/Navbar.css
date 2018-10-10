@@ -1,3 +1,29 @@
+@font-face {
+    font-family: "Univers";
+    src: "./fonts/Univers-Condensed.otf";
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: O.1 em;
+
+  }
+
+h1 {
+    display: inline;
+}
+
+
+.logo-cine {
+    font-family: "Univers";
+    color: #F1F1F1;
+
+}
+
+.logo-react {
+    font-family: "Univers";
+    color: #5FD4F4;
+
+}
+
 
 .navbar {
     height: 60px;
@@ -47,15 +73,20 @@ Link {
     justify-content: space-between;
 }
 
-@media screen and (min-width: 768px)
-
-{
-
+@media screen and (min-width: 768px){
     .menu-bottom {
         display: none !important;
     }
 
    
+
+}
+
+@media screen and (min-width: 576px)and (max-width: 1024px){
+    .text-nav{
+        display: none;
+    }
+  
 
 }
 

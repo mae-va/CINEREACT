@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Actuality from "./components/Actuality/Actuality";
 import Favoris from "./components/Favoris/Favoris";
 import SearchBar from "./components/SearchBar/SearchBar";
+import {Route} from "react-router-dom";
 
 
 class App extends Component {
@@ -49,8 +50,6 @@ class App extends Component {
                 state={this.state}/>
         <Route exact path="/" component={Actuality}/>
         <Route path="/favoris" component={Favoris}/>            
-        
-
       </div>
     );
   }
