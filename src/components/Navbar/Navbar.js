@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import './Navbar.css';
+import {Link} from "react-router-dom";
 
 
 
@@ -12,13 +13,11 @@ class Navbar extends Component {
     render(){
         return (
           <div className="container-fluid">
-
-          
-            <nav className="navbar navbar-expand-lg fixed-top"> {/* Navbar du haut*/}
+            <nav className="navbar navbar-expand-md fixed-top"> {/* Navbar du haut*/}
             <Link exact to="/">
-              <img src="./logo_cine-react.png" alt="logo de CineReact"/> {/* Logo */}
-           </Link>
-
+                    <h1 class="logo-cine">CINE</h1>
+                    <h1 class="logo-react">REACT</h1> {/* Logo */}
+            </Link>
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
                     <button className="btn btn-link search" type="button" >
@@ -29,15 +28,15 @@ class Navbar extends Component {
                   <div>
                     <ul className="navbar-nav">
                       <li className="nav-item active pr-5">
-                        <a className="nav-link" href="#">
-                          <i className="fa fa-heart icon mt-1"></i>
-                          <Link to="/favoris" className="ml-3 mt-3">Favoris</Link>
-                        </a>
+                        <Link to="/favoris" className="nav-link ml-3 mt-3">
+                          <i className="fa fa-heart icon"></i>
+                          <p className="text-nav ml-3 mt-3">Favoris</p>
+                        </Link>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="#">
-                          <i className="fa fa-envelope icon mt-1"></i>
-                          <p className="ml-3 mt-3">Contact</p>
+                          <i className="fa fa-envelope icon"></i>
+                          <p className="text-nav ml-3 mt-3">Contact</p>
                         </a>
                       </li>
                     </ul>
@@ -56,12 +55,12 @@ class Navbar extends Component {
                           <li className="nav-item active pr-5">
                               
                               <a className="nav-link" href="#">
-                                <i className="fa fa-heart icon mt-1"></i>
+                                <i className="fa fa-heart fa-2x icon mt-1"></i>
                               </a>
                           </li>
                           <li className="nav-item">
                               <a className="nav-link" href="#">
-                                <i className="fa fa-envelope icon mt-1"></i>
+                                <i className="fa fa-envelope fa-2x icon mt-1"></i>
                               </a>
                           </li>
 

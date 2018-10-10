@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import {Route} from "react-router-dom";
 import './App.css';
+import {Route} from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Actuality from "./components/Actuality/Actuality";
 import Favoris from "./components/Favoris/Favoris";
 import SearchBar from "./components/SearchBar/SearchBar";
+import {Route} from "react-router-dom";
 
 
 class App extends Component {
