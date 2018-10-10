@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 import './Navbar.css';
 import {Link} from "react-router-dom";
 
@@ -11,8 +12,6 @@ class Navbar extends Component {
     render(){
         return (
           <div className="container-fluid">
-
-          
             <nav className="navbar navbar-expand-md fixed-top"> {/* Navbar du haut*/}
             <Link exact to="/">
                     <h1 class="logo-cine">CINE</h1>
