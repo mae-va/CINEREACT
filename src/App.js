@@ -42,6 +42,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div className="container-fluid">
         <Navbar loadBdd={this.componentDidMount}
                 loadCrew={this.getDirectorFromMovieId}
                 state={this.state}/>
