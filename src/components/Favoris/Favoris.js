@@ -16,8 +16,6 @@ class Favoris extends Component {
       .then(json => {this.setState({movies : json.results[this.getRandomInt(20)]})})
       .then(() => {this.getDirectorFromMovieId()})
       .then(() => {this.state.movies.release_date = this.state.movies.release_date.slice(0,4)
-      this.state.movies.average_note = Math.round(this.state.movies.average_note/2).toString()
-      console.log(this.state.movies.average_note)
       })
    
   }
@@ -56,12 +54,12 @@ class Favoris extends Component {
                </div>
                  
                   <ul>
-                   <li>{this.state.movies.release_date}</li> 
-                   <li> {this.state.movies.director}</li> 
+                   <li className="details">{this.state.movies.release_date}</li> 
+                   <li className="details"> {this.state.movies.director} </li> 
                  </ul>    
 
-             <div className="stars">
-                <Rating value={this.state.movies.average_note} readonly/>
+             <div className="rate" >
+                <Rating className="stars" value="3" weight="12©"  readonly/>
              </div> 
                               
              <div className= "heart">
@@ -77,16 +75,17 @@ class Favoris extends Component {
               <div className="Titre">
                 <h3>{this.state.movies.title}</h3>   
               </div>  
+
               <ul>
-                 <li>{this.state.movies.release_date}</li> 
-                 <li>{this.state.movies.director}</li> 
-             </ul>     
+                <li className="details">{this.state.movies.release_date}</li> 
+                <li className="details"> {this.state.movies.director} </li> 
+              </ul>    
             
-             <div>
-             <div className="stars">
-                <Rating value="3" readonly/>
+             
+             <div className="rate">
+                <Rating className="stars" value="3"  readonly/>
              </div> 
-            </div> 
+            
                           
             <div className= "heart">
                <i className="fa fa-heart"></i>
