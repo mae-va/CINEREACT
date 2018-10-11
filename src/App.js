@@ -48,6 +48,7 @@ class App extends Component {
                 state={this.state}/>
          <Route exact path="/" component={Actuality}/>
          <Route path="/favoris" component={Favoris}/>
+         </div>
       </div>
     );
   }
@@ -56,5 +57,5 @@ class App extends Component {
 
 export default App;
 
-
 // clé API = 762ed8e154d8e7ff207952b1cc7074b0
+
