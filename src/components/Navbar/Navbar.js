@@ -46,8 +46,8 @@ class Navbar extends Component {
                         <i className="fa fa-search fa-2x"></i>           {/* icone recherche */}
                     </button>
                     </div>
-                    <div ClassName="icon-bottom">                      {/* icones de droite*/}
-                      <ul ClassName="navbar-nav">
+                    <div className="icon-bottom">                      {/* icones de droite*/}
+                      <ul className="navbar-nav">
                           <li className="nav-item active pr-5">
                               
                               <a className="nav-link" href="#">
