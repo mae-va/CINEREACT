@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Actuality.css';
+import './actuality.css';
 
 class Actuality extends Component {
     constructor(props){
@@ -14,7 +14,7 @@ class Actuality extends Component {
         .then(response => response.json())        
         .then(json => {this.setState({movies : json.results[this.getRandomInt(20)]})})
         .then(() => {this.getDirectorFromMovieId()})
-     
+        .then(() => {this.state.movies.release_date = this.state.movies.release_date.slice(0,4)})
     }
     
     getDirectorFromMovieId = () => {
@@ -24,9 +24,12 @@ class Actuality extends Component {
           this.state.movies.director = json.crew[0].name;
           let results = json.cast.slice(0,4);
           let fullCast ="";
-          for(let i=0; i<results.length ; i++){
+          for(let i=0; i<results.length -1 ; i++){
               fullCast +=`${results[i].name}, `;
-          }
+              if (i === 2) {
+                fullCast+=`${results[i].name}... `;
+               }
+            }
           this.state.movies.casting = fullCast;
           this.forceUpdate(); 
         })
@@ -49,16 +52,16 @@ class Actuality extends Component {
                             </div>
 
                                 <div className="col-lg-6 col-md-6 black">
-                                    <div className="row mb-5 pl-5 title">TERRIFIANT!</div>
+                                    <div className="row pb-4 pl-5 title">{this.state.movies.title}</div>
                                     <div className="row pl-5 year">
-                                        <p>2014</p> </div>
+                                        <p>{this.state.movies.release_date}</p> </div>
                                     <div className="row pl-5 director">
-                                        <p>Christopher Bizarre</p> </div>
+                                        <p>{this.state.movies.director}</p> </div>
                            
 
-                                    <div className="row pl-5 pb-3 casting">Matthhew Mac caunaughey, Bulbizarre, Pikaku, Jean-Pierre Css...</div>
-                                    <div className="row synopsis pb-5 pl-5 pr-5 mr-5mb-5 d-none d-lg-block">
-                                        <p>Il etait une fois un gars vraizment biaeze r qui ecrviat une histoire à la con trs amuvaius. La terre etait condamner et lui ne chercahit qu'à écrite de fou...</p>
+                                    <div className="row pl-5 pb-3 casting">{this.state.movies.casting}</div>
+                                    <div className="row synopsis pb-5 pl-5 mr-5 pr-5 mr-5mb-5 d-none d-lg-block">
+                                        <p>{this.state.movies.overview}</p>
                                         <button className="readMore ml-3">+</button>
                                     </div>
                                     <div className="row favoritesRating">
