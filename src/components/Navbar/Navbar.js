@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import './Navbar.css';
-import Search from '../SearchBar/Search';
+import Search from '../Search/Search';
+
 
 
 
@@ -10,24 +11,22 @@ class Navbar extends Component {
     constructor(props) {
         super(props);
     }
-
     render(){
         return (
           <div className="container-fluid">
             <nav className="navbar navbar-expand-md fixed-top"> {/* Navbar du haut*/}
             <Link exact to="/">
-                    <h1 className="logo-cine">CINE</h1>
-                    <h1 className="logo-react">REACT</h1> {/* Logo */}
+              <h1 className="logo-cine">CINE</h1>
+              <h1 className="logo-react">REACT</h1> {/* Logo */}
             </Link>
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
                     <Search />
                   </div>
-
                   <div>
                     <ul className="navbar-nav">
                       <li className="nav-item active pr-5">
-                        <Link to="/favoris" className="nav-link ml-3 mt-3">
+                        <Link to="/favoris" className="nav-link">
                           <i className="fa fa-heart icon"></i>
                           <p className="text-nav ml-3 mt-3">Favoris</p>
                         </Link>
@@ -41,16 +40,14 @@ class Navbar extends Component {
                     </ul>
                   </div>
                 </div>
-
                 <div className= "menu-bottom navbar navbar-expand-sm fixed-bottom" id="navbarNav"> {/* Navbar du bas*/}
                   <div>
                     <button className="btn btn-link" type="button" >
-                          <i className="fa fa-search fa-2x"></i>           {/* icone recherche */}
+                        <i className="fa fa-search fa-2x"></i>           {/* icone recherche */}
                     </button>
                     </div>
-
-                    <div NameName="icon-bottom">                      {/* icones de droite*/}
-                      <ul NameName="navbar-nav">
+                    <div ClassName="icon-bottom">                      {/* icones de droite*/}
+                      <ul ClassName="navbar-nav">
                           <li className="nav-item active pr-5">
                               
                               <a className="nav-link" href="#">
