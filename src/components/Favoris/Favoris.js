@@ -10,14 +10,15 @@ class Favoris extends Component {
       movies:[]
     }
   }
+  
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.getRandomInt(5)}&primary_release_year=${new Date().getFullYear()}`)
       .then(response => response.json())        
       .then(json => {this.setState({movies : json.results[this.getRandomInt(20)]})})
       .then(() => {this.getDirectorFromMovieId()})
-      .then(() => {this.state.movies.release_date = this.state.movies.release_date.slice(0,4)
-      this.state.movies.average_note = Math.round(this.state.movies.average_note/2).toString()
-      console.log(this.state.movies.average_note)
+      .then(() => {
+        this.state.movies.release_date = this.state.movies.release_date.slice(0,4);
+        
       })
    
   }
@@ -56,12 +57,12 @@ class Favoris extends Component {
                </div>
                  
                   <ul>
-                   <li>{this.state.movies.release_date}</li> 
-                   <li> {this.state.movies.director}</li> 
+                   <li className="details">{this.state.movies.release_date}</li> 
+                   <li className="details"> {this.state.movies.director}</li> 
                  </ul>    
 
              <div className="stars">
-                <Rating value={this.state.movies.average_note} readonly/>
+                <Rating value="3" readonly/>
              </div> 
                               
              <div className= "heart">
@@ -78,8 +79,8 @@ class Favoris extends Component {
                 <h3>{this.state.movies.title}</h3>   
               </div>  
               <ul>
-                 <li>{this.state.movies.release_date}</li> 
-                 <li>{this.state.movies.director}</li> 
+                 <li className="details">{this.state.movies.release_date}</li> 
+                 <li className="details">{this.state.movies.director}</li> 
              </ul>     
             
              <div>
