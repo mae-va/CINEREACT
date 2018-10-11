@@ -7,6 +7,19 @@
     padding-left: 30px !important;
 }
 
+select {
+	color:#5FD4F4;
+	background-color: #1F2224;
+	border-radius: .25rem;
+	border-style: none;
+}
+
+.searchBox {
+	display: flex;
+}
+
+  
+
 
 
 /*
