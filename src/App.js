@@ -6,7 +6,6 @@ import Actuality from "./components/Actuality/Actuality";
 import Favoris from "./components/Favoris/Favoris";
 import Search from "./components/Search/Search";
 
-
 class App extends Component {
   constructor(){
     super();
