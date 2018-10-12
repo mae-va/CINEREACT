@@ -1,108 +1,6 @@
-/*
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-
-body{
-    background-color: #1F2224 !important;
-        
-}
-
-.container{
-    margin-top: 100px;
-}  
-  
-  /*
-  border-radius:10px;
-  box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
-  
-  
-.container ul li{
-    display: inline;
-    padding:0px 10px 0 0;
-    color: white;
-    position: relative;
-    left: -40px;
-}
-
-.Image { 
-      border-radius:10px 0 0 10px;    
-    }
-
-.container .Titre{
-    color: white;
-    font-family: Montserrat;
-    
-}
-
-.container i{
-    color: #f2db0e;
-    letter-spacing: 8px;
-}
-
-.container .heart i{
-    color: #962813;
-}
-
-.card{
-    color: black;
-}
-
-.background_right{
-    color: lightblue;
-}
-
-@media screen and (min-width: 521px) and (max-width:1024px){
-   
-
-}
-
-@media screen and (max-width:520px){
-  .container h3{
-    font-size: 15px;
-  }
-  .container{
-      margin-top: 70px;
-      margin-left: 0;
-     
-  }
-  .container .Image{
-      width: 50%;
-      height: 200px;
-  }   
-  .container ul li {
-      position: relative;
-      top: -195px;
-      left: 50%;
-      font-size: 12px;
-  }
-
-  .container .Titre{
-      position: relative;
-      top: -195px;
-      left: 55%;
-  }
-
-  .container i{
-      position: relative;
-      top: -195px;
-      left: 55%;
-      font-size: 20px;
-      letter-spacing: 8px;
-  }
-
-  .container .heart i{
-      top: -180px;
-  }
-
-  
-}
-
-*/
-
-
-  
-  body {   
+body {   
     background: #000816 !important;
-  }
+}
 
   .container{
       margin-top: 100px;
@@ -139,7 +37,7 @@ body{
       font-size: 20px;
   }
    
-.details{
+ .details{
     display: inline;
     padding:0px 12px 0 0;
     color: white; 

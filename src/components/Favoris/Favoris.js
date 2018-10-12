@@ -59,7 +59,7 @@ class Favoris extends Component {
                  </ul>    
 
              <div className="rate" >
-                <Rating className="stars" value="3" weight="12©"  readonly/>
+                <Rating className="stars" value="3" weight="12"  readonly/>
              </div> 
                               
              <div className= "heart">
@@ -79,7 +79,7 @@ class Favoris extends Component {
               <ul>
                 <li className="details">{this.state.movies.release_date}</li> 
                 <li className="details"> {this.state.movies.director} </li> 
-              </ul>    
+              </ul>
             
              
              <div className="rate">
@@ -93,7 +93,7 @@ class Favoris extends Component {
 
            
         </div>   
-    </div>            
+      </div>            
   </div>     
      
         )
