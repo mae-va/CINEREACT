@@ -25,12 +25,12 @@ class Actuality extends Component {
                 this.state.movies.vote_average = Math.round(this.state.movies.vote_average/2);
                 this.loadReady = 
                 <div class="row actuality">
-                    <div className="col-lg-6 col-md-6 pl-0 pr-0 poster_column">
+                    <div className="col-lg-6 col-md-12 col-sm-12 pl-0 pr-0 poster_column">
                         <img className="img-fluid movie_poster" alt="movie_poster" src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`}/>
                     </div>
 
-                    <div className="col-lg-6 col-md-6 black">
-                        <div className="row pb-4 pl-5 title">{this.state.movies.title}</div>
+                    <div className="col-lg-6 col-md-12 col-sm-12 col-md-push-3 black">
+                        <div className="row pb-4 pl-5 pr-5 title">{this.state.movies.title}</div>
                         <div className="row pl-5 year">
                             <p>{this.state.movies.release_date}</p> 
                         </div>
@@ -42,9 +42,10 @@ class Actuality extends Component {
                             <button className="readMore ml-3">+</button>
                         </div>
                         <div className="row favoritesRating">
-                            <i class="fa fa-heart pl-5 pr-5"></i>
-                            <Rating value={this.state.movies.vote_average} readonly/>
-                        </div>
+                        <i class="fa fa-heart pt-2 pl-5 pr-5"></i>
+                            <Rating weight="22" color="#f4e242" value={this.state.movies.vote_average} readonly/>
+
+                                               </div>
                     </div>
                 </div>    
                 
@@ -78,11 +79,13 @@ class Actuality extends Component {
         return Math.floor(Math.random() * Math.floor(max)); ;
     }
 
+
     render() {
         return (
             <div>
                 <div className="container-overlay pl-0"></div>
-                    <div className="container-fluid bloc_actuality pl-0 pr-0">                    
+                    <div className="container-fluid bloc_actuality pl-0 pr-0"> 
+                    <div className="container-overlay-mobile pl-0"></div>                   
                         {this.loadReady}                  
                     </div>
             </div>
