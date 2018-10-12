@@ -18,7 +18,6 @@ class Favoris extends Component {
       .then(() => {this.getDirectorFromMovieId()})
       .then(() => {
         this.state.movies.release_date = this.state.movies.release_date.slice(0,4);
-        
       })
    
   }
@@ -58,44 +57,35 @@ class Favoris extends Component {
                  
                   <ul>
                    <li className="details">{this.state.movies.release_date}</li> 
-                   <li className="details"> {this.state.movies.director}</li> 
+                   <li className="details"> {this.state.movies.director} </li> 
                  </ul>    
 
-             <div className="stars">
-                <Rating value="3" readonly/>
-             </div> 
-                              
+             <div className="rate" >
+                <Rating className="stars" value="3" weight="12"  readonly/>
+             </div>                 
              <div className= "heart">
                 <i className="fa fa-heart"></i>
             </div>   
-                
           </div> 
-          
-
             <div className="blog-card">
               <div className="photo-block"><img className="img-fluid" width="100%" alt="Star Wars" src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`}></img></div>
               
               <div className="Titre">
                 <h3>{this.state.movies.title}</h3>   
               </div>  
+
               <ul>
-                 <li className="details">{this.state.movies.release_date}</li> 
-                 <li className="details">{this.state.movies.director}</li> 
-             </ul>     
-            
-             <div>
-             <div className="stars">
-                <Rating value="3" readonly/>
-             </div> 
-            </div> 
-                          
+                <li className="details">{this.state.movies.release_date}</li> 
+                <li className="details"> {this.state.movies.director} </li> 
+              </ul>
+             <div className="rate">
+                <Rating className="stars" value="3"  readonly/>
+             </div>       
             <div className= "heart">
                <i className="fa fa-heart"></i>
-           </div>     
-
-           
+           </div>
         </div>   
-    </div>            
+      </div>            
   </div>     
      
         )
