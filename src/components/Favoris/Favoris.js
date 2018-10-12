@@ -10,12 +10,14 @@ class Favoris extends Component {
       movies:[]
     }
   }
+  
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.getRandomInt(5)}&primary_release_year=${new Date().getFullYear()}`)
       .then(response => response.json())        
       .then(json => {this.setState({movies : json.results[this.getRandomInt(20)]})})
       .then(() => {this.getDirectorFromMovieId()})
-      .then(() => {this.state.movies.release_date = this.state.movies.release_date.slice(0,4)
+      .then(() => {
+        this.state.movies.release_date = this.state.movies.release_date.slice(0,4);
       })
    
   }
@@ -60,15 +62,11 @@ class Favoris extends Component {
 
              <div className="rate" >
                 <Rating className="stars" value="3" weight="12"  readonly/>
-             </div> 
-                              
+             </div>                 
              <div className= "heart">
                 <i className="fa fa-heart"></i>
             </div>   
-                
           </div> 
-          
-
             <div className="blog-card">
               <div className="photo-block"><img className="img-fluid" width="100%" alt="Star Wars" src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`}></img></div>
               
@@ -80,18 +78,12 @@ class Favoris extends Component {
                 <li className="details">{this.state.movies.release_date}</li> 
                 <li className="details"> {this.state.movies.director} </li> 
               </ul>
-            
-             
              <div className="rate">
                 <Rating className="stars" value="3"  readonly/>
-             </div> 
-            
-                          
+             </div>       
             <div className= "heart">
                <i className="fa fa-heart"></i>
-           </div>     
-
-           
+           </div>
         </div>   
       </div>            
   </div>     
