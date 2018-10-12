@@ -9,28 +9,46 @@ class Search extends Component {
     constructor(){
         super();
         this.state = {
-            Select: 0, // mis à jour à chaque selection de catégorie de l'utilisateur
-            Input: "", // mis à jour à chaque entrée de l'utilisateur
-            dropdownOpen: false
+            category: "0", // mis à jour à chaque selection de catégorie de l'utilisateur
+            query: "", // mis à jour à chaque entrée de l'utilisateur
+            methodFetch: "",
+            targetFetch: "",
+            filmFetch: "",
+            queryFetch: "",
+            dropdownOpen: false,
+            loading : false
         }
     }
-    
+    //&primary_release_year=${this.state.query}
     fetchByCategory = () => {
-        this.state.Select === "0" ? fetch("") : fetch()
-        this.state.Select === "1" ? fetch("") : fetch()
-        this.state.Select === "2" ? fetch("") : fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=${this.state.query}`)
+        
+        if(this.state.category === "0"){
+            this.setState({ methodFetch : "search", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&query=${this.state.query}`, loading : true },()=>this.researchQuery())
+        } else if(this.state.category === "1"){             
+            this.setState({ methodFetch : "search", targetFetch : "person", filmFetch :`&language=en-US&query=${this.state.query}`, queryFetch :"&include_adult=false", loading : true },()=>this.researchQuery())   
+        } else if(this.state.category === "2"){
+            this.setState({ methodFetch : "discover", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&primary_release_year=${this.state.query}`, loading : true},()=>this.researchQuery() )
+    
+        }
+          
+    }
+
+    researchQuery = () =>{
+        fetch(`https://api.themoviedb.org/3/${this.state.methodFetch}/${this.state.targetFetch}?api_key=762ed8e154d8e7ff207952b1cc7074b0&${this.state.filmFetch}&page=1${this.state.queryFetch}`)
         .then(response => response.json()) 
         .then(json => {this.setState({movies : json})})
         .then(() => {console.log(this.state.movies)})
+        
     }
 
+
     inputChange = (event) => {
-        this.setState({Input: event.target.value })  
+        this.setState({query: event.target.value })  
                    //met à jour le state.Input
     }
 
     selectChange = (event) => { 
-        this.setState({Select : event.target.value})  
+        this.setState({category : event.target.value})  
                    //event= onClick ; target= "<select>"; value= select value;
     }   
 
@@ -56,6 +74,9 @@ if((this.state.query).toString().length > 2){
 
 
     render(){
+        if(this.state.loading === true){
+           
+        }
         return(
         <div className= "searchBox">
             <button className="btn btn-dark ml-5" onClick={this.fetchByCategory} >
@@ -65,7 +86,7 @@ if((this.state.query).toString().length > 2){
                 <input onChange={this.inputChange} type="text" className="form-control" aria-label="Text input with segmented dropdown button"></input>
                 <div className="input-group-append">
                     
-                <Dropdown onChange={this.selectChange} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <Dropdown onClick={this.selectChange} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                     <DropdownToggle className="btn btn-outline-secondary  dropdown-toggle-split">
                         Trier par 
                     </DropdownToggle>
