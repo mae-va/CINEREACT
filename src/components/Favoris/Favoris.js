@@ -16,7 +16,6 @@ class Favoris extends Component {
       .then(json => {this.setState({movies : json.results[this.getRandomInt(20)]})})
       .then(() => {this.getDirectorFromMovieId()})
       .then(() => {this.state.movies.release_date = this.state.movies.release_date.slice(0,4)
-     
       })
    
   }
@@ -56,11 +55,11 @@ class Favoris extends Component {
                  
                   <ul>
                    <li className="details">{this.state.movies.release_date}</li> 
-                   <li className="details"> {this.state.movies.director}</li> 
+                   <li className="details"> {this.state.movies.director} </li> 
                  </ul>    
 
-             <div className="stars">
-                <Rating value="3" readonly/>
+             <div className="rate" >
+                <Rating className="stars" value="3" weight="12"  readonly/>
              </div> 
                               
              <div className= "heart">
@@ -76,16 +75,17 @@ class Favoris extends Component {
               <div className="Titre">
                 <h3>{this.state.movies.title}</h3>   
               </div>  
+
               <ul>
-                 <li className="details">{this.state.movies.release_date}</li> 
-                 <li className="details">{this.state.movies.director}</li> 
-             </ul>     
+                <li className="details">{this.state.movies.release_date}</li> 
+                <li className="details"> {this.state.movies.director} </li> 
+              </ul>
             
-             <div>
-             <div className="stars">
-                <Rating value="3" readonly/>
+             
+             <div className="rate">
+                <Rating className="stars" value="3"  readonly/>
              </div> 
-            </div> 
+            
                           
             <div className= "heart">
                <i className="fa fa-heart"></i>
