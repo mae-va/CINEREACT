@@ -37,7 +37,7 @@ class Actuality extends Component {
                         <div className="row pl-5 director">
                             <p>{this.state.movies.director}</p> </div>
                         <div className="row pl-5 pb-3 casting">{this.state.movies.casting}</div>
-                        <div className="row synopsis pb-5 pl-5 mr-5 pr-5 mr-5mb-5 d-none d-lg-block">
+                        <div className="row synopsis pb-5 pl-5 mr-5 pr-5 mr-5 mb-5 d-none d-lg-block">
                             <p>{this.state.movies.overview}</p>
                             <button className="readMore ml-3">+</button>
                         </div>
@@ -85,7 +85,7 @@ class Actuality extends Component {
                     <div className="container-fluid bloc_actuality pl-0 pr-0">                    
                         {this.loadReady}                  
                     </div>
-                </div>
+            </div>
             );
 
         }
