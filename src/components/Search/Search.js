@@ -9,24 +9,25 @@ class Search extends Component {
     constructor(){
         super();
         this.state = {
-            category: "0", // mis à jour à chaque selection de catégorie de l'utilisateur
+            category: "Film", // mis à jour à chaque selection de catégorie de l'utilisateur
             query: "", // mis à jour à chaque entrée de l'utilisateur
             methodFetch: "",
             targetFetch: "",
             filmFetch: "",
             queryFetch: "",
             dropdownOpen: false,
-            loading : false
+            loading : false,
+            dropDownValue: "Film  "
         }
     }
     //&primary_release_year=${this.state.query}
     fetchByCategory = () => {
         
-        if(this.state.category === "0"){
+        if(this.state.category === "Film  "){
             this.setState({ methodFetch : "search", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&query=${this.state.query}`, loading : true },()=>this.researchQuery())
-        } else if(this.state.category === "1"){             
+        } else if(this.state.category === "Réalisateur  "){             
             this.setState({ methodFetch : "search", targetFetch : "person", filmFetch :`&language=en-US&query=${this.state.query}`, queryFetch :"&include_adult=false", loading : true },()=>this.researchQuery())   
-        } else if(this.state.category === "2"){
+        } else if(this.state.category === "Année  "){
             this.setState({ methodFetch : "discover", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&primary_release_year=${this.state.query}`, loading : true},()=>this.researchQuery() )
     
         }
@@ -49,8 +50,13 @@ class Search extends Component {
 
     selectChange = (event) => { 
         this.setState({category : event.target.value})  
+        console.log(this.state.category)
                    //event= onClick ; target= "<select>"; value= select value;
     }   
+
+    changeValue= (e) => { 
+        this.setState({dropDownValue: e.target.value})
+      }
 
     toggle = () => {
         this.setState(prevState => ({
@@ -58,19 +64,7 @@ class Search extends Component {
         }));
       }
 
-    /*getFilmbyYear() {
-if((this.state.query).toString().length > 2){
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=${this.state.query}`)
-    .then(response => response.json()) 
-    .then(json => {this.setState({movies : json})})
-    .then(() => {console.log(this.state.movies)})
-    }
-    }
-    
-    handleChange = (event) => {
-    this.setState({ query : event.target.value});
-    this.getFilmbyYear();
-    }*/
+
 
 
     render(){
@@ -83,17 +77,17 @@ if((this.state.query).toString().length > 2){
                 <i className="fa fa-search icon"></i>
             </button>
             <div className=" ml-2 input-group">
-                <input onChange={this.inputChange} type="text" className="form-control" aria-label="Text input with segmented dropdown button"></input>
+                <input className="input-search" onChange={this.inputChange} type="text" className="form-control" placeholder="Rechercher..." aria-label="Text input with segmented dropdown button"></input>
                 <div className="input-group-append">
                     
-                <Dropdown onClick={this.selectChange} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                    <DropdownToggle className="btn btn-outline-secondary  dropdown-toggle-split">
-                        Trier par 
+                <Dropdown onClick={this.selectChange} {...this.changeValue} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                    <DropdownToggle caret className="btn btn-outline-secondary  dropdown-toggle-split">
+                        {this.state.dropDownValue}
                     </DropdownToggle>
                     <DropdownMenu>
-                        <DropdownItem value= "0" >Film</DropdownItem>
-                        <DropdownItem value= "1" >Réalisateur</DropdownItem>
-                        <DropdownItem value= "2">Année</DropdownItem>
+                        <DropdownItem onClick={this.changeValue }value= "Film  " >Film</DropdownItem>
+                        <DropdownItem onClick={this.changeValue } value= "Réalisateur  " >Réalisateur</DropdownItem>
+                        <DropdownItem onClick={this.changeValue } value= "Année  ">Année</DropdownItem>
                      </DropdownMenu>
                 </Dropdown>
                 </div>
