@@ -10,14 +10,15 @@ class Favoris extends Component {
       movies:[]
     }
   }
-  
+
+
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.getRandomInt(5)}&primary_release_year=${new Date().getFullYear()}`)
       .then(response => response.json())        
       .then(json => {this.setState({movies : json.results[this.getRandomInt(19)]})})
       .then(() => {this.getDirectorFromMovieId()})
       .then(() => {
-        this.state.movies.release_date = this.state.movies.release_date.slice(0,4);
+        this.setState({movies : {...this.state.movies,release_date : this.state.movies.release_date.slice(0,4)}});
       })
    
   }
@@ -26,14 +27,13 @@ class Favoris extends Component {
     fetch(`https://api.themoviedb.org/3/movie/${this.state.movies.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
       .then(response => response.json())
       .then(json =>{
-        this.state.movies.director = json.crew[0].name;
+        this.setState({movies : {...this.state.movies,director : json.crew[0].name}});
         let results = json.cast.slice(0,4);
         let fullCast ="";
         for(let i=0; i<results.length ; i++){
             fullCast +=`${results[i].name}, `;
         }
-        this.state.movies.casting = fullCast;
-        this.forceUpdate(); 
+        this.setState({movies : {...this.state.movies,casting : fullCast}})
       })
     
   } 
@@ -43,51 +43,55 @@ class Favoris extends Component {
     return Math.floor(Math.random() * Math.floor(max));
   }
     render(){
-        return (
-       
-          
-        <div className="container">
-           <div className= "row">
-          
-            <div className="blog-card">
-             <div className="photo-block"><img className="img-fluid" width="100%" alt="Kill Bill" src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`}></img></div>
-               <div className="Titre">
-                     <h3>{this.state.movies.title}</h3>
-               </div>
-                 
-                  <ul>
-                   <li className="details">{this.state.movies.release_date}</li> 
-                   <li className="details"> {this.state.movies.director} </li> 
-                 </ul>    
-
-             <div className="rate" >
-                <Rating className="stars" value="3" weight="12"  readonly/>
-             </div>                 
-             <div className= "heart">
-                <i className="fa fa-heart"></i>
-            </div>   
-          </div> 
-            <div className="blog-card">
-              <div className="photo-block"><img className="img-fluid" width="100%" alt="Star Wars" src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`}></img></div>
-              
-              <div className="Titre">
-                <h3>{this.state.movies.title}</h3>   
-              </div>  
-
-              <ul>
-                <li className="details">{this.state.movies.release_date}</li> 
-                <li className="details"> {this.state.movies.director} </li> 
-              </ul>
-             <div className="rate">
-                <Rating className="stars" value="3"  readonly/>
-             </div>       
-            <div className= "heart">
-               <i className="fa fa-heart"></i>
-           </div>
-        </div>   
-      </div>            
-  </div>     
-     
+        return (         
+          <div className="row top">
+            <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 p-0">           
+              <div className="card mt-5 mx-5">
+                <div className="row h-100 ">
+                  <div className="col-lg-5 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0">
+                    <img src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`} alt={this.state.movies.title} className="fav-image h-100 w-100"/>
+                  </div>
+                  <div className="col-lg-7 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0">
+                    <div className="card-block p-5" id="position">
+                      <h4 className="card-title">{this.state.movies.title}</h4>
+                      <p className="card-text"> {this.state.movies.release_date} {this.state.movies.director}</p>
+                      <p className="card-text d-none d-sm-none d-md-block d-lg-block"> {this.state.movies.casting}</p>
+                      <div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
+                        <p className="card-text">{this.state.movies.overview}</p>
+                        <p className="read-more"><a href="#" className="button">Read More</a></p>
+                      </div>
+                      <div className="item-bottom  mt-5">
+                        <Rating className="stars" value="3" weight="18"  readonly/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>      
+            </div>  
+            <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 p-0">
+            <div className="card mt-5 mx-5">
+                <div className="row h-100">
+                  <div className="col-lg-5 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0">
+                    <img src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`} alt={this.state.movies.title} className=" fav-image h-100 w-100"/>
+                  </div>
+                  <div className="col-lg-7 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0">
+                    <div className="card-block p-5" id="position">
+                      <h4 className="card-title">{this.state.movies.title}</h4>
+                      <p className="card-text">{this.state.movies.release_date} {this.state.movies.director}</p>
+                      <p className="card-text">{this.state.movies.casting}</p>
+                      <div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
+                        <p className="card-text">{this.state.movies.overview}</p>
+                        <p className="read-more"><a href="#" className="button">Read More</a></p>
+                      </div>
+                      <div className="item-bottom mt-5">
+                        <Rating className="stars" value="3" weight="18"  readonly/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>      
+            </div>       
+          </div>               
         )
     }
 }

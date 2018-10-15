@@ -9,12 +9,12 @@ class Navbar extends Component {
     }
     render(){
         return (
-          <div className="container-fluid">
+          <div>
             <nav className="navbar navbar-expand-md fixed-top"> {/* Navbar du haut*/}
-            <Link exact to="/">
-              <h1 className="logo-cine">CINE</h1>
-              <h1 className="logo-react">REACT</h1> {/* Logo */}
-            </Link>
+              <Link exact to="/">
+                <h1 className="logo-cine">CINE</h1>
+                <h1 className="logo-react">REACT</h1> {/* Logo */}
+              </Link>
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
                     <Search />
@@ -39,25 +39,23 @@ class Navbar extends Component {
                 <div className= "menu-bottom navbar navbar-expand-sm fixed-bottom" id="navbarNav"> {/* Navbar du bas*/}
                   <div>
                     <button className="btn btn-link" type="button" >
-                        <i className="fa fa-search fa-2x"></i>           {/* icone recherche */}
+                      <i className="fa fa-search fa-2x"></i>           {/* icone recherche */}
                     </button>
-                    </div>
-                    <div className="icon-bottom">                      {/* icones de droite*/}
-                      <ul className="navbar-nav">
-                          <li className="nav-item active pr-5">
-                              
-                              <a className="nav-link" href="#">
-                                <i className="fa fa-heart fa-2x icon mt-1"></i>
-                              </a>
-                          </li>
-                          <li className="nav-item">
-                              <a className="nav-link" href="#">
-                                <i className="fa fa-envelope fa-2x icon mt-1"></i>
-                              </a>
-                          </li>
-
-                      </ul>
-                    </div>
+                  </div>
+                  <div className="icon-bottom">                      {/* icones de droite*/}
+                    <ul className="navbar-nav">
+                      <li className="nav-item active pr-5">
+                        <a className="nav-link" href="#">
+                          <i className="fa fa-heart fa-2x icon mt-1"></i>
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link" href="#">
+                          <i className="fa fa-envelope fa-2x icon mt-1"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
             </nav>
           </div>
