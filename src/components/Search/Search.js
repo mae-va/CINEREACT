@@ -9,21 +9,21 @@ class Search extends Component {
     constructor(){
         super();
         this.state = {
-            category: "0", // mis à jour à chaque selection de catégorie de l'utilisateur
+            category: "Film", // mis à jour à chaque selection de catégorie de l'utilisateur
             query: "", // mis à jour à chaque entrée de l'utilisateur
             methodFetch: "",
             targetFetch: "",
             filmFetch: "",
             queryFetch: "",
             dropdownOpen: false,
-            movies : []
+            movies : [],
+            dropDownValue: "Film  "
         }
     }
 
 
 
     fetchByCategory = () => {
-        
         if(this.state.category === "0"){
             this.setState({ methodFetch : "search", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&query=${this.state.query}` },()=>this.researchQuery())
         } else if(this.state.category === "1"){             
@@ -50,8 +50,13 @@ class Search extends Component {
 
     selectChange = (event) => { 
         this.setState({category : event.target.value})  
+        console.log(this.state.category)
                    //event= onClick ; target= "<select>"; value= select value;
     }   
+
+    changeValue= (e) => { 
+        this.setState({dropDownValue: e.target.value})
+      }
 
     toggle = () => {
         this.setState(prevState => ({
@@ -61,25 +66,26 @@ class Search extends Component {
 
     render(){
         return(
-        <div className= "searchBox">				
-					<button className="btn btn-dark ml-5" onClick={this.fetchByCategory} >
-						<i className="fa fa-search icon"></i>
-					</button>				
-          <div className=" ml-2 input-group">
-            <input onChange={this.inputChange} type="text" className="form-control" aria-label="Text input with segmented dropdown button"></input>
-            <div className="input-group-append">             
-							<Dropdown onClick={this.selectChange} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-								<DropdownToggle className="btn btn-outline-secondary  dropdown-toggle-split">
-										Trier par 
-								</DropdownToggle>
-								<DropdownMenu>
-									<DropdownItem value= "0">Film</DropdownItem>
-									<DropdownItem value= "1">Réalisateur</DropdownItem>
-									<DropdownItem value= "2">Année</DropdownItem>
-								</DropdownMenu>
-							</Dropdown>
-						</div>
-          </div>      
+        <div className= "searchBox">
+            <button className="btn btn-dark ml-5" onClick={this.fetchByCategory} >
+                <i className="fa fa-search icon"></i>
+            </button>
+            <div className=" ml-2 input-group">
+                <input className="input-search" onChange={this.inputChange} type="text" className="form-control" placeholder="Rechercher..." aria-label="Text input with segmented dropdown button"></input>
+                <div className="input-group-append">
+                    
+                <Dropdown onClick={this.selectChange} {...this.changeValue} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                    <DropdownToggle caret className="btn btn-outline-secondary  dropdown-toggle-split">
+                        {this.state.dropDownValue}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem onClick={this.changeValue }value= "Film  " >Film</DropdownItem>
+                        <DropdownItem onClick={this.changeValue } value= "Réalisateur  " >Réalisateur</DropdownItem>
+                        <DropdownItem onClick={this.changeValue } value= "Année  ">Année</DropdownItem>
+                     </DropdownMenu>
+                </Dropdown>
+                </div>
+            </div>
         </div>
         )
     }

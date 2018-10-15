@@ -12,7 +12,7 @@
 .movie_poster{
     width: 100%;
     max-height: 100vh;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     object-fit: cover;
     object-position: 5% 0;
@@ -24,7 +24,7 @@
 
   .title{
   padding-top: 25%;
-  font-size: 1.8em;
+  font-size: 1.9em;
   text-transform: uppercase;
  
 }
@@ -40,17 +40,43 @@
     cursor: pointer;
     border-radius: 90%;
     height: 26px;
-    text-align: top;
-    
+    text-align: top;  
 }
 
 
+
+
+@media screen and (min-width: 768px) {
 .container-overlay {
-    background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)50%)!important; 
+    background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)45%)!important; 
     z-index:19 !important;
     position:absolute !important;
     height:100%;
     width: 100%;
-    
+    }
 }
 
+
+@media screen and (max-width: 768px) {
+   .black{
+margin-bottom: 90px;
+   }
+        .title {
+            margin-top: -100px;
+          padding-bottom: 2% !important;
+            padding-top: 0;
+            font-size: 1em;
+            text-transform: uppercase;
+        }
+       
+          .container-overlay-mobile {
+            background-image:-webkit-linear-gradient(-90deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)85%)!important; 
+            z-index:19 !important;
+            position:absolute !important;
+            height: 100%;
+            width: 100%;
+            }
+        
+       
+     
+    }

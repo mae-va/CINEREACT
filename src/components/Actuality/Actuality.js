@@ -48,6 +48,7 @@ class Actuality extends Component {
                             </div>
                         </div>
                     </div>         
+
     }
     
     getDirectorFromMovieId = () => {
@@ -74,6 +75,7 @@ class Actuality extends Component {
     getRandomInt = (max) => {
         return Math.floor(Math.random() * Math.floor(max)); 
     }
+
 
     render() {
         return (
