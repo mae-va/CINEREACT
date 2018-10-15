@@ -2,11 +2,71 @@ body {
     background: #000816 !important;
 }
 
-  .container{
-      margin-top: 100px;
+.card {
+    background-color: rgb(33, 37, 41) !important; 
+}
+
+.card-block {
+
+    color : whitesmoke;
+}
+
+.fav-image {
+
+    overflow: hidden;
+    object-position: 5% 0;
+}
+
+.item-bottom {
+    text-align: right;
+}
+
+.top {
+    margin-top: 60px;
+}
+
+.sidebar-box {
+    max-height: 120px;
+    position: relative;
+    overflow: hidden;
   }
+
+.sidebar-box .read-more { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0;
+    width: 100%; 
+    text-align: center; 
+    margin: 0; padding: 30px 0; 
+    background-image: linear-gradient(to bottom, transparent, rgb(33, 37, 41));
+  }
+
+
+  @media screen and (max-width:768px)/*IPAD*/{
+    .card-block {
+        font-size: 12px; 
+    }
+}  
+
+@media screen and (max-width:520px)/*smartphone*/{
+  .ajust-height {
+        height : 250px
+  }
+  .card-block {
+        font-size: 12px;     
+  }
+  #position {
+        padding: 1rem !important ;
+  }
+
+}
+
+/*padding-top: 25%;
+  font-size: 1.8em;
+  text-transform: uppercase;
+
   
-  
+/*
   .blog-card  {
     margin: auto;
     box-shadow: 0 3px 7px -1px rgba(#000, .1);
@@ -129,9 +189,9 @@ body {
    }
 }
  
-    
+  
       
-   
+   */
     
 
       
