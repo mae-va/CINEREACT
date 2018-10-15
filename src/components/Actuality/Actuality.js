@@ -31,19 +31,21 @@ class Actuality extends Component {
                             <img className="img-fluid movie_poster" alt="movie_poster" src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`}/>
                         </div>
                         <div className="col-lg-6 col-md-6 black">
-                            <div className="row pb-4 pl-5 title">{this.state.movie.title}</div>
-                            <div className="row pl-5 year">
+                            <div className="row pb-4 pl-5 pr-5 title">{this.state.movie.title}</div>
+                            <div className="row pl-5 mb-2 year top-infos">
                                 <p>{this.state.movie.release_date}</p> 
                             </div>
-                            <div className="row pl-5 director">
-                                <p>{this.state.movie.director}</p> </div>
-                            <div className="row pl-5 pb-3 casting">{this.state.movie.casting}</div>
-                            <div className="row synopsis pb-5 pl-5 mr-5 pr-5 mr-5 mb-5 d-none d-lg-block">
+                            <div className="row pl-5 director top-infos">
+                                <p>David Lynch</p> </div>
+                            <div className="row pl-5 pb-3 casting top-infos">
+                                <em>Avec: Antoine Nourris, Tiphaine Deswartes, Maéva Duran, Matthieu Petit</em>
+                            </div>
+                            <hr />
+                            <div className="row synopsis pb-4 pl-5 pr-5 d-none d-lg-block">
                                 <p>{this.state.movie.overview}</p>
-                                <button className="readMore ml-3">+</button>
                             </div>
                             <div className="row favoritesRating">
-                                <i className="fa fa-heart pl-5 pr-5"></i>
+                                <i className="fa fa-heart fa-2x no-clicked-icon pl-5 pr-5"></i>
                                 <Rating value={`${this.state.movie.vote_average}`} readonly/>
                             </div>
                         </div>
