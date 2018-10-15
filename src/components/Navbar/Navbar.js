@@ -24,13 +24,13 @@ class Navbar extends Component {
                       <li className="nav-item active pr-5">
                         <Link to="/favoris" className="nav-link">
                           <i className="fa fa-heart icon"></i>
-                          <p className="text-nav ml-3 mt-3">Favoris</p>
+                          <p className="text-nav ml-3 mt-3">FAVORIS</p>
                         </Link>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="#">
                           <i className="fa fa-envelope icon"></i>
-                          <p className="text-nav ml-3 mt-3">Contact</p>
+                          <p className="text-nav ml-3 mt-3">CONTACT</p>
                         </a>
                       </li>
                     </ul>
@@ -38,20 +38,18 @@ class Navbar extends Component {
                 </div>
                 <div className= "menu-bottom navbar navbar-expand-sm fixed-bottom" id="navbarNav"> {/* Navbar du bas*/}
                   <div>
-                    <button className="btn btn-link" type="button" >
-                      <i className="fa fa-search fa-2x"></i>           {/* icone recherche */}
-                    </button>
+                    <Search />
                   </div>
                   <div className="icon-bottom">                      {/* icones de droite*/}
                     <ul className="navbar-nav">
                       <li className="nav-item active pr-5">
                         <a className="nav-link" href="#">
-                          <i className="fa fa-heart fa-2x icon mt-1"></i>
+                          <i className="fa fa-heart fa-2x icon"></i>
                         </a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="#">
-                          <i className="fa fa-envelope fa-2x icon mt-1"></i>
+                          <i className="fa fa-envelope fa-2x icon"></i>
                         </a>
                       </li>
                     </ul>
