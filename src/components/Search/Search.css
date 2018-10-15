@@ -1,4 +1,4 @@
-.btn, .btn-link {
+.btn, .btn-link, .bg-black {
     color: #5FD4F4 !important;
    
 }
@@ -39,6 +39,17 @@
 .btn-outline-secondary:hover{
 	background-color: #23272b !important;
 }
+
+.bd-black {
+	opacity: 1 !important;
+}
+
+.bg-black {
+	background-color: #121314;
+	border: none !important;
+}
+
+
 
 /*
 .searchBox {
