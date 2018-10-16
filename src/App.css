@@ -9,7 +9,7 @@ p {
   
 }
 
-.title {
+.title, .m-title {
   font-family: 'Roboto Condensed', sans-serif;
   color: #F1F1F1;
 }

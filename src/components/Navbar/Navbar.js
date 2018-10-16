@@ -42,9 +42,9 @@ class Navbar extends Component {
                   <div className="icon-bottom">                      {/* icones de droite*/}
                     <ul className="navbar-nav">
                       <li className="nav-item active">
-                        <a className="nav-link" href="#">
+                        <Link to="/favoris" className="nav-link">
                           <i className="fa fa-heart fa-1x icon"></i>
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
