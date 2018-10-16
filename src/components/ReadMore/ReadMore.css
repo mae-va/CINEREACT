@@ -1,0 +1,48 @@
+
+
+.mobile-readmore{
+    background-color: black;
+    opacity: 0.8;
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    margin-bottom: 60px;
+
+}
+
+.container {
+    padding-left: 0 !important;
+}
+
+.m-casting {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    color: #F1F1F1;
+
+}
+
+
+.m-synopsis  {
+    font-size: 1.1em;
+}
+
+.m-title{
+    margin-top: 20px;
+    font-size: 3em;
+    text-align: center !important;
+    line-height: 1;
+}
+
+@media screen and (max-width: 576px) {
+    .collapse-mob{
+        display: none;
+    }
+}
+
+.row-m {
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    
+}

@@ -7,6 +7,7 @@
 	background-color: #121314 !important;
 	border-color: #525559 !important;
 	margin-left: 3rem !important;
+	
 }
 
 .btn-dark:hover {
@@ -45,6 +46,7 @@
 	background-color: #121314 !important;
 	border: 1px solid #525559 !important;
 	color: #5FD4F4 !important;
+	border-left: 0px !important;
 }
 
 .btn-outline-secondary{

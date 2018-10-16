@@ -9,6 +9,16 @@
     max-height: 100%;
     }
 
+.poster_column .cross{
+    position: absolute !important;
+    bottom: 40px !important;
+    right: 50px !important;
+    color: #121314 !important;
+    opacity: 1 !important;
+    font-weight: 200 !important;
+}
+
+
 .movie_poster{
     width: 100%;
     max-height: 100vh;
@@ -30,6 +40,7 @@
 }
 
 
+
 .year{
     font-size: 1.3em;
     
@@ -41,20 +52,14 @@
     
 }
 
+
 hr {
     margin-left: 2.1rem !important;
     margin-right: 9rem !important;
     background-color: #5FD4F4 !important;
     
 }
-.readMore{
-    background-color: black;
-    color: whitesmoke;
-    cursor: pointer;
-    border-radius: 90%;
-    height: 26px;
-    text-align: top;  
-}
+
 
 .fa{
     cursor: pointer;
@@ -93,14 +98,24 @@ margin-bottom: 90px;
             text-transform: uppercase;
         }
        
-          .container-overlay-mobile {
+           /* .container-overlay-mobile {
             background-image:-webkit-linear-gradient(-90deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)85%)!important; 
             z-index:19 !important;
             position:absolute !important;
             height: 100%;
             width: 100%;
-            }
-        
+            } */
+         
        
      
     }
+
+
+
+@media screen and (min-width: 576px){
+    .cross{
+        display: none;
+    }
+}
+
+

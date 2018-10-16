@@ -18,7 +18,6 @@ class Favoris extends Component {
               <div className="card mt-5 mx-5">
                 <div className="row h-100 ">
                   <div className="col-lg-5 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0 poster-like">
-                    <i className="fa fa-heart icon"></i>
                     <img src={`https://image.tmdb.org/t/p/original${this.state.movies.poster_path}`} alt={this.state.movies.title} className="fav-image h-100 w-100"/>
                   </div>
                   <div className="col-lg-7 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0">

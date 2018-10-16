@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import Rating from "react-star-rating-lite";
 import './Actuality.css';
+import ReadMore from "../ReadMore/ReadMore.js";
 
 class Actuality extends Component {
     constructor(props){
         super(props);
         this.state = {
             movie : {},
+            readMore: false
         }
         this.loadReady ="";
         this.favorite = false
+        
+        
     }
     
     componentDidMount() {
@@ -26,12 +30,13 @@ class Actuality extends Component {
     }
 
     getJSX = () => {
-        this.loadReady = 
+        this.loadReady =
                     <div className="row actuality">
-                        <div className="col-lg-6 col-md-6 pl-0 pr-0 poster_column">
+                         <div className="col-lg-6 col-md-6 pl-0 pr-0 poster_column">
                             <img className="img-fluid movie_poster" alt="movie_poster" src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`}/>
+                            <span className="fa fa-plus fa-2x cross" onClick={this.readMoreOpen}></span>
                         </div>
-                        <div className="col-lg-6 col-md-6 black">
+                        <div className="col-lg-6 col-md-6 black collapse-mob">
                             <div className="row pb-4 pl-5 pr-5 title">{this.state.movie.title}</div>
                             <div className="row pl-5 mb-2 year top-infos">
                                 <p>{this.state.movie.release_date}</p> 
@@ -50,7 +55,9 @@ class Actuality extends Component {
                                 <Rating value={`${this.state.movie.vote_average}`} readonly/>
                             </div>
                         </div>
-                    </div>         
+                        
+                    </div>  
+                       
 
     }
     
@@ -103,6 +110,9 @@ removeItem = () => {
 	window.localStorage.removeItem(`${this.state.movie.id}`);
 }
 
+readMoreOpen = () => {
+    this.setState({readMore: !this.state.readMore});
+}
 
 
 
@@ -116,14 +126,22 @@ removeItem = () => {
                 <div className="container-overlay pl-0">
                 </div>
                 <div className="container-fluid bloc_actuality pl-0 pr-0"> 
-                <div className="container-overlay-mobile pl-0">
-                </div>               
+                    <div className="container">
+                        {this.state.readMore ? <ReadMore title={this.state.movie.title} year={this.state.movie.release_date} synopsis={this.state.movie.overview}/> : null}
+                    </div>               
                     {this.loadReady}                  
+                </div>
+                <div>
+                    
                 </div>
             </div>
             );
 
         }
 }
+
+
+
+                       
 
 export default Actuality;
