@@ -24,7 +24,7 @@ class Actuality extends Component {
             })
         .then(() => {
                 this.setState({movie : {...this.state.movie,release_date : this.state.movie.release_date.slice(0,4)}});
-                this.setState({movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}},() => {this.getJSX()});
+                this.setState({movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
                 
         })     
     }
@@ -42,9 +42,9 @@ class Actuality extends Component {
                                 <p>{this.state.movie.release_date}</p> 
                             </div>
                             <div className="row pl-5 director top-infos">
-                                <p>David Lynch</p> </div>
+                                <p>{this.state.movie.director}</p> </div>
                             <div className="row pl-5 pb-3 casting top-infos">
-                                <em>Avec: Antoine Nourris, Tiphaine Deswartes, Maéva Duran, Matthieu Petit</em>
+                                <em>{this.state.movie.casting}</em>
                             </div>
                             <hr />
                             <div className="row synopsis pb-4 pl-5 pr-5 d-none d-lg-block">
@@ -74,7 +74,8 @@ class Actuality extends Component {
                 fullCast+=`${results[i].name}... `;
                }
             } 
-          this.setState({movie : {...this.state.movie,casting : fullCast}})
+          this.setState({movie : {...this.state.movie,casting : fullCast}},() => {this.getJSX()})
+         
         })
       
     } 

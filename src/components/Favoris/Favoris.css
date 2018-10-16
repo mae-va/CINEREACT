@@ -6,7 +6,6 @@ body {
     background-color: rgb(18, 19, 20) !important; 
 }
 
-
 .card-block {
 
     color : whitesmoke;
@@ -67,141 +66,7 @@ body {
 
 }
 
-/*padding-top: 25%;
-  font-size: 1.8em;
-  text-transform: uppercase;
 
-  
-/*
-  .blog-card  {
-    margin: auto;
-    box-shadow: 0 3px 7px -1px rgba(#000, .1);
-    background: #1F2224;
-    font-family: sans-serif;
-    border-radius: 5px;
-    width: 45%;
-    height: 260px;
-    overflow: hidden;
-  
-    
-  }
-
-  
-    
-   .photo-block {
-      width: 35%;
-      
-  }
-
-  
-   
-  .Titre h3{
-      position: relative;
-      top: -230px;
-      left: 210px;
-      color: white;
-      font-size: 20px;
-  }
-
- .details{
-    display: inline;
-    padding:0px 12px 0 0;
-    color: white; 
-    position: relative;
-    font-size: 15px;
-    top: -220px;
-    left: 170px;
-  }
-    
-  .rate{
-    position: relative;
-    top: -220px;
-    left: 204px;
-    letter-spacing: 8px;
-    color: #f2db0e;
-}
-
- .heart i{
-    color:#962813;
-    position: relative;
-    top: -190px;
-    left: 208px;
-    font-size: 22px;
-
-}
-@media screen and (min-width:768px) and (max-width:1024px){
-      .photo-block{
-          width: 53%;
-      }
-      .blog-card{
-          position: relative;
-          width: 45%;
-      }
-
-      
-}
-@media screen and (max-width:520px){
-    
-    .photo-block{
-        width: 47%;
-        
-    }
-    .blog-card{ 
-        position: relative;
-        width: 100%;
-        margin-bottom: 20px;
-
-    }
-    
-    .Titre h3{
-        font-size: 14px;
-        position: relative;
-        top: -225px;
-        left: 180px;
-    }
-
-    .details{
-        font-size: 12px;
-        position: relative;
-        top: -220px;
-        left: 140px;
-    }
-    .rate{
-        position: relative;
-        top: -210px;
-        left: 185px;
-        
-    }
-    .heart{
-        font-size: 14px;
-        position: relative;
-        left: -20px;
-        top: 15px;
-    }
-   @media screen and (max-width: 320px){
-       .rate{
-           position: relative;
-           left: 150px;
-           
-       }
-       .details{
-        font-size: 13px; 
-        top: -210px;
-        left: 115px;  
-       }
-       .photo-block{
-           width: 50%;
-       }
-   }
-}
- 
-  
-      
-   */
-    
-
-      
-  
    
    
   

@@ -24,7 +24,7 @@ class Search extends Component {
 						directorId : 0,
 						directorCredits :[],
 						directorFilms :[]
-				}
+						}
 				this.canape ="";
     }
 
@@ -46,9 +46,12 @@ class Search extends Component {
         fetch(`https://api.themoviedb.org/3/${this.state.methodFetch}/${this.state.targetFetch}?api_key=762ed8e154d8e7ff207952b1cc7074b0&${this.state.filmFetch}&page=1${this.state.queryFetch}`)
         .then(response => response.json()) 
 				.then(json => {this.setState({movies : json.results})})
-				.then(() => {this.setState({bonjour:!this.state.bonjour},() => this.toggleModal())})
+				// .then(() => {
+				// 	this.setState({movies : {...this.state.movies,release_date : this.state.movies.release_date.slice(0,4)}});
+				// 	//this.setState({movies : {...this.state.movies,vote_average : Math.round(this.state.movies.vote_average/2)}}/*,() => {this.getDirectorFromMovieId()}*/);		
+				// })
+				.then(()=>{console.log(this.state.movies)})     
 				.then(() => {this.setState({directorId : this.state.movies[0].id},() =>{this.getMoviesFromDirector()})})
-				.then(()=>{console.log(this.state.directorId)})
 		
         
 		}
@@ -64,9 +67,27 @@ class Search extends Component {
 							data.push(credit);
 						}
 					})
-					this.setState({ directorFilms : data});
+					this.setState({ directorFilms : data},() => this.toggleModal());
 				})
 		}
+		/*
+		getDirectorFromMovieId = () => {
+      fetch(`https://api.themoviedb.org/3/movie/${this.state.movies.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
+        .then(response => response.json())
+        .then(json =>{
+          this.setState({movies : {...this.state.movies,director : json.crew[0].name}});
+          let results = json.cast.slice(0,4);
+          let fullCast ="";
+          for(let i=0; i<results.length -1 ; i++){
+              fullCast +=`${results[i].name}, `;
+              if (i === 2) {
+                fullCast+=`${results[i].name}... `;
+               }
+            } 
+          this.setState({movies : {...this.state.movies,casting : fullCast}})
+        })
+      
+    } */
 
 
     inputChange = (event) => {
@@ -88,10 +109,11 @@ class Search extends Component {
         this.setState({
 					modal: !this.state.modal, 		
 				});
+				if(this.state.category === "Film  " || this.state.category === "Année  " ){
 				this.card = 
-												this.state.movies.map(movie =>{
-												return(	
-												<div className="row top">
+							this.state.movies.map((movie, index) =>{
+							    return(	
+									    <div className="row top">
 												<div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 p-0">           
 													<div className="card mt-5 mx-5">
 														<div className="row h-100 ">
@@ -116,10 +138,45 @@ class Search extends Component {
 													</div>      
 												</div>
 											</div>
-												)})}
+												)})
+
+									} else if(this.state.category === "Réalisateur  "){
+										this.card =
+										this.state.directorFilms.map((film,index) =>{
+											return(	
+													<div className="row top">
+														<div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 p-0">           
+															<div className="card mt-5 mx-5">
+																<div className="row h-100 ">
+																	<div className="col-lg-5 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0">
+																		<img src={`https://image.tmdb.org/t/p/original${film.poster_path}`} alt={film.title} className="fav-image h-100 w-100"/>
+																	</div>
+																	<div className="col-lg-7 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0">
+																		<div className="card-block p-5" id="position">
+																			<h4 className="card-title">{film.title}</h4>
+																			<p className="card-text"> {film.release_date} {film.director}</p>
+																			<p className="card-text d-none d-sm-none d-md-block d-lg-block"> {film.casting}</p>
+																			<div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
+																				<p className="card-text">{film.overview}</p>
+																				<p className="read-more"><a href="#" className="button">Read More</a></p>
+																			</div>
+																			<div className="item-bottom  mt-5">
+																				<Rating className="stars" value="3" weight="18"  readonly/>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>      
+														</div>
+													</div>
+														)})
+									}		
+									
+							}
     
 
     render(){
+			const CloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px', color: "#5FD4F4" }} onClick={this.toggleModal}>&times;</button>;
         return(
             <div className= "searchBox">
               <div className="input-group">
@@ -142,7 +199,7 @@ class Search extends Component {
             </div>
             <div>
                 <Modal isOpen={this.state.modal} toggle={this.toggleModal} size="lg" backdropClassName="bd-black">
-                  <ModalHeader className="bg-black">{`RESEARCH FOR ${this.state.query.toUpperCase()}`}</ModalHeader>
+                  <ModalHeader close={CloseBtn} className="bg-black">{`RESEARCH FOR ${this.state.query.toUpperCase()}`}</ModalHeader>
                   <ModalBody className="bg-black">
 									{this.card}
                 </ModalBody>

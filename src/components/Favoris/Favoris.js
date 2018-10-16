@@ -11,42 +11,6 @@ class Favoris extends Component {
     }
   }
 
-
-
-
-
-  componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.getRandomInt(5)}&primary_release_year=${new Date().getFullYear()}`)
-      .then(response => response.json())        
-      .then(json => {this.setState({movies : json.results[this.getRandomInt(19)]})})
-      .then(() => {this.getDirectorFromMovieId()})
-      .then(() => {
-        this.setState({movies : {...this.state.movies,release_date : this.state.movies.release_date.slice(0,4)}});
-      })
-      this.getItem = () => {
-        window.localStorage.getItem (`${this.state.movie.id}`);
-      }
-  }
-  
-  getDirectorFromMovieId = () => {
-    fetch(`https://api.themoviedb.org/3/movie/${this.state.movies.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
-      .then(response => response.json())
-      .then(json =>{
-        this.setState({movies : {...this.state.movies,director : json.crew[0].name}});
-        let results = json.cast.slice(0,4);
-        let fullCast ="";
-        for(let i=0; i<results.length ; i++){
-            fullCast +=`${results[i].name}, `;
-        }
-        this.setState({movies : {...this.state.movies,casting : fullCast}})
-      })
-  } 
-  
-
-  
-  getRandomInt = (max) => {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
     render(){
         return (         
           <div className="row top">
