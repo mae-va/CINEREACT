@@ -52,6 +52,8 @@ body {
 
 
   @media screen and (max-width:768px)/*IPAD*/{
+
+
     .card-block {
         font-size: 12px; 
     }

@@ -1,4 +1,4 @@
-.btn, .btn-link {
+.btn, .btn-link, .bg-black {
     color: #5FD4F4 !important;
    
 }
@@ -57,6 +57,17 @@
 	background-color: #23272b !important;
 }
 
+
+.bd-black {
+	opacity: 1 !important;
+}
+
+.bg-black {
+	background-color: #121314;
+	border: none !important;
+}
+
+
 .dropdown-menu {
 	background-color: #121314 !important;
 	
@@ -69,6 +80,7 @@
 .dropdown-item:hover {
 	background-color: #23272b !important;
 }
+
 
 /*
 .searchBox {

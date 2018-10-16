@@ -112,10 +112,13 @@ removeItem = () => {
 			
         return (
             <div>
-                <div className="container-overlay pl-0"></div>
-                    <div className="bloc_actuality pl-0 pr-0">                    
-                        {this.loadReady}                  
-                    </div>
+                <div className="container-overlay pl-0">
+                </div>
+                <div className="container-fluid bloc_actuality pl-0 pr-0"> 
+                <div className="container-overlay-mobile pl-0">
+                </div>               
+                    {this.loadReady}                  
+                </div>
             </div>
             );
 
