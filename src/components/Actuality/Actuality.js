@@ -52,7 +52,7 @@ class Actuality extends Component {
                             </div>
                             <div className="row favoritesRating">
                                 <i className="fa fa-heart pl-5 pr-5" onClick={this.handleClick}></i>
-                                <Rating value={`${this.state.movie.vote_average}`} readonly/>
+                                <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" readonly/>
                             </div>
                         </div>
                         

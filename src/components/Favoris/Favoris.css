@@ -6,22 +6,27 @@ body {
     background-color: rgb(18, 19, 20) !important; 
 }
 
+.poster-like {
+ 
+    height: 100%!important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+
 .card-block {
 
     color : whitesmoke;
     border-radius: 0 5px 5px 0 !important;
 }
 
-.fav-image {
 
-    overflow: hidden;
-    object-position: 5% 0;
-    border-radius: 5px 0 0 5px !important;
-}
 
-.item-bottom {
+
+.heart_star {
     text-align: right;
     margin-top: 5rem !important;
+    justify-content: space-between !important;
 }
 
 .top {
@@ -44,6 +49,10 @@ body {
     background-image: linear-gradient(to bottom, transparent, rgb(18, 19, 20));
   }
 
+  .ajust-height {
+    height : 250px;
+  }
+
 
   @media screen and (max-width:768px)/*IPAD*/{
 
@@ -51,6 +60,7 @@ body {
     .card-block {
         font-size: 12px; 
     }
+   
 }  
 
 @media screen and (max-width:520px)/*smartphone*/{
