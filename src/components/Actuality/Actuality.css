@@ -23,17 +23,30 @@
   }
 
   .title{
-  padding-top: 25%;
-  font-size: 1.9em;
+  padding-top: 15%;
+  font-size: 3.3em;
   text-transform: uppercase;
  
 }
 
-.synopsis{
-    font-size: 0.9em;
+
+.year{
+    font-size: 1.3em;
     
 }
 
+.synopsis{
+    font-size: 1.2em;
+    margin-right: 5rem !important;
+    
+}
+
+hr {
+    margin-left: 2.1rem !important;
+    margin-right: 9rem !important;
+    background-color: #5FD4F4 !important;
+    
+}
 .readMore{
     background-color: black;
     color: whitesmoke;
@@ -43,6 +56,15 @@
     text-align: top;  
 }
 
+.favoritesRating{
+    justify-content: space-between;
+    margin-right: 8rem !important;
+}
+
+.no-clicked-icon{
+    color: #63676b;
+    opacity: 0.3;
+}
 
 
 

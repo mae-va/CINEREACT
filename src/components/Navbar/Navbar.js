@@ -15,6 +15,7 @@ class Navbar extends Component {
                 <h1 className="logo-cine">CINE</h1>
                 <h1 className="logo-react">REACT</h1> {/* Logo */}
               </Link>
+
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
                     <Search />
@@ -24,34 +25,25 @@ class Navbar extends Component {
                       <li className="nav-item active pr-5">
                         <Link to="/favoris" className="nav-link">
                           <i className="fa fa-heart icon"></i>
-                          <p className="text-nav ml-3 mt-3">Favoris</p>
+                          <p className="text-nav ml-3 mt-3">FAVORIS</p>
                         </Link>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="#">
-                          <i className="fa fa-envelope icon"></i>
-                          <p className="text-nav ml-3 mt-3">Contact</p>
-                        </a>
                       </li>
                     </ul>
                   </div>
                 </div>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    <i className="fa fa-envelope icon"></i>
+                    <p className="text-nav ml-3 mt-3">CONTACT</p>
+                  </a>
+                </li>
                 <div className= "menu-bottom navbar navbar-expand-sm fixed-bottom" id="navbarNav"> {/* Navbar du bas*/}
-                  <div>
-                    <button className="btn btn-link" type="button" >
-                      <i className="fa fa-search fa-2x"></i>           {/* icone recherche */}
-                    </button>
-                  </div>
+                    <Search />
                   <div className="icon-bottom">                      {/* icones de droite*/}
                     <ul className="navbar-nav">
-                      <li className="nav-item active pr-5">
+                      <li className="nav-item active">
                         <a className="nav-link" href="#">
-                          <i className="fa fa-heart fa-2x icon mt-1"></i>
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="#">
-                          <i className="fa fa-envelope fa-2x icon mt-1"></i>
+                          <i className="fa fa-heart fa-1x icon"></i>
                         </a>
                       </li>
                     </ul>
