@@ -66,12 +66,13 @@ class Search extends Component {
 
     render(){
         return(
-        <div className= "searchBox">
-            <button className="btn btn-dark ml-5" onClick={this.fetchByCategory} >
-                <i className="fa fa-search icon"></i>
-            </button>
-            <div className=" ml-2 input-group">
-                <input className="input-search" onChange={this.inputChange} type="text" className="form-control" placeholder="Rechercher..." aria-label="Text input with segmented dropdown button"></input>
+            <div className= "searchBox">
+            
+            <div className="input-group">
+                <button className="btn btn-dark" onClick={this.fetchByCategory} >
+                    <i className="fa fa-search icon"></i>
+                </button>
+                <input onChange={this.inputChange} type="text" className="form-control" placeholder="Rechercher..." aria-label="Text input with segmented dropdown button"></input>
                 <div className="input-group-append">
                     
                 <Dropdown onClick={this.selectChange} {...this.changeValue} isOpen={this.state.dropdownOpen} toggle={this.toggle}>
@@ -86,6 +87,8 @@ class Search extends Component {
                 </Dropdown>
                 </div>
             </div>
+                
+            
         </div>
         )
     }

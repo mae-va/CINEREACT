@@ -1,25 +1,17 @@
-@font-face {
-    font-family: "Univers";
-    src: "./fonts/Univers-Condensed.ttf";
-    font-style: normal;
-    font-weight: 300;
-    letter-spacing: O.1 em;
-
-  }
-
 h1 {
     display: inline;
 }
 
+/* font-family: 'Open Sans', sans-serif; */
 
 .logo-cine {
-    font-family: "Univers";
+    font-family: 'Roboto Condensed', sans-serif;
     color: #F1F1F1;
 
 }
 
 .logo-react {
-    font-family: "Univers";
+    font-family: 'Roboto Condensed', sans-serif;
     color: #5FD4F4;
 
 }
@@ -89,6 +81,14 @@ Link {
   
 
 }
+
+@media screen and (min-width: 320px)and (max-width: 1024px){
+    .text-nav{
+        display: none;
+    }
+
+}
+
 
 .icon-bottom {
     display: flex !important;
