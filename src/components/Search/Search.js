@@ -68,8 +68,8 @@ class Search extends Component {
         return(
             <div className= "searchBox">
             
-            <div className=" ml-2 input-group">
-                <button className="btn btn-dark ml-5" onClick={this.fetchByCategory} >
+            <div className="input-group">
+                <button className="btn btn-dark" onClick={this.fetchByCategory} >
                     <i className="fa fa-search icon"></i>
                 </button>
                 <input onChange={this.inputChange} type="text" className="form-control" placeholder="Rechercher..." aria-label="Text input with segmented dropdown button"></input>

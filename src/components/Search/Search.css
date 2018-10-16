@@ -6,12 +6,24 @@
 .btn-dark {
 	background-color: #121314 !important;
 	border-color: #525559 !important;
+	margin-left: 3rem !important;
 }
 
 .btn-dark:hover {
 	background-color: #23272b !important;
 
 
+}
+
+@media screen and (min-width: 320px)and (max-width: 576px){
+    .btn-dark{
+        margin-left: 0 !important;
+    }
+
+}
+
+.input-group > .form-control{
+	flex: 0.5 1 auto !important;
 }
 
 .btn {
@@ -26,6 +38,7 @@
 
 .searchBox {
 	display: flex;
+	width: 90% !important;
 }
 
 .form-control {

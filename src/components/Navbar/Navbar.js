@@ -15,6 +15,7 @@ class Navbar extends Component {
                 <h1 className="logo-cine">CINE</h1>
                 <h1 className="logo-react">REACT</h1> {/* Logo */}
               </Link>
+
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
                     <Search />
@@ -27,29 +28,22 @@ class Navbar extends Component {
                           <p className="text-nav ml-3 mt-3">FAVORIS</p>
                         </Link>
                       </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="#">
-                          <i className="fa fa-envelope icon"></i>
-                          <p className="text-nav ml-3 mt-3">CONTACT</p>
-                        </a>
-                      </li>
                     </ul>
                   </div>
                 </div>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    <i className="fa fa-envelope icon"></i>
+                    <p className="text-nav ml-3 mt-3">CONTACT</p>
+                  </a>
+                </li>
                 <div className= "menu-bottom navbar navbar-expand-sm fixed-bottom" id="navbarNav"> {/* Navbar du bas*/}
-                  <div>
                     <Search />
-                  </div>
                   <div className="icon-bottom">                      {/* icones de droite*/}
                     <ul className="navbar-nav">
-                      <li className="nav-item active pr-5">
+                      <li className="nav-item active">
                         <a className="nav-link" href="#">
-                          <i className="fa fa-heart fa-2x icon"></i>
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="#">
-                          <i className="fa fa-envelope fa-2x icon"></i>
+                          <i className="fa fa-heart fa-1x icon"></i>
                         </a>
                       </li>
                     </ul>
