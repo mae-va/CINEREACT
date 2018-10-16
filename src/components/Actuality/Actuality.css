@@ -56,6 +56,10 @@ hr {
     text-align: top;  
 }
 
+.fa{
+    cursor: pointer;
+}
+
 .favoritesRating{
     justify-content: space-between;
     margin-right: 8rem !important;
@@ -65,8 +69,6 @@ hr {
     color: #63676b;
     opacity: 0.3;
 }
-
-
 
 @media screen and (min-width: 768px) {
 .container-overlay {
