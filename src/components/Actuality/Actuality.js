@@ -9,6 +9,7 @@ class Actuality extends Component {
             movie : {},
         }
         this.loadReady ="";
+        this.favorite = false
     }
     
     componentDidMount() {
@@ -43,7 +44,8 @@ class Actuality extends Component {
                                 <button className="readMore ml-3">+</button>
                             </div>
                             <div className="row favoritesRating">
-                                <i className="fa fa-heart pl-5 pr-5"></i>
+                                <i className="fa fa-heart pl-5 pr-5" onClick={this.handleClick}></i>
+                             
                                 <Rating value={`${this.state.movie.vote_average}`} readonly/>
                             </div>
                         </div>
@@ -76,8 +78,37 @@ class Actuality extends Component {
         return Math.floor(Math.random() * Math.floor(max)); 
     }
 
+    handleClick = () => {
+        this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
+        
+    }
+
+		setFavorite = () => {
+			if (this.state.favorite===true) {
+				this.setItem();
+		}	else if (this.state.favorite===false) {
+			this.removeItem();
+		}
+		}
+
+
+setItem = () => {
+window.localStorage.setItem(`${this.state.movie.id}`, JSON.stringify(this.state.movie));
+
+}
+
+removeItem = () => {
+	window.localStorage.removeItem(`${this.state.movie.id}`);
+}
+
+
+
+
+   
+
 
     render() {
+			
         return (
             <div>
                 <div className="container-overlay pl-0"></div>

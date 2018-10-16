@@ -12,6 +12,9 @@ class Favoris extends Component {
   }
 
 
+
+
+
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.getRandomInt(5)}&primary_release_year=${new Date().getFullYear()}`)
       .then(response => response.json())        
@@ -20,7 +23,9 @@ class Favoris extends Component {
       .then(() => {
         this.setState({movies : {...this.state.movies,release_date : this.state.movies.release_date.slice(0,4)}});
       })
-   
+      this.getItem = () => {
+        window.localStorage.getItem (`${this.state.movie.id}`);
+      }
   }
   
   getDirectorFromMovieId = () => {
@@ -35,9 +40,9 @@ class Favoris extends Component {
         }
         this.setState({movies : {...this.state.movies,casting : fullCast}})
       })
-    
   } 
   
+
   
   getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max));
