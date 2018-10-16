@@ -39,7 +39,7 @@ class Actuality extends Component {
                             <div className="row pl-5 director top-infos">
                                 <p>David Lynch</p> </div>
                             <div className="row pl-5 pb-3 casting top-infos">
-                                <em>Avec: Antoine Nourris, Tiphaine Deswartes, Maéva Duran, Matthieu Petit</em>
+                                <em>Avec: Antoine Nourris, Tiphaine Deswarte, Maéva Duran, Matthieu Petit</em>
                             </div>
                             <hr />
                             <div className="row synopsis pb-4 pl-5 pr-5 d-none d-lg-block">
@@ -47,7 +47,7 @@ class Actuality extends Component {
                             </div>
                             <div className="row favoritesRating">
                                 <i className="fa fa-heart pl-5 pr-5" onClick={this.handleClick}></i>
-                                <Rating value={`${this.state.movie.vote_average}`} readonly/>
+                                <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" readonly/>
                             </div>
                         </div>
                     </div>         
