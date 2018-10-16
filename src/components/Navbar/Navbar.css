@@ -24,6 +24,7 @@ h1 {
 
 .nav-link:hover {
     color: #5FD4F4 !important;
+    cursor: pointer;
 }
 
 .nav-link {
@@ -63,6 +64,14 @@ Link {
 
 .navbar-collapse {
     justify-content: space-between;
+}
+
+.modal-contact {
+    background-color: rgb(18, 19, 20) !important; 
+    color :#5FD4F4;
+    border : none !important;
+    border-radius: 0 !important;
+
 }
 
 @media screen and (min-width: 768px){
