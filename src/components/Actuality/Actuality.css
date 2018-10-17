@@ -5,9 +5,6 @@
     margin-bottom: 0px;
     }
 
-/* .poster_column {
-    max-height: 100%;
-    } */
 
 .poster_column .cross{
     position: absolute !important;
@@ -60,6 +57,9 @@ hr {
     
 }
 
+.text-danger {
+    font-size : 2rem !important;
+}
 
 .fa{
     cursor: pointer;
@@ -68,11 +68,14 @@ hr {
 .favoritesRating{
     justify-content: space-between;
     margin-right: 8rem !important;
+    position:absolute;
+    bottom:10px;
 }
 
 .no-clicked-icon{
-    color: #63676b;
+    color: #fff;
     opacity: 0.3;
+    font-size : 2rem !important;
 }
 
 @media screen and (min-width: 768px) {

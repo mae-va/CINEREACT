@@ -50,7 +50,6 @@ class Search extends Component {
             movie.release_date = movie.release_date.slice(0,4),
             movie.vote_average = Math.round(movie.vote_average/2)
           });
-          console.log(this.state.movies)
         })
 				.then(() => {this.toggleModal()})
     }
@@ -77,20 +76,27 @@ class Search extends Component {
         modal: !this.state.modal
       });
     }
+
+    handleKeyPress = (target) => {
+      if(target.charCode==13){
+          this.fetchByCategory();    
+      }
+  
+  }
   
     render(){
 		  const CloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px', color: "#5FD4F4" }} onClick={this.toggleModal}>&times;</button>;
       return(
         <div className="top-fixed-search">
           <Button onClick={this.fetchByCategory} className="btn-dark"><i className="fa fa-search icon"></i></Button>
-          <Input placeholder="Search" onChange={this.inputChange}/>
+          <Input placeholder="Search" onKeyPress={this.handleKeyPress} onChange={this.inputChange}/>
             <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
               <DropdownToggle caret className="btn btn-outline-secondary  dropdown-toggle-split">
                   {this.state.category}
               </DropdownToggle>
               <DropdownMenu>
-                  <DropdownItem onClick={this.changeValue} value="0" >Film</DropdownItem>
-                  <DropdownItem onClick={this.changeValue} value="1" >Année</DropdownItem>
+                  <DropdownItem onClick={this.changeValue} value="0">Film</DropdownItem>
+                  <DropdownItem onClick={this.changeValue} value="1">Année</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             <Modal isOpen={this.state.modal} toggle={this.toggleModal} size="lg" backdropClassName="bd-black">
