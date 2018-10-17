@@ -14,8 +14,9 @@ class Actuality extends Component {
         super(props);
         this.state = {
             movie : {},
-			      readMore: false,
-			      color : "no-clicked-icon"
+            readMore: false,
+            isVisible : true,
+            color : "no-clicked-icon"
         }
         this.rate ="";
 				this.favorite = false
@@ -105,8 +106,7 @@ closeReadMore = () => {
     render() {
         return (
             <div>
-                <div className="container-overlay pl-0">
-                </div>
+                <div className="container-overlay pl-0"></div>
                 <Box className="container-fluid bloc_actuality pl-0 pr-0" pose={this.state.isVisible ? 'hidden' : 'visible'}>
                     <div className="container">
                         {this.state.readMore ? <ReadMore close={this.closeReadMore} title={this.state.movie.title} year={this.state.movie.release_date} director={this.state.movie.director} casting={this.state.movie.casting} synopsis={this.state.movie.overview}/> : null}
@@ -122,7 +122,8 @@ closeReadMore = () => {
                                 <p>{this.state.movie.release_date}</p> 
                             </div>
                             <div className="row pl-5 director top-infos">
-                                <p>{this.state.movie.director}</p> </div>
+                                <p>{this.state.movie.director}</p>
+                            </div>
                             <div className="row pl-5 pb-3 casting top-infos">
                                 <em>{this.state.movie.casting}</em>
                             </div>
@@ -132,11 +133,12 @@ closeReadMore = () => {
                             </div>
                             <div className="row favoritesRating pb-4 pl-5 pr-5 w-100">
                                 <i className={`${this.state.color} fa fa-heart pr-5`} onClick={this.handleClick}></i>
-                                <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" readonly/>
+                                {this.rate}
                             </div>
                         </div>  
-                    </div>                    
-                </div>
+                    </div>
+                </Box>
+            </div>
             );
 
         }
