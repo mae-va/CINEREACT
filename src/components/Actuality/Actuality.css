@@ -78,7 +78,7 @@ hr {
     font-size : 2rem !important;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
 .container-overlay {
     background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)45%)!important; 
     z-index:19 !important;
@@ -87,6 +87,7 @@ hr {
     width: 100%;
     }
 }
+
 
 
 @media screen and (max-width: 768px) {
@@ -103,7 +104,11 @@ hr {
      
     }
 
-
+@media screen and (max-width: 900px) {
+    .collapse-mob{
+        display: none;
+    }
+}
 
 @media screen and (min-width: 576px){
     .cross{

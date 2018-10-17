@@ -14,8 +14,8 @@ class Actuality extends Component {
         super(props);
         this.state = {
             movie : {},
-            readMore: false,
-            color : "no-clicked-icon"
+			      readMore: false,
+			      color : "no-clicked-icon"
         }
         this.rate ="";
 				this.favorite = false
@@ -94,8 +94,13 @@ removeItem = () => {
 
 readMoreOpen = () => {
     this.setState({readMore: !this.state.readMore});
+    console.log("salut")
 }
 
+closeReadMore = () => {
+    this.setState({readMore: !this.state.readMore});
+    console.log("test")
+}
 
     render() {
         return (
@@ -104,13 +109,12 @@ readMoreOpen = () => {
                 </div>
                 <Box className="container-fluid bloc_actuality pl-0 pr-0" pose={this.state.isVisible ? 'hidden' : 'visible'}>
                     <div className="container">
-                        {this.state.readMore ? <ReadMore title={this.state.movie.title} year={this.state.movie.release_date} synopsis={this.state.movie.overview}/> : null}
-                    </div>
-                </Box>
+                        {this.state.readMore ? <ReadMore close={this.closeReadMore} title={this.state.movie.title} year={this.state.movie.release_date} director={this.state.movie.director} casting={this.state.movie.casting} synopsis={this.state.movie.overview}/> : null}
+                    </div>               
                     <div className="row actuality">
-                        <div className="col-lg-6 col-md-6 pl-0 pr-0 poster_column">
+                        <div className="col-lg-6 col-md-12 pl-0 pr-0 poster_column">
                             <img className="img-fluid movie_poster" alt="movie_poster" src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`}/>
-                            <span className="fa fa-plus-circle fa-3x cross mb-5" onClick={this.readMoreOpen}></span>
+                            <span className="fa fa-plus-circle fa-3x cross mb-5" onClick={this.readMoreOpen} style={this.state.readMore ? {display: 'none'} : {display: 'block'}}></span>
                         </div>
                         <div className="col-lg-6 col-md-6 black collapse-mob">
                             <div className="row pb-4 pl-5 pr-5 title">{this.state.movie.title}</div>
@@ -128,7 +132,7 @@ readMoreOpen = () => {
                             </div>
                             <div className="row favoritesRating pb-4 pl-5 pr-5 w-100">
                                 <i className={`${this.state.color} fa fa-heart pr-5`} onClick={this.handleClick}></i>
-                                {this.rate}
+                                <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" readonly/>
                             </div>
                         </div>  
                     </div>                    
