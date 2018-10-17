@@ -75,7 +75,7 @@ hr {
     opacity: 0.3;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 900px) {
 .container-overlay {
     background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)45%)!important; 
     z-index:19 !important;
@@ -85,6 +85,23 @@ hr {
     }
 }
 
+@media screen and (min-width: 768px) and (max-width: 900px){
+    .container {
+        padding-left: 0 !important;
+        max-width: 80% !important;
+        max-height: 65%;
+    }
+
+    .mobile-readmore {
+        margin-top: 200px !important;
+    }
+
+    .m-casting {
+        font-size: 3em;
+    }
+    
+    
+}
 
 @media screen and (max-width: 768px) {
    .black{
@@ -110,7 +127,11 @@ hr {
      
     }
 
-
+@media screen and (max-width: 900px) {
+    .collapse-mob{
+        display: none;
+    }
+}
 
 @media screen and (min-width: 576px){
     .cross{
