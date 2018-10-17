@@ -2,6 +2,8 @@ h1 {
     display: inline;
 }
 
+
+
 /* font-family: 'Open Sans', sans-serif; */
 
 .logo-cine {
@@ -13,13 +15,31 @@ h1 {
 .logo-react {
     font-family: 'Roboto Condensed', sans-serif;
     color: #5FD4F4;
-
+    margin-left: 5px;
 }
 
 
-.navbar {
-    height: 60px;
+.top-fixed-navbar {
     background-color:  #121314;
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.bottom-fixed-navbar {
+    display: none !important;
+    background-color:  #121314;
+    position: fixed !important;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar a:hover {
+    text-decoration: none !important;
 }
 
 .nav-link:hover {
@@ -31,81 +51,95 @@ h1 {
     color:  #F1F1F1 !important;
     display: flex !important;
     align-items: center;
-    
 }
+.top-fixed-search {
+    display: flex !important;
+} 
 
-.navbar-nav {
-    flex-direction: row !important;
-}
-
-.icon {
+.nav-link > .icon {
     color: #5FD4F4 !important;
-    
 }
 
-.navbar-toggler {
+/* .navbar-nav {
+    flex-direction: row !important;
+} */
+
+
+
+/* .navbar-toggler {
     color: #5FD4F4 !important;
     border-color: transparent !important;
+} */
 
-}
-
-Link { 
+/* Link { 
     text-decoration: none ;
-}
+} */
 
-.btn, .btn-link {
+/* .btn, .btn-link {
     color: #5FD4F4 !important;
    
-}
+} */
 
-.search {
+/* .search {
     padding-left: 30px !important;
-}
+} */
 
-.navbar-collapse {
+/* .navbar-collapse {
     justify-content: space-between;
-}
+} */
 
 .modal-contact {
     background-color: rgb(18, 19, 20) !important; 
     color :#5FD4F4;
     border : none !important;
     border-radius: 0 !important;
-
 }
 
-@media screen and (min-width: 768px){
+@media screen and (max-width: 800px){
+    .text-link-nav{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 668px){
+    .bottom-fixed-navbar {
+        display: block !important;
+        
+    }
+
+    .top-fixed-navbar > .top-fixed-search {
+        display: none !important;
+    }
+}
+
+/* @media screen and (min-width: 768px){
     .menu-bottom {
         display: none !important;
     }
+} */
 
-   
-
-}
-
+/* 
 @media screen and (min-width: 576px)and (max-width: 1024px){
-    .text-nav{
-        display: none;
-    }
+
   
 
-}
-
+} */
+/* 
 @media screen and (min-width: 320px)and (max-width: 1024px){
     .text-nav{
         display: none;
     }
 
-}
+} */
 
 
-.icon-bottom {
+/* .icon-bottom {
     display: flex !important;
 }
 
 .menu-bottom {
     justify-content: space-between !important;
-}
+} */
 
 
 
