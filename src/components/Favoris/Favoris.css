@@ -11,17 +11,24 @@ body {
     height: 100%!important;
     position: relative !important;
     overflow: hidden !important;
+    border-radius: 7px 0 0 7px !important;
 }
+
 
 
 .card-block {
 
     color : whitesmoke;
-    border-radius: 0 5px 5px 0 !important;
+    border-radius: 0 7px 7px 0 !important;
 }
 
 
 
+.coeur{
+    cursor: pointer;
+    font-size: 25px !important;
+    color: red;
+}
 
 .heart_star {
     text-align: right;

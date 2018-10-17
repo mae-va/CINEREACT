@@ -11,7 +11,7 @@ class Favoris extends Component {
     }
     this.fullMovie = [];
     this.cardBlock = "";
-    this.favorite = true
+    
   }
 
 
@@ -27,6 +27,7 @@ class Favoris extends Component {
         this.fullMovie.push(value);   
       })
       this.setState({ movies: this.fullMovie},()=>this.getCard());
+      
     }
 
     setOverview = (param) =>{
@@ -36,14 +37,10 @@ class Favoris extends Component {
       } 
     }
 
-    // setHeartColor = () => {
-    //   if (this.state.favorite===true) {
-		// 		this.setItem();
-    // }
-
 
     getCard = () =>{
-      console.log(this.state.movies);
+      
+    
       this.cardBlock=
       this.state.movies.map((movie,index) =>{
        
@@ -62,11 +59,11 @@ class Favoris extends Component {
                   <p className="card-text"> {movie.release_date} {movie.director}</p>
                   <p className="card-text d-none d-sm-none d-md-block d-lg-block"> {}</p>
                   <div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
-                    {/* <p className="card-text">{this.setOverview(movie.overview)}</p> */}
+                    <p className="card-text">{this.setOverview(movie.overview)}</p>
                    
                   </div>
                   <div className="row heart_star">
-                  <i className="fa fa-heart pt-1 pl-3 pr-5" onClick={()=>{window.localStorage.removeItem(`${movie.id}`);this.forceUpdate()}}></i>
+                  <i className="fa fa-heart pt-1 pl-3 pr-5 coeur" onClick={()=>{window.localStorage.removeItem(`${movie.id}`)}}></i>
                   <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                   
                  </div>
@@ -85,10 +82,10 @@ class Favoris extends Component {
   
 
     render(){
-
+      
         return (         
           <div className="row top">
-            {this.cardBlock}      
+          {this.cardBlock}      
           </div>               
         )
     }
