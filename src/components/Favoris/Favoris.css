@@ -71,7 +71,7 @@ body {
 }  
 
 @media screen and (max-width:520px)/*smartphone*/{
-  .ajust-height {
+  .ajust-scale {
         height : 250px
   }
   .card-block {

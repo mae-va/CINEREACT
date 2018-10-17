@@ -32,7 +32,7 @@ class Favoris extends Component {
 
     setOverview = (param) =>{
       if (param.length > 90) {
-        param= param.substring(0,90)+"...";
+        param = param.substring(0,90)+"...";
           return param;
       } 
     }

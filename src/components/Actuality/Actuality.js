@@ -74,7 +74,8 @@ class Actuality extends Component {
                 fullCast+=`${results[i].name}... `;
                }
             } 
-          this.setState({movie : {...this.state.movie,casting : fullCast}},() => {this.getJSX()})
+					this.setState({movie : {...this.state.movie,casting : fullCast}},() => {this.getJSX()})
+					this.forceUpdate();
          
         })
       
