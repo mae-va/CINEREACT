@@ -4,16 +4,21 @@ import './Actuality.css';
 import ReadMore from "../ReadMore/ReadMore.js";
 import posed from 'react-pose';
 
+const Box = posed.div({
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 }
+  });
+
 class Actuality extends Component {
     constructor(props){
         super(props);
         this.state = {
             movie : {},
             readMore: false,
-            isVisible : false 
+            isVisible : true
         }
         this.loadReady ="";
-        this.favorite = false;
+        this.favorite = false
         
     }
 
@@ -28,9 +33,9 @@ class Actuality extends Component {
                 this.setState({movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
 
         })
-        setInterval(() => {
+        setTimeout(() => {
             this.setState({ isVisible: !this.state.isVisible });
-          }, 3000);
+          }, 500);
     }
 
     getJSX = () => {
@@ -117,10 +122,7 @@ readMoreOpen = () => {
 
 
     render() {
-        const Box = posed.div({
-            visible: { opacity: 1 },
-            hidden: { opacity: 0 }
-          });
+        
         return (
             <div>
                 <div className="container-overlay pl-0">
