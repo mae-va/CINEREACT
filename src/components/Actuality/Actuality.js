@@ -32,9 +32,9 @@ class Actuality extends Component {
     getJSX = () => {
         this.loadReady =
                     <div className="row actuality">
-                         <div className="col-lg-6 col-md-6 pl-0 pr-0 poster_column">
+                        <div className="col-lg-6 col-md-6 pl-0 pr-0 poster_column">
                             <img className="img-fluid movie_poster" alt="movie_poster" src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`}/>
-                            <span className="fa fa-plus fa-2x cross" onClick={this.readMoreOpen}></span>
+                            <span className="fa fa-plus-circle fa-3x cross mb-5" onClick={this.readMoreOpen}></span>
                         </div>
                         <div className="col-lg-6 col-md-6 black collapse-mob">
                             <div className="row pb-4 pl-5 pr-5 title">{this.state.movie.title}</div>
