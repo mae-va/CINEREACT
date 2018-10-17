@@ -1,13 +1,10 @@
 .black{
     background-color:  black;
-    color: whitesmoke; 
+    color: #f9f9f7;
     z-index: 38; 
     margin-bottom: 0px;
     }
-
-/* .poster_column {
-    max-height: 100%;
-    } */
+/*#717677*/
 
 .poster_column .cross{
     position: absolute !important;
@@ -60,6 +57,9 @@ hr {
     
 }
 
+.text-danger {
+    font-size : 2rem !important;
+}
 
 .fa{
     cursor: pointer;
@@ -68,11 +68,14 @@ hr {
 .favoritesRating{
     justify-content: space-between;
     margin-right: 8rem !important;
+    position:absolute;
+    bottom:10px;
 }
 
 .no-clicked-icon{
-    color: #63676b;
+    color: #fff;
     opacity: 0.3;
+    font-size : 2rem !important;
 }
 
 @media screen and (min-width: 900px) {
@@ -97,17 +100,7 @@ hr {
             padding-top: 0;
             font-size: 1em;
             text-transform: uppercase;
-        }
-       
-           /* .container-overlay-mobile {
-            background-image:-webkit-linear-gradient(-90deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)85%)!important; 
-            z-index:19 !important;
-            position:absolute !important;
-            height: 100%;
-            width: 100%;
-            } */
-         
-       
+        }     
      
     }
 

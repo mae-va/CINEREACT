@@ -2,32 +2,40 @@ import React, { Component } from 'react';
 import Rating from "react-star-rating-lite";
 import './Actuality.css';
 import ReadMore from "../ReadMore/ReadMore.js";
+import posed from 'react-pose';
+
+const Box = posed.div({
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 }
+  });
 
 class Actuality extends Component {
     constructor(props){
         super(props);
         this.state = {
             movie : {},
-			readMore: false,
-			color : "no-clicked-icon"
+			      readMore: false,
+			      color : "no-clicked-icon"
         }
-        this.loadReady ="";
-        this.favorite = false
-        
+        this.rate ="";
+				this.favorite = false
         
     }
-    
+
     componentDidMount() {
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2018`)
         .then(response => response.json())           
         .then(json => {   
                 this.setState({movie : json.results[this.getRandomInt(19)]},() => this.getDirectorFromMovieId());       
-            })
-        .then(() => {
-								this.setState({movie : {...this.state.movie,release_date : this.state.movie.release_date.slice(0,4)},
-								movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
 							})
-				.then(()=>{this.forceUpdate()})    
+        .then(() => {
+            this.setState({movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
+            this.setState({movie : {...this.state.movie,release_date : this.state.movie.release_date.slice(0,4)}});
+            this.rate = <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" readonly/>
+        })
+        setTimeout(() => {
+            this.setState({ isVisible: !this.state.isVisible });
+          }, 500);
     }
 
 
@@ -46,11 +54,9 @@ class Actuality extends Component {
             } 
 					this.setState({movie : {...this.state.movie,casting : fullCast}});
 					this.forceUpdate();
-         
         })
-      
-    } 
-    
+    }
+
     getRandomArbitrary = (min, max) =>{
         return Math.random() * (max - min) + min;
       }
@@ -96,17 +102,12 @@ closeReadMore = () => {
     console.log("test")
 }
 
-
-   
-
-
     render() {
-			
         return (
             <div>
                 <div className="container-overlay pl-0">
                 </div>
-                <div className="container-fluid bloc_actuality pl-0 pr-0"> 
+                <Box className="container-fluid bloc_actuality pl-0 pr-0" pose={this.state.isVisible ? 'hidden' : 'visible'}>
                     <div className="container">
                         {this.state.readMore ? <ReadMore close={this.closeReadMore} title={this.state.movie.title} year={this.state.movie.release_date} director={this.state.movie.director} casting={this.state.movie.casting} synopsis={this.state.movie.overview}/> : null}
                     </div>               
@@ -136,14 +137,9 @@ closeReadMore = () => {
                         </div>  
                     </div>                    
                 </div>
-            </div>
             );
 
         }
 }
-
-
-
-                       
 
 export default Actuality;
