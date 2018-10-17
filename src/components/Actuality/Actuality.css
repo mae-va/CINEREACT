@@ -69,11 +69,34 @@ hr {
     justify-content: space-between;
     margin-right: 8rem !important;
 }
-
+/*--------------- COLOR HEART ICON ---------------------- */
 .no-clicked-icon{
-    color: #63676b;
+    color:white;
     opacity: 0.3;
+    font-size: 2rem !important;
 }
+
+.text-danger{
+    font-size: 2rem !important;
+}
+/*--------------- END COLOR HEART ICON ---------------------- */
+
+
+/*--------------- TOASTER ---------------------- */
+.notification-success {
+    background-color: black !important;
+    color:#5FD4F4 !important;
+    width: 100%;
+    box-shadow: none !important
+  }
+.notification-warning {
+    background-color: black !important;
+    color: white !important;
+    box-shadow: none !important
+  }
+
+/*--------------- END TOASTER ---------------------- */
+
 
 @media screen and (min-width: 768px) {
 .container-overlay {
