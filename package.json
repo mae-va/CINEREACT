@@ -15,7 +15,8 @@
     "react-scripts": "1.1.5",
     "react-star-rating-lite": "0.0.11",
     "reactjs-localstorage": "0.0.7",
-    "reactstrap": "^6.5.0"
+    "reactstrap": "^6.5.0",
+    "underscore": "^1.9.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -8,11 +8,9 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 class Navbar extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
           modal : false
         }
-
     }
 
     toggle = () =>{
@@ -27,7 +25,6 @@ class Navbar extends Component {
                 <h1 className="logo-cine">CINE</h1>
                 <h1 className="logo-react">REACT</h1> {/* Logo */}
               </Link>
-
                 <div className="collapse navbar-collapse" > {/* icones de droite*/}
                   <div>
                     <Search />
