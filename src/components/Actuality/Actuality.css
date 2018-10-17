@@ -85,23 +85,7 @@ hr {
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 900px){
-    .container {
-        padding-left: 0 !important;
-        max-width: 80% !important;
-        max-height: 65%;
-    }
 
-    .mobile-readmore {
-        margin-top: 200px !important;
-    }
-
-    .m-casting {
-        font-size: 3em;
-    }
-    
-    
-}
 
 @media screen and (max-width: 768px) {
    .black{

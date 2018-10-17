@@ -8,7 +8,8 @@ class Actuality extends Component {
         super(props);
         this.state = {
             movie : {},
-            readMore: false
+			readMore: false,
+			color : "no-clicked-icon"
         }
         this.loadReady ="";
         this.favorite = false
@@ -23,44 +24,13 @@ class Actuality extends Component {
                 this.setState({movie : json.results[this.getRandomInt(19)]},() => this.getDirectorFromMovieId());       
             })
         .then(() => {
-                this.setState({movie : {...this.state.movie,release_date : this.state.movie.release_date.slice(0,4)}});
-                this.setState({movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
-                
-        })     
+								this.setState({movie : {...this.state.movie,release_date : this.state.movie.release_date.slice(0,4)},
+								movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
+							})
+				.then(()=>{this.forceUpdate()})    
     }
 
-    getJSX = () => {
-        this.loadReady =
-                    <div className="row actuality">
-                        <div className="col-lg-6 col-md-12 pl-0 pr-0 poster_column">
-                            <img className="img-fluid movie_poster" alt="movie_poster" src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`}/>
-                            <span className="fa fa-plus-circle fa-3x cross mb-5" onClick={this.readMoreOpen}></span>
-                        </div>
-                        <div className="col-lg-6 col-md-6 black collapse-mob">
-                            <div className="row pb-4 pl-5 pr-5 title">{this.state.movie.title}</div>
-                            <div className="row pl-5 mb-2 year top-infos">
-                                <p>{this.state.movie.release_date}</p> 
-                            </div>
-                            <div className="row pl-5 director top-infos">
-                                <p>{this.state.movie.director}</p> </div>
-                            <div className="row pl-5 pb-3 casting top-infos">
-                                <em>{this.state.movie.casting}</em>
-                            </div>
-                            <hr />
-                            <div className="row synopsis pb-4 pl-5 pr-5 d-none d-lg-block">
-                                <p>{this.state.movie.overview}</p>
-                            </div>
-                            <div className="row favoritesRating">
-                                <i className="fa fa-heart pl-5 pr-5" onClick={this.handleClick}></i>
-                                <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" readonly/>
-                            </div>
-                        </div>
-                        
-                    </div>  
-                       
 
-    }
-    
     getDirectorFromMovieId = () => {
       fetch(`https://api.themoviedb.org/3/movie/${this.state.movie.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
         .then(response => response.json())
@@ -74,7 +44,7 @@ class Actuality extends Component {
                 fullCast+=`${results[i].name}... `;
                }
             } 
-					this.setState({movie : {...this.state.movie,casting : fullCast}},() => {this.getJSX()})
+					this.setState({movie : {...this.state.movie,casting : fullCast}});
 					this.forceUpdate();
          
         })
@@ -89,9 +59,14 @@ class Actuality extends Component {
     }
 
     handleClick = () => {
-        this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
-        
-    }
+			if(this.state.color === "no-clicked-icon"){
+				this.setState({ color : "text-danger"});
+			} else if(this.state.color === "text-danger"){
+				this.setState({ color : "no-clicked-icon"});
+			}
+			this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
+			
+	}
 
 		setFavorite = () => {
 			if (this.state.favorite===true) {
@@ -113,8 +88,13 @@ removeItem = () => {
 
 readMoreOpen = () => {
     this.setState({readMore: !this.state.readMore});
+    console.log("salut")
 }
 
+closeReadMore = () => {
+    this.setState({readMore: !this.state.readMore});
+    console.log("test")
+}
 
 
    
@@ -128,12 +108,33 @@ readMoreOpen = () => {
                 </div>
                 <div className="container-fluid bloc_actuality pl-0 pr-0"> 
                     <div className="container">
-                        {this.state.readMore ? <ReadMore title={this.state.movie.title} year={this.state.movie.release_date} synopsis={this.state.movie.overview}/> : null}
+                        {this.state.readMore ? <ReadMore close={this.closeReadMore} title={this.state.movie.title} year={this.state.movie.release_date} director={this.state.movie.director} casting={this.state.movie.casting} synopsis={this.state.movie.overview}/> : null}
                     </div>               
-                    {this.loadReady}                  
-                </div>
-                <div>
-                    
+                    <div className="row actuality">
+                        <div className="col-lg-6 col-md-12 pl-0 pr-0 poster_column">
+                            <img className="img-fluid movie_poster" alt="movie_poster" src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`}/>
+                            <span className="fa fa-plus-circle fa-3x cross mb-5" onClick={this.readMoreOpen} style={this.state.readMore ? {display: 'none'} : {display: 'block'}}></span>
+                        </div>
+                        <div className="col-lg-6 col-md-6 black collapse-mob">
+                            <div className="row pb-4 pl-5 pr-5 title">{this.state.movie.title}</div>
+                            <div className="row pl-5 mb-2 year top-infos">
+                                <p>{this.state.movie.release_date}</p> 
+                            </div>
+                            <div className="row pl-5 director top-infos">
+                                <p>{this.state.movie.director}</p> </div>
+                            <div className="row pl-5 pb-3 casting top-infos">
+                                <em>{this.state.movie.casting}</em>
+                            </div>
+                            <hr />
+                            <div className="row synopsis pb-4 pl-5 pr-5 d-none d-lg-block">
+                                <p>{this.state.movie.overview}</p>
+                            </div>
+                            <div className="row favoritesRating pb-4 pl-5 pr-5 w-100">
+                                <i className={`${this.state.color} fa fa-heart pr-5`} onClick={this.handleClick}></i>
+                                <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" readonly/>
+                            </div>
+                        </div>  
+                    </div>                    
                 </div>
             </div>
             );
