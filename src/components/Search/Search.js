@@ -2,7 +2,12 @@ import './Search.css';
 import React, {Component} from 'react';
 import Rating from "react-star-rating-lite";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, InputGroup,
+  InputGroupAddon,
+  InputGroupButtonDropdown,
+  InputGroupDropdown,
+  Input,
+  Button } from 'reactstrap';
 
 
 
@@ -110,7 +115,7 @@ class Search extends Component {
     toggleModal = () => {
 			
         this.setState({
-					modal: !this.state.modal, 		
+					modal: !this.state.modal
 				});
 				if(this.state.category === "Film  " || this.state.category === "Année  " ){
 				this.card = 
@@ -179,36 +184,54 @@ class Search extends Component {
     
 
     render(){
-			const CloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px', color: "#5FD4F4" }} onClick={this.toggleModal}>&times;</button>;
-        return(
-            <div className= "searchBox">
-              <div className="input-group">
-                <button className="btn btn-dark" onClick={this.fetchByCategory} >
-                    <i className="fa fa-search icon"></i>
-                </button>
-                <input onChange={this.inputChange} type="text" className="form-control" placeholder="Rechercher..." aria-label="Text input with segmented dropdown button"></input>
-                <div className="input-group-append">   
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                    <DropdownToggle caret className="btn btn-outline-secondary  dropdown-toggle-split">
-                        {this.state.category}
-                    </DropdownToggle>
-                    <DropdownMenu>
-                        <DropdownItem onClick={this.changeValue} value= "Film  " >Film</DropdownItem>
-                        <DropdownItem onClick={this.changeValue} value= "Réalisateur  " >Réalisateur</DropdownItem>
-                        <DropdownItem onClick={this.changeValue} value= "Année  ">Année</DropdownItem>
-                     </DropdownMenu>
-                </Dropdown>
-                </div>     
-            </div>
-            <div>
-                <Modal isOpen={this.state.modal} toggle={this.toggleModal} size="lg" backdropClassName="bd-black">
-                  <ModalHeader close={CloseBtn} className="bg-black">{`RESEARCH FOR ${this.state.query.toUpperCase()}`}</ModalHeader>
-                  <ModalBody className="bg-black">
-									{this.card}
-                </ModalBody>
-              </Modal>
-  					</div> 
-					</div>
+		  const CloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px', color: "#5FD4F4" }} onClick={this.toggleModal}>&times;</button>;
+      return(
+        <div className="top-fixed-search">
+          {/* <InputGroupAddon addonType="prepend"></InputGroupAddon> */}
+          <Button onClick={this.fetchByCategory} className="btn-dark"><i className="fa fa-search icon"></i></Button>
+          <Input placeholder="Search" onChange={this.inputChange}/>
+            {/* <InputGroupAddon addonType="prepend"> */}
+            <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <DropdownToggle caret className="btn btn-outline-secondary  dropdown-toggle-split">
+                  {this.state.category}
+              </DropdownToggle>
+              <DropdownMenu>
+                  <DropdownItem onClick={this.changeValue} value= "Film  " >Film</DropdownItem>
+                  <DropdownItem onClick={this.changeValue} value= "Réalisateur  " >Réalisateur</DropdownItem>
+                  <DropdownItem onClick={this.changeValue} value= "Année  ">Année</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          {/* </InputGroupAddon> */}  
+        </div>
+
+            // <div className= "searchBox">
+            //   <div className="input-group">
+            //     <button className="btn btn-dark" onClick={this.fetchByCategory} >
+            //         <i className="fa fa-search icon"></i>
+            //     </button>
+            //     <input onChange={this.inputChange} type="text" className="form-control" placeholder="Rechercher..." aria-label="Text input with segmented dropdown button"></input>
+            //     <div className="input-group-append">   
+            //     <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            //         <DropdownToggle caret className="btn btn-outline-secondary  dropdown-toggle-split">
+            //             {this.state.category}
+            //         </DropdownToggle>
+            //         <DropdownMenu>
+            //             <DropdownItem onClick={this.changeValue} value= "Film  " >Film</DropdownItem>
+            //             <DropdownItem onClick={this.changeValue} value= "Réalisateur  " >Réalisateur</DropdownItem>
+            //             <DropdownItem onClick={this.changeValue} value= "Année  ">Année</DropdownItem>
+            //          </DropdownMenu>
+            //     </Dropdown>
+            //     </div>     
+            // </div>
+            // <div>
+            //     <Modal isOpen={this.state.modal} toggle={this.toggleModal} size="lg" backdropClassName="bd-black">
+            //       <ModalHeader close={CloseBtn} className="bg-black">{`RESEARCH FOR ${this.state.query.toUpperCase()}`}</ModalHeader>
+            //       <ModalBody className="bg-black">
+			// 						{this.card}
+            //     </ModalBody>
+            //   </Modal>
+  			// 		</div> 
+			// 		</div>
         )
     }
 }

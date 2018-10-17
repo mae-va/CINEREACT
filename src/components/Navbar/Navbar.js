@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import './Navbar.css';
+
 import Search from '../Search/Search';
+
+import { Link } from "react-router-dom";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
+import {  Navbar as Navbarr,
+  Nav,
+  NavItem,
+  NavLink,
+  Dropdown, DropdownToggle, DropdownMenu, DropdownItem, InputGroup,
+  InputGroupAddon,
+  InputGroupButtonDropdown,
+  InputGroupDropdown,
+  Input,
+  Button } from 'reactstrap'
 
 
 class Navbar extends Component {
@@ -20,56 +32,41 @@ class Navbar extends Component {
     render(){
         return (
           <div>
-            <nav className="navbar navbar-expand-md fixed-top"> {/* Navbar du haut*/}
-              <Link exact to="/">
-                <h1 className="logo-cine">CINE</h1>
-                <h1 className="logo-react">REACT</h1> {/* Logo */}
-              </Link>
-                <div className="collapse navbar-collapse" > {/* icones de droite*/}
-                  <div>
-                    <Search />
-                  </div>
-                  <div>
-                    <ul className="navbar-nav">
-                      <li className="nav-item active pr-5">
-                        <Link to="/favoris" className="nav-link">
-                          <i className="fa fa-heart icon"></i>
-                          <p className="text-nav ml-3 mt-3">FAVORIS</p>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <li className="nav-item">    
-                  <div className="nav-link">
-                    <i className="fa fa-envelope icon" onClick={this.toggle}></i>
-                    <p className="text-nav ml-3 mt-3" onClick={this.toggle}>CONTACT</p>
-                  </div>  
-                  <div>
-                    <Modal isOpen={this.state.modal} toggle={this.toggle} >
-                      <ModalHeader toggle={this.toggle} className="modal-contact">CONTACT</ModalHeader>
-                      <ModalBody className="modal-contact">
-                        <p>Names : Maéva Duran, Matthieu Petit, Tiphaine Deswartes, Antoine Nourris </p>
-                        <hr className="mx-5"/>
-                        <p>Email address :     Contact@simonphilouze.fr </p>
-                      </ModalBody>
-                    </Modal>
-  					      </div> 
-                </li>
-                <div className= "menu-bottom navbar navbar-expand-sm fixed-bottom" id="navbarNav"> {/* Navbar du bas*/}
-                    <Search />
-                  <div className="icon-bottom">                      {/* icones de droite*/}
-                    <ul className="navbar-nav">
-                      <li className="nav-item active">
-                        <Link to="/favoris" className="nav-link">
-                          <i className="text-danger fa fa-heart fa-1x icon"></i>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-            </nav>
-          </div>
+          <Navbarr className="top-fixed-navbar" expand="xs">
+            <Link exact to="/">
+              <h1 className="logo-cine">CINE</h1>
+              <h1 className="logo-react">REACT</h1>
+            </Link>
+            <Search/>
+            <Nav className="ml-auto" navbar>
+              <NavItem className="mr-2">
+                <NavLink tag={Link} to="/favoris">
+                  <i className="fa fa-heart fa-1x icon mr-2"></i>
+                  <span className="text-link-nav">Favoris</span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink onClick={this.toggle}>
+                  <i className="fa fa-envelope icon mr-2"></i>
+                  <span className="text-link-nav">Contact</span>
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Navbarr>
+
+          <Navbarr className="bottom-fixed-navbar" expand="lg">
+            <Search/>
+          </Navbarr>
+
+          <Modal isOpen={this.state.modal} toggle={this.toggle} >
+            <ModalHeader toggle={this.toggle} className="modal-contact">CONTACT</ModalHeader>
+            <ModalBody className="modal-contact">
+              <p>Names : Maéva Duran, Matthieu Petit, Tiphaine Deswartes, Antoine Nourris </p>
+              <hr className="mx-5"/>
+              <p>Email address : Contact@simonphilouze.fr </p>
+            </ModalBody>
+          </Modal>
+        </div>
         )
     }
   }
