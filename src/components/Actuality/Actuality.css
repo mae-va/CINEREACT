@@ -5,15 +5,15 @@
     margin-bottom: 0px;
     }
 
-.poster_column {
+/* .poster_column {
     max-height: 100%;
-    }
+    } */
 
 .poster_column .cross{
     position: absolute !important;
     bottom: 40px !important;
     right: 50px !important;
-    color: #121314 !important;
+    color: black !important;
     opacity: 1 !important;
     font-weight: 200 !important;
 }
@@ -88,11 +88,11 @@ hr {
 
 @media screen and (max-width: 768px) {
    .black{
-margin-bottom: 90px;
+    margin-bottom: 90px;
    }
         .title {
             margin-top: -100px;
-          padding-bottom: 2% !important;
+            padding-bottom: 2% !important;
             padding-top: 0;
             font-size: 1em;
             text-transform: uppercase;

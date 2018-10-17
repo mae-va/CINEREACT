@@ -16,24 +16,23 @@
 
 .m-casting {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
+    font-size: 0.7em;
     color: #F1F1F1;
 
 }
 
 
 .m-synopsis  {
-    font-size: 1.1em;
+    font-size: 0.8em;
 }
 
 .m-title{
-    margin-top: 20px;
-    font-size: 3em;
+    font-size: 2em;
     text-align: center !important;
     line-height: 1;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 780px) {
     .collapse-mob{
         display: none;
     }
@@ -45,4 +44,9 @@
     -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important;
     
+}
+
+.icons-bottom {
+    justify-content: space-between;
+    color: #5FD4F4;
 }
