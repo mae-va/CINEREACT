@@ -71,12 +71,36 @@ hr {
     position:absolute;
     bottom:10px;
 }
-
+/*--------------- COLOR HEART ICON ---------------------- */
 .no-clicked-icon{
+    color:white;
+    opacity: 0.3;
+    font-size: 2rem !important;
+}
+
+.text-danger{
+    font-size: 2rem !important;
     color: #fff;
     opacity: 0.3;
-    font-size : 2rem !important;
 }
+/*--------------- END COLOR HEART ICON ---------------------- */
+
+
+/*--------------- TOASTER ---------------------- */
+.notification-success {
+    background-color: black !important;
+    color:#5FD4F4 !important;
+    width: 100%;
+    box-shadow: none !important
+  }
+.notification-warning {
+    background-color: black !important;
+    color: white !important;
+    box-shadow: none !important
+  }
+
+/*--------------- END TOASTER ---------------------- */
+
 
 @media screen and (min-width: 900px) {
 .container-overlay {

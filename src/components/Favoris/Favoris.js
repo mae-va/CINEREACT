@@ -30,13 +30,13 @@ class Favoris extends Component {
 
       this.setState({ movies: this.fullMovie});
     }
-
+    /*
     setOverview = (param) => {
       if (param.length > 90) {
         param = param.substring(0,90)+"...";
           return param;
       } 
-    }
+    }*/
 
     removeMovie = (movieId) => {
       console.log(movieId)
@@ -61,7 +61,7 @@ class Favoris extends Component {
                         <p className="card-text"> {movie.release_date} {movie.director}</p>
                         <p className="card-text d-none d-sm-none d-md-block d-lg-block"> {}</p>
                         <div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
-                          <p className="card-text">{this.setOverview(movie.overview)}</p>
+                          {/* <p className="card-text">{this.setOverview(movie.overview)}</p> */}
                         
                         </div>
                         <div className="row favoritesRating pb-4 pr-5 mr-0 w-100">

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Rating from "react-star-rating-lite";
 import './Actuality.css';
 import ReadMore from "../ReadMore/ReadMore.js";
+import {NotificationManager, NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import posed from 'react-pose';
 
 const Box = posed.div({
@@ -15,13 +17,21 @@ class Actuality extends Component {
         this.state = {
             movie : {},
             readMore: false,
-            isVisible : true,
-            color : "no-clicked-icon"
+            color: "no-clicked-icon"
+            isVisible : true
         }
         this.rate ="";
 				this.favorite = false
         
     }
+
+    favoriteMovies = () => {
+			NotificationManager.success('Movie added!',"", 1000);
+		}
+
+		deleteMovies = () => {
+			NotificationManager.warning('Movie removed!',"", 1000);
+		}
 
     componentDidMount() {
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2018`)
@@ -38,7 +48,6 @@ class Actuality extends Component {
             this.setState({ isVisible: !this.state.isVisible });
           }, 500);
     }
-
 
     getDirectorFromMovieId = () => {
       fetch(`https://api.themoviedb.org/3/movie/${this.state.movie.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
@@ -66,21 +75,26 @@ class Actuality extends Component {
     }
 
     handleClick = () => {
-			if(this.state.color === "no-clicked-icon"){
-				this.setState({ color : "text-danger"});
-			} else if(this.state.color === "text-danger"){
-				this.setState({ color : "no-clicked-icon"});
-			}
-			this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
-			
-	}
+				if (this.state.color=== "no-clicked-icon"){
+					  console.log("test")
+						this.setState({color:"text-danger"});
+						this.favoriteMovies();
+				}
+				else if (this.state.color === "text-danger"){
+						console.log("test")
+						this.setState({color:"no-clicked-icon"});
+						this.deleteMovies();
+				}
+        this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
+        
+    }
 
 		setFavorite = () => {
-			if (this.state.favorite===true) {
-				this.setItem();
-		}	else if (this.state.favorite===false) {
-			this.removeItem();
-		}
+      if (this.state.favorite===true) {
+          this.setItem();
+      }	else if (this.state.favorite===false) {
+        this.removeItem();
+      }
 		}
 
 
@@ -131,13 +145,17 @@ closeReadMore = () => {
                             <div className="row synopsis pb-4 pl-5 pr-5 d-none d-lg-block">
                                 <p>{this.state.movie.overview}</p>
                             </div>
-                            <div className="row favoritesRating pb-4 pl-5 pr-5 w-100">
-                                <i className={`${this.state.color} fa fa-heart pr-5`} onClick={this.handleClick}></i>
-                                {this.rate}
+                            <div className="row favoritesRating">
+                              <i className= {`${this.state.color} fa fa-heart pl-5 pr-5`} onClick={ () => {this.handleClick()}}></i>
+                               {this.rate}
                             </div>
-                        </div>  
-                    </div>
-                </Box>
+                        </div>
+                        
+                    </div>                    
+                </div>
+                <div>
+                </div>
+								<NotificationContainer/>
             </div>
             );
 
