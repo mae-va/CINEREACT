@@ -20,7 +20,7 @@ h1 {
 
 
 .top-fixed-navbar {
-    background-color:  #121314;
+    background-color:  #141414;
     position: fixed !important;
     top: 0;
     right: 0;
@@ -30,7 +30,7 @@ h1 {
 
 .bottom-fixed-navbar {
     display: none !important;
-    background-color:  #121314;
+    background-color: #141414;
     position: fixed !important;
     bottom: 0;
     right: 0;
@@ -60,36 +60,9 @@ h1 {
     color: #5FD4F4 !important;
 }
 
-/* .navbar-nav {
-    flex-direction: row !important;
-} */
-
-
-
-/* .navbar-toggler {
-    color: #5FD4F4 !important;
-    border-color: transparent !important;
-} */
-
-/* Link { 
-    text-decoration: none ;
-} */
-
-/* .btn, .btn-link {
-    color: #5FD4F4 !important;
-   
-} */
-
-/* .search {
-    padding-left: 30px !important;
-} */
-
-/* .navbar-collapse {
-    justify-content: space-between;
-} */
 
 .modal-contact {
-    background-color: rgb(18, 19, 20) !important; 
+    background-color:#141414 !important; 
     color :#5FD4F4;
     border : none !important;
     border-radius: 0 !important;
@@ -112,34 +85,7 @@ h1 {
     }
 }
 
-/* @media screen and (min-width: 768px){
-    .menu-bottom {
-        display: none !important;
-    }
-} */
 
-/* 
-@media screen and (min-width: 576px)and (max-width: 1024px){
-
-  
-
-} */
-/* 
-@media screen and (min-width: 320px)and (max-width: 1024px){
-    .text-nav{
-        display: none;
-    }
-
-} */
-
-
-/* .icon-bottom {
-    display: flex !important;
-}
-
-.menu-bottom {
-    justify-content: space-between !important;
-} */
 
 
 
