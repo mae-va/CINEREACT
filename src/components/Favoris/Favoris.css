@@ -3,7 +3,7 @@ body {
 }
 
 .card {
-    background-color: rgb(18, 19, 20) !important; 
+    background-color:#141414 !important; 
 }
 
 .poster-like {
@@ -30,31 +30,18 @@ body {
     color: red;
 }
 
-.heart_star {
+/*.heart_star {
     text-align: right;
     margin-top: 5rem !important;
     justify-content: space-between !important;
-}
+    position:absolute;
+    bottom:10px;
+}*/
 
 .top {
     margin-top: 60px;
 }
 
-.sidebar-box {
-    max-height: 120px;
-    position: relative;
-    overflow: hidden;
-  }
-
-.sidebar-box .read-more { 
-    position: absolute; 
-    bottom: 0; 
-    left: 0;
-    width: 100%; 
-    text-align: center; 
-    margin: 0; padding: 30px 0; 
-    background-image: linear-gradient(to bottom, transparent, rgb(18, 19, 20));
-  }
 
   .ajust-height {
     height : 250px;

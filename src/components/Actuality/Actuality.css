@@ -4,7 +4,7 @@
     z-index: 38; 
     margin-bottom: 0px;
     }
-
+/*#717677*/
 
 .poster_column .cross{
     position: absolute !important;
@@ -99,17 +99,7 @@ hr {
             padding-top: 0;
             font-size: 1em;
             text-transform: uppercase;
-        }
-       
-           /* .container-overlay-mobile {
-            background-image:-webkit-linear-gradient(-90deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)85%)!important; 
-            z-index:19 !important;
-            position:absolute !important;
-            height: 100%;
-            width: 100%;
-            } */
-         
-       
+        }     
      
     }
 
