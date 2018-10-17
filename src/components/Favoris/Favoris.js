@@ -31,7 +31,7 @@ class Favoris extends Component {
 
     setOverview = (param) =>{
       if (param.length > 90) {
-        param= param.substring(0,90)+"...";
+        param = param.substring(0,90)+"...";
           return param;
       } 
     }
@@ -62,7 +62,7 @@ class Favoris extends Component {
                   <p className="card-text"> {movie.release_date} {movie.director}</p>
                   <p className="card-text d-none d-sm-none d-md-block d-lg-block"> {}</p>
                   <div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
-                    {/* <p className="card-text">{this.setOverview(movie.overview)}</p> */}
+                    <p className="card-text">{this.setOverview(movie.overview)}</p>
                    
                   </div>
                   <div className="row heart_star">

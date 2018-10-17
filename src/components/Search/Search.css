@@ -67,6 +67,7 @@
 .bg-black {
 	background-color: #000000;
 	border: none !important;
+	border-radius: 0 !important;
 }
 
 
