@@ -63,8 +63,8 @@ class Search extends Component {
     }
 
     changeValue= (e) => { 
-				this.setState({category: e.target.value});
-      }
+			this.setState({category: e.target.value});
+    }
 
     toggle = () => {
       this.setState(prevState => ({

@@ -54,7 +54,7 @@ class Navbar extends Component {
             </Nav>
           </Navbarr>
 
-          <Navbarr className="bottom-fixed-navbar" expand="lg">
+          <Navbarr className="bottom-fixed-navbar">
             <Search/>
           </Navbarr>
 
