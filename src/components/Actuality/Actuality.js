@@ -17,7 +17,7 @@ class Actuality extends Component {
         this.state = {
             movie : {},
             readMore: false,
-            color: "no-clicked-icon"
+            color: "no-clicked-icon",
             isVisible : true
         }
         this.rate ="";
@@ -68,25 +68,23 @@ class Actuality extends Component {
     }
 
     getRandomArbitrary = (min, max) =>{
-        return Math.random() * (max - min) + min;
-      }
+      return Math.random() * (max - min) + min;
+    }
+
     getRandomInt = (max) => {
-        return Math.floor(Math.random() * Math.floor(max)); 
+      return Math.floor(Math.random() * Math.floor(max)); 
     }
 
     handleClick = () => {
-				if (this.state.color=== "no-clicked-icon"){
-					  console.log("test")
-						this.setState({color:"text-danger"});
-						this.favoriteMovies();
-				}
-				else if (this.state.color === "text-danger"){
-						console.log("test")
-						this.setState({color:"no-clicked-icon"});
-						this.deleteMovies();
-				}
-        this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
-        
+      if (this.state.color=== "no-clicked-icon"){
+        this.setState({color:"text-danger"});
+        this.favoriteMovies();
+      }
+      else if (this.state.color === "text-danger"){
+        this.setState({color:"no-clicked-icon"});
+        this.deleteMovies();
+      }
+      this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
     }
 
 		setFavorite = () => {
@@ -97,25 +95,21 @@ class Actuality extends Component {
       }
 		}
 
+  setItem = () => {
+    window.localStorage.setItem(`${this.state.movie.id}`, JSON.stringify(this.state.movie));
+  }
 
-setItem = () => {
-window.localStorage.setItem(`${this.state.movie.id}`, JSON.stringify(this.state.movie));
+  removeItem = () => {
+    window.localStorage.removeItem(`${this.state.movie.id}`);
+  }
 
-}
-
-removeItem = () => {
-	window.localStorage.removeItem(`${this.state.movie.id}`);
-}
-
-readMoreOpen = () => {
+  readMoreOpen = () => {
     this.setState({readMore: !this.state.readMore});
-    console.log("salut")
-}
+  }
 
-closeReadMore = () => {
+  closeReadMore = () => {
     this.setState({readMore: !this.state.readMore});
-    console.log("test")
-}
+  }
 
     render() {
         return (
@@ -150,9 +144,8 @@ closeReadMore = () => {
                                {this.rate}
                             </div>
                         </div>
-                        
-                    </div>                    
-                </div>
+                    </div>
+                </Box>
                 <div>
                 </div>
 								<NotificationContainer/>
