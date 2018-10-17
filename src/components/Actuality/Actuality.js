@@ -2,20 +2,26 @@ import React, { Component } from 'react';
 import Rating from "react-star-rating-lite";
 import './Actuality.css';
 import ReadMore from "../ReadMore/ReadMore.js";
+import posed from 'react-pose';
+
+const Box = posed.div({
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 }
+  });
 
 class Actuality extends Component {
     constructor(props){
         super(props);
         this.state = {
             movie : {},
-            readMore: false
+            readMore: false,
+            isVisible : true
         }
         this.loadReady ="";
         this.favorite = false
         
-        
     }
-    
+
     componentDidMount() {
       fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2018`)
         .then(response => response.json())           
@@ -25,8 +31,11 @@ class Actuality extends Component {
         .then(() => {
                 this.setState({movie : {...this.state.movie,release_date : this.state.movie.release_date.slice(0,4)}});
                 this.setState({movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
-                
-        })     
+
+        })
+        setTimeout(() => {
+            this.setState({ isVisible: !this.state.isVisible });
+          }, 500);
     }
 
     getJSX = () => {
@@ -56,11 +65,9 @@ class Actuality extends Component {
                             </div>
                         </div>
                         
-                    </div>  
-                       
-
+                    </div>
     }
-    
+
     getDirectorFromMovieId = () => {
       fetch(`https://api.themoviedb.org/3/movie/${this.state.movie.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
         .then(response => response.json())
@@ -76,11 +83,9 @@ class Actuality extends Component {
             } 
 					this.setState({movie : {...this.state.movie,casting : fullCast}},() => {this.getJSX()})
 					this.forceUpdate();
-         
         })
-      
-    } 
-    
+    }
+
     getRandomArbitrary = (min, max) =>{
         return Math.random() * (max - min) + min;
       }
@@ -90,7 +95,7 @@ class Actuality extends Component {
 
     handleClick = () => {
         this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
-        
+
     }
 
 		setFavorite = () => {
@@ -116,22 +121,18 @@ readMoreOpen = () => {
 }
 
 
-
-   
-
-
     render() {
-			
+        
         return (
             <div>
                 <div className="container-overlay pl-0">
                 </div>
-                <div className="container-fluid bloc_actuality pl-0 pr-0"> 
+                <Box className="container-fluid bloc_actuality pl-0 pr-0" pose={this.state.isVisible ? 'hidden' : 'visible'}>
                     <div className="container">
                         {this.state.readMore ? <ReadMore title={this.state.movie.title} year={this.state.movie.release_date} synopsis={this.state.movie.overview}/> : null}
-                    </div>               
-                    {this.loadReady}                  
-                </div>
+                    </div>
+                    {this.loadReady}
+                    </Box>
                 <div>
                     
                 </div>
@@ -140,9 +141,5 @@ readMoreOpen = () => {
 
         }
 }
-
-
-
-                       
 
 export default Actuality;
