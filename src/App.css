@@ -9,7 +9,7 @@ p {
   
 }
 
-.title, .m-title {
+.title, .m-title, .card-title  {
   font-family: 'Roboto Condensed', sans-serif;
   color: #F1F1F1;
 }

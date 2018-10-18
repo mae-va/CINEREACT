@@ -58,15 +58,18 @@ class Favoris extends Component {
                     <div className="col-lg-7 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0 h-100">
                       <div className="card-block p-5" id="position">
                         <h4 className="card-title">{movie.title}</h4>
-                        <p className="card-text"> {movie.release_date} {movie.director}</p>
-                        <p className="card-text d-none d-sm-none d-md-block d-lg-block"> {}</p>
-                        <div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
-                          {/* <p className="card-text">{this.setOverview(movie.overview)}</p> */}
-                        
-                        </div>
+                        <p className="card-text"> {movie.release_date} - {movie.director}</p>
+      
                         <div className="row favoritesRating pb-4 pr-5 mr-0 w-100">
-                        <i className="fa fa-heart pt-1 pl-3 pr-5 coeur" onClick={() => {this.removeMovie(movie.id);}}></i>
-                        <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
+                         <div className= "heart">
+                          <i className="fa fa-heart pt-1 pl-3 pr-5 coeur" onClick={() => {this.removeMovie(movie.id);}}></i>
+                        </div>
+                        <div className= "stars">
+                        <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>  
+                        </div>
+                        <div className= "cast">
+                        <p>Brad Pitt , Nicole Kidman , Jim Carrey ...</p>
+                        </div>
                       </div>
                       </div>
                     </div>
