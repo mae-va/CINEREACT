@@ -1,143 +1,119 @@
-.black{
-    background-color:  black;
-    color: #f9f9f7;
-    z-index: 38; 
-    margin-bottom: 0px;
-    }
-/*#717677*/
-
-.poster_column .cross{
-    position: absolute !important;
-    bottom: 40px !important;
-    right: 50px !important;
-    color: black !important;
-    opacity: 1 !important;
-    font-weight: 200 !important;
+.black {
+  background-color:black;
+  color:#f9f9f7;
+  z-index: 38;
+  margin-bottom: 0px;
 }
 
+.poster_column .cross {
+  position: absolute !important;
+  bottom: 40px !important;
+  right: 50px !important;
+  color: black !important;
+  opacity: 1 !important;
+  font-weight: 200 !important;
+}
 
-.movie_poster{
-    width: 100%;
-    max-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    object-fit: cover;
-    object-position: 5% 0;
-  }
+.movie_poster {
+  width: 100%;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: 5% 0;
+}
 
-  .bloc-actuality{
-    height: 100vh;
-  }
+.bloc-actuality {
+  height: 100vh;
+}
 
-  .title{
+.title {
   padding-top: 15%;
   font-size: 3.3em;
   text-transform: uppercase;
- 
 }
 
-
-
-.year{
-    font-size: 1.3em;
-    
+.year {
+  font-size: 1.3em;
 }
 
-.synopsis{
-    font-size: 1.2em;
-    margin-right: 5rem !important;
-    
+.synopsis {
+  font-size: 1.2em;
+  margin-right: 5rem !important;
 }
-
 
 hr {
-    margin-left: 2.1rem !important;
-    margin-right: 9rem !important;
-    background-color: #5FD4F4 !important;
-    
+  margin-left: 2.1rem !important;
+  margin-right: 9rem !important;
+  background-color: #5FD4F4 !important;
 }
 
-.text-danger {
-    font-size : 2rem !important;
+.fa {
+  cursor: pointer;
 }
 
-.fa{
-    cursor: pointer;
+.favoritesRating {
+  justify-content: space-between;
+  margin-right: 8rem !important;
+  position:absolute;
+  bottom:10px;
 }
 
-.favoritesRating{
-    justify-content: space-between;
-    margin-right: 8rem !important;
-    position:absolute;
-    bottom:10px;
-}
-/*--------------- COLOR HEART ICON ---------------------- */
-.no-clicked-icon{
-    color:white;
-    opacity: 0.3;
-    font-size: 2rem !important;
+.no-clicked-icon {
+  color:white;
+  opacity: 0.3;
+  font-size: 2rem !important;
 }
 
 .text-danger{
-    font-size: 2rem !important;
-    color: #fff;
-    opacity: 0.3;
+  font-size: 2rem !important;
+  color: #fff;
+  opacity: 0.3;
 }
-/*--------------- END COLOR HEART ICON ---------------------- */
 
-
-/*--------------- TOASTER ---------------------- */
 .notification-success {
-    background-color: black !important;
-    color:#5FD4F4 !important;
-    width: 100%;
-    box-shadow: none !important
-  }
+  background-color: black !important;
+  color:#5FD4F4 !important;
+  width: 100%;
+  box-shadow: none !important
+}
 .notification-warning {
-    background-color: black !important;
-    color: white !important;
-    box-shadow: none !important
-  }
-
-/*--------------- END TOASTER ---------------------- */
-
+  background-color: black !important;
+  color: white !important;
+  box-shadow: none !important
+}
 
 @media screen and (min-width: 900px) {
 .container-overlay {
-    background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)45%)!important; 
-    z-index:19 !important;
-    position:absolute !important;
-    height:100%;
-    width: 100%;
-    }
+  background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)45%)!important; 
+  z-index:19 !important;
+  position:absolute !important;
+  height:100%;
+  width: 100%;
+  }
 }
 
-
-
 @media screen and (max-width: 768px) {
-   .black{
-    margin-bottom: 90px;
-   }
-        .title {
-            margin-top: -100px;
-            padding-bottom: 2% !important;
-            padding-top: 0;
-            font-size: 1em;
-            text-transform: uppercase;
-        }     
-     
-    }
+  .black {
+  	margin-bottom: 90px;
+  }
+  .title {
+    margin-top: -100px;
+    padding-bottom: 2% !important;
+    padding-top: 0;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+}
 
 @media screen and (max-width: 900px) {
-    .collapse-mob{
-        display: none;
-    }
+  .collapse-mob {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 576px){
-    .cross{
-        display: none;
-    }
+  .cross {
+    display: none;
+  }
 }
-
-

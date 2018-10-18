@@ -1,78 +1,59 @@
 body {
-    background: #000000 !important;
+	background: #000000 !important;
 }
 
 .card {
-    background-color:#141414 !important; 
+  background-color:#141414 !important; 
 }
 
 .poster-like {
- 
-    height: 100%!important;
-    position: relative !important;
-    overflow: hidden !important;
-    border-radius: 7px 0 0 7px !important;
+  height: 100%!important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 7px 0 0 7px !important;
 }
-
-
 
 .card-block {
-
-    color : whitesmoke;
-    border-radius: 0 7px 7px 0 !important;
+  color : whitesmoke;
+  border-radius: 0 7px 7px 0 !important;
 }
 
-
-
-.coeur{
-    cursor: pointer;
-    font-size: 25px !important;
-    color: red;
+.coeur {
+  cursor: pointer;
+  font-size: 25px !important;
+  color: red;
 }
 
 /*.heart_star {
-    text-align: right;
-    margin-top: 5rem !important;
-    justify-content: space-between !important;
-    position:absolute;
-    bottom:10px;
+  text-align: right;
+  margin-top: 5rem !important;
+  justify-content: space-between !important;
+  position:absolute;
+  bottom:10px;
 }*/
 
 .top {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
+.ajust-height {
+  height : 250px;
+}
 
-  .ajust-height {
-    height : 250px;
+@media screen and (max-width:768px)/*IPAD*/{
+  .card-block {
+    font-size: 12px; 
   }
-
-
-  @media screen and (max-width:768px)/*IPAD*/{
-
-
-    .card-block {
-        font-size: 12px; 
-    }
-   
-}  
+}
 
 @media screen and (max-width:520px)/*smartphone*/{
   .ajust-scale {
-        height : 250px
+    height : 250px
   }
   .card-block {
-        font-size: 12px;     
+    font-size: 12px;
   }
   #position {
-        padding: 1rem !important ;
+    padding: 1rem !important ;
   }
-
 }
-
-
-   
-   
-  
-  
-    

@@ -1,37 +1,26 @@
 import React, { Component } from 'react';
 import './Navbar.css';
-
 import Search from '../Search/Search';
-
 import { Link } from "react-router-dom";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import {  Navbar as Navbarr,
-  Nav,
-  NavItem,
-  NavLink,
-  Dropdown, DropdownToggle, DropdownMenu, DropdownItem, InputGroup,
-  InputGroupAddon,
-  InputGroupButtonDropdown,
-  InputGroupDropdown,
-  Input,
-  Button } from 'reactstrap'
+import {  Navbar as Navbarr, Nav, NavItem, NavLink,} from 'reactstrap'
 
 
 class Navbar extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          modal : false
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal : false
     }
+  }
 
-    toggle = () =>{
-      this.setState({ modal : !this.state.modal})
-    }
+  toggle = () =>{
+    this.setState({ modal : !this.state.modal})
+  }
 
-    render(){
-        return (
-          <div>
+  render(){
+    return (
+        <div>
           <Navbarr className="top-fixed-navbar" expand="xs">
             <Link exact to="/">
               <h1 className="logo-cine">CINE</h1>
@@ -53,11 +42,9 @@ class Navbar extends Component {
               </NavItem>
             </Nav>
           </Navbarr>
-
           <Navbarr className="bottom-fixed-navbar">
             <Search/>
           </Navbarr>
-
           <Modal isOpen={this.state.modal} toggle={this.toggle} >
             <ModalHeader toggle={this.toggle} className="modal-contact">CONTACT</ModalHeader>
             <ModalBody className="modal-contact">
@@ -67,7 +54,7 @@ class Navbar extends Component {
             </ModalBody>
           </Modal>
         </div>
-        )
+      )
     }
   }
 
