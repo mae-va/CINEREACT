@@ -24,29 +24,49 @@ body {
 
 
 
-.coeur{
+.heart{
     cursor: pointer;
     font-size: 25px !important;
     color: red;
+    position: relative;
+    top: -60px;
+    left: -85px;
+
 }
 
-/*.heart_star {
-    text-align: right;
-    margin-top: 5rem !important;
-    justify-content: space-between !important;
-    position:absolute;
-    bottom:10px;
-}*/
+.card-text  {
+  list-style-type:none !important;
+  position: relative;
+  top: -30px;
+  
+}
+
+.card-title {
+    position: relative;
+    top: -30px;
+}
 
 .top {
     margin-top: 60px;
 }
 
 
-  .ajust-height {
+.ajust-height {
     height : 250px;
   }
 
+
+.stars{
+position: relative;
+top: 25px !important;
+left: -175px !important;
+}
+
+.cast{
+position: relative;
+top: 30px;
+left: 10px;
+}
 
   @media screen and (max-width:768px)/*IPAD*/{
 
@@ -58,15 +78,29 @@ body {
 }  
 
 @media screen and (max-width:520px)/*smartphone*/{
-  .ajust-scale {
+.ajust-scale {
         height : 250px
   }
-  .card-block {
+
+.card-block {
         font-size: 12px;     
   }
-  #position {
+
+#position {
         padding: 1rem !important ;
   }
+
+.heart{
+position: relative;
+top: 2px;
+left: -45px;
+}
+
+.card-title{
+    font-size: 15px;
+}
+
+  
 
 }
 
