@@ -13,7 +13,13 @@ class Favoris extends Component {
     this.cardBlock = "";
   }
 
+  renderUpdateMovie = (movie) => {
+    this.setState({ movies: [...this.state.movies, movie]});
+    console.log(this.state.movies);
+  }
+
   componentDidMount() {
+    this.props.updateLocalMovie(this.renderUpdateMovie);
     let values = [];
     let keys = Object.keys(localStorage);
     for (let y = 0; y < keys.length; y++) { 
@@ -23,13 +29,8 @@ class Favoris extends Component {
       return(this.fullMovie.push(value))
     })
     this.setState({ movies: this.fullMovie});
-  }
+    
 
-  setOverview = (param) => {
-    if(param.length > 90){
-      
-      return param;
-    } 
   }
 
   removeMovie = (movieId) => {
@@ -37,7 +38,9 @@ class Favoris extends Component {
     this.setState({movies: _.filter(this.state.movies, (movie) => { return movie.id !== movieId})});
   }
 
+
   render() {
+    console.log(this.state.movies)
     return (
       <div className="row top">
         {this.state.movies.map((movie,index) =>{
@@ -52,9 +55,9 @@ class Favoris extends Component {
                     <div className="card-block p-5" id="position">
                       <h4 className="card-title">{movie.title}</h4>
                       <p className="card-text"> {movie.release_date} {movie.director}</p>
-                      <p className="card-text d-none d-sm-none d-md-block d-lg-block"> {}</p>
+                      <p className="card-text d-none d-sm-none d-md-block d-lg-block">{movie.casting}</p>
                       <div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
-                        <p className="card-text">{this.setOverview(movie.overview)}</p>
+                        <p className="card-text">{movie.overview}</p>
                       </div>
                       <div className="row favoritesRating pb-4 pr-5 mr-0 w-100">
                         <i className="fa fa-heart pt-1 pl-3 pr-5 coeur" onClick={() => {this.removeMovie(movie.id);}}></i>

@@ -1,13 +1,15 @@
 import './Search.css';
+import 'react-notifications/lib/notifications.css';
 import React, {Component} from 'react';
 import Rating from "react-star-rating-lite";
+import {NotificationManager, NotificationContainer} from 'react-notifications';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input, Button } from 'reactstrap';
 
 class Search extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       category: "Film",
       query: "",
@@ -16,7 +18,8 @@ class Search extends Component {
       movies : [],
       select : "0"
 		}
-		this.card ="";
+    this.card ="";
+    this.favorite = false;
   }
 
   fetchByCategory = () => {
@@ -32,7 +35,7 @@ class Search extends Component {
     fetch(`https://api.themoviedb.org/3/${this.state.methodFetch}/${this.state.targetFetch}?api_key=762ed8e154d8e7ff207952b1cc7074b0&${this.state.filmFetch}&page=1${this.state.queryFetch}`)
       .then(response => response.json()) 
 			.then(json => {
-            this.setState({movies : json.results});
+            this.setState({movies : json.results},() =>{this.getDirectorFromMoviesId()});
             this.state.movies.map((movie) => {
               return(
               movie.release_date = movie.release_date.slice(0,4),
@@ -40,6 +43,29 @@ class Search extends Component {
             });
       })
 			.then(() => {this.toggleModal()})
+  }
+
+  getDirectorFromMoviesId = () => {
+    this.state.movies.map(movie =>{
+      return(
+      fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
+      .then(response => response.json())
+      .then(json =>{
+              movie.director = json.crew[0].name
+              let results = json.cast.slice(0,4);
+              let fullCast ="";
+              for(let i=0; i<results.length; i++){
+                if(i === 3) {
+                  fullCast+=`${results[i].name}... `;
+                } else {
+                fullCast +=`${results[i].name}, `;
+                }
+              } 
+					    movie.casting = fullCast;
+					    this.forceUpdate();
+            })
+    )})
+    
   }
 
   inputChange = (event) => {
@@ -72,6 +98,45 @@ class Search extends Component {
       this.fetchByCategory();
     }
   }
+
+  handleClick = (movieId, movie) => {
+    if(this.state.color=== "no-clicked-icon"){
+      this.setState({color:"text-danger"});
+      this.favoriteMovies();
+    }
+    else if(this.state.color === "text-danger"){
+      this.setState({color:"no-clicked-icon"});
+      this.deleteMovies();
+    }
+      this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite(movieId, movie)});
+    }
+
+	setFavorite = (movieId, movie) => {
+    if(this.state.favorite===true){
+      this.setItem(movieId, movie);
+    }
+    else if(this.state.favorite===false){
+      this.removeItem(movieId);
+    }
+	}
+
+  setItem = (movieId, movie) => {
+    window.localStorage.setItem(`${movieId}`, JSON.stringify(movie));
+    this.props.functionUpdateMovie(movie)
+  }
+
+  removeItem = (movieId) => {
+    window.localStorage.removeItem(`${movieId}`);
+  }
+
+
+  favoriteMovies = () => {
+		NotificationManager.success('Movie added!',"", 1000);
+	}
+
+	deleteMovies = () => {
+		NotificationManager.warning('Movie removed!',"", 1000);
+	}
 
   render(){
 		const CloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px', color: "#5FD4F4" }} onClick={this.toggleModal}>&times;</button>;
@@ -109,6 +174,7 @@ class Search extends Component {
 																	<p className="card-text">{movie.overview}</p>
 																</div>
 																<div className="item-bottom  mt-5">
+                                  <i className= {`${this.state.color} fa fa-heart pl-5 pr-5`} onClick={() => {this.handleClick(movie.id,movie)}}></i>
 																	<Rating className="stars" value={`${movie.vote_average}`} weight="18"  readonly/>
 																</div>
 															</div>
@@ -121,6 +187,7 @@ class Search extends Component {
 							  }}
             </ModalBody>
           </Modal>
+        <NotificationContainer/>
       </div>
     )
   }

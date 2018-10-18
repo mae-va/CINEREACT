@@ -26,7 +26,7 @@ class Navbar extends Component {
               <h1 className="logo-cine">CINE</h1>
               <h1 className="logo-react">REACT</h1>
             </Link>
-            <Search/>
+            <Search functionUpdateMovie={this.props.functionUpdateMovie}/>
             <Nav className="ml-auto" navbar>
               <NavItem className="mr-2">
                 <NavLink tag={Link} to="/favoris">
@@ -43,7 +43,7 @@ class Navbar extends Component {
             </Nav>
           </Navbarr>
           <Navbarr className="bottom-fixed-navbar">
-            <Search/>
+            <Search functionUpdateMovie={this.props.functionUpdateMovie}/>
           </Navbarr>
           <Modal isOpen={this.state.modal} toggle={this.toggle} >
             <ModalHeader toggle={this.toggle} className="modal-contact">CONTACT</ModalHeader>

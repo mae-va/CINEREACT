@@ -54,10 +54,11 @@ class Actuality extends Component {
               this.setState({movie : {...this.state.movie,director : json.crew[0].name}});
               let results = json.cast.slice(0,4);
               let fullCast ="";
-              for(let i=0; i<results.length -1 ; i++){
+              for(let i=0; i<results.length; i++){
+                if(i === 3) {
+                  fullCast+=`${results[i].name}... `;
+                } else {
                 fullCast +=`${results[i].name}, `;
-                if(i === 2) {
-                fullCast+=`${results[i].name}... `;
                 }
               } 
 					    this.setState({movie : {...this.state.movie,casting : fullCast}});
