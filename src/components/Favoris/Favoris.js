@@ -1,15 +1,18 @@
 import React, {Component} from "react";
 import './Favoris.css';
+import 'react-notifications/lib/notifications.css';
 import Rating from "react-star-rating-lite";
 import _ from 'underscore';
+import {NotificationManager, NotificationContainer} from 'react-notifications';
 
-import { Card, CardBody, Container, CardTitle, CardText, CardImg, Col, Row, CardImgOverlay, CardSubtitle, CardFooter } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, Col, Row, CardSubtitle } from 'reactstrap';
 
 class Favoris extends Component {
   constructor(props){
     super(props);
     this.state= {
-      movies:[]
+      movies:[],
+      color: "push-heart",
     }
     this.fullMovie = [];
     this.cardBlock = "";
@@ -17,7 +20,6 @@ class Favoris extends Component {
 
   renderUpdateMovie = (movie) => {
     this.setState({ movies: [...this.state.movies, movie]});
-    console.log(this.state.movies);
   }
 
   componentDidMount() {
@@ -36,7 +38,12 @@ class Favoris extends Component {
   removeMovie = (movieId) => {
     window.localStorage.removeItem(movieId.toString());
     this.setState({movies: _.filter(this.state.movies, (movie) => { return movie.id !== movieId})});
+    this.deleteMovies();
   }
+
+  deleteMovies = () => {
+		NotificationManager.warning('Movie removed!',"", 1000);
+	}
 
   render() {
     if(this.state.movies.length === 0){

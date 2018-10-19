@@ -52,19 +52,23 @@ class Search extends Component {
       fetch(`https://api.themoviedb.org/3/movie/${movie.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
       .then(response => response.json())
       .then(json =>{
-              movie.director = json.crew[0].name
-              let results = json.cast.slice(0,4);
-              let fullCast ="";
-              for(let i=0; i<results.length; i++){
-                if(i === 3) {
-                  fullCast+=`${results[i].name}... `;
-                } else {
-                fullCast +=`${results[i].name}, `;
-                }
-              } 
-					    movie.casting = fullCast;
-					    this.forceUpdate();
-            })
+        if(json.crew[0]) {
+          movie.director = json.crew[0].name
+          let results = json.cast.slice(0,4);
+          let fullCast ="";
+          for(let i=0; i<results.length; i++){
+            if(i === 3) {
+              fullCast+=`${results[i].name}... `;
+            } else {
+            fullCast +=`${results[i].name}, `;
+            }
+          } 
+          movie.casting = fullCast;
+          this.forceUpdate();
+        } else {
+          console.log("ERROR CREW NAME UNDEFINE");
+        }
+      })
     )})
     
   }
@@ -109,10 +113,12 @@ class Search extends Component {
       this.setState({color:"no-clicked-icon"});
       this.deleteMovies();
     }
+
       this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite(movieId, movie)});
     }
 
 	setFavorite = (movieId, movie) => {
+
     if(this.state.favorite===true){
       this.setItem(movieId, movie);
     }
@@ -123,7 +129,9 @@ class Search extends Component {
 
   setItem = (movieId, movie) => {
     window.localStorage.setItem(`${movieId}`, JSON.stringify(movie));
-    this.props.functionUpdateMovie(movie)
+    if(window.location.pathname === "/favoris") {
+      this.props.functionUpdateMovie(movie)
+    }
   }
 
   removeItem = (movieId) => {

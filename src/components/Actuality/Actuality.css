@@ -117,6 +117,7 @@ hr {
     position:absolute !important;
     height:100%;
     width: 100%;
+    margin-top: 65px !important;
   }
 }
 
@@ -127,9 +128,6 @@ hr {
 }
 
 @media screen and (min-width: 768px) {
-  body {
-    overflow: hidden;
-  }
   .button-open-overlay {
     display: none !important;
   }
