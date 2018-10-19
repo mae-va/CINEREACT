@@ -6,6 +6,25 @@ body {
   background-color:#141414 !important; 
 }
 
+.text-description-favoris {
+  overflow-y: scroll;
+  max-height: 158px;
+}
+
+.movie-poster-favoris {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 5% 0;
+  object-position: 5% 0;
+}
+
+.nopaddingright {
+  padding-right: 0px;
+}
 .poster-like {
   height: 100%!important;
   position: relative !important;

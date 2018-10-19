@@ -114,9 +114,9 @@ class Actuality extends Component {
   }
 
   render() {
-      return (
-        <Container fluid={true} className="custom-global-container">
-          <div className="container-overlay pl-0"></div>
+    return (
+      <Container fluid={true} className="custom-global-container">
+        <div className="container-overlay pl-0"></div>
           <Box pose={this.state.isVisible ? 'hidden' : 'visible'}>
           <Card inverse>
             <Row className="actuality-container">
@@ -158,7 +158,7 @@ class Actuality extends Component {
             </Row>
           </Card>
         </Box>
-				<NotificationContainer/>
+        <NotificationContainer/>
       </Container>
     );
   }

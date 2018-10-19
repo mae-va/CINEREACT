@@ -1,6 +1,7 @@
 
 .actuality-desktop-description {
   z-index: 20;
+  padding-right: 50px !important;
 }
 
 .button-open-overlay {
@@ -92,14 +93,18 @@ hr {
 }
 
 .notification-success {
+  margin-top: 80px;
   background-color: black !important;
   color:#5FD4F4 !important;
+  border: 1px solid #5FD4F4;
   width: 100%;
   box-shadow: none !important
 }
 
 .notification-warning {
+  margin-top: 80px;
   background-color: black !important;
+  border: 1px solid #5FD4F4;
   color: white !important;
   box-shadow: none !important
 }
@@ -121,6 +126,18 @@ hr {
   }
 }
 
+@media screen and (min-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+  .button-open-overlay {
+    display: none !important;
+  }
+  .custom-overlay-movie {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .actuality-desktop-description {
     display: none;
@@ -128,10 +145,10 @@ hr {
   .container-overlay {
     display: none;
   }
-
   .overview-text-actuality {
     overflow-x: scroll;
   }
+
 }
 
 /* @media screen and (max-width: 900px) {
