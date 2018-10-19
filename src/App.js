@@ -19,21 +19,13 @@ class App extends Component {
     this.setState({functionUpdateMovie : func});
   }
 
-  toggleModal = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
-
-  
   render() {
     return (
       <div>
         <div className="container-fluid">
-          <Navbar  toggleModal={this.toggleModal}  functionUpdateMovie={this.state.functionUpdateMovie}/>
+          <Navbar functionUpdateMovie={this.state.functionUpdateMovie}/>
           <Route exact path="/" component={Actuality}/>
           <Route path="/favoris" render={() => <Favoris updateLocalMovie={this.updateLocalMovie}/>}/>
-          <Route path="/research" component={Favoris}/>
         </div>
       </div>
     );
