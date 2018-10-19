@@ -1,15 +1,18 @@
 import React, {Component} from "react";
 import './Favoris.css';
+import 'react-notifications/lib/notifications.css';
 import Rating from "react-star-rating-lite";
 import _ from 'underscore';
+import {NotificationManager, NotificationContainer} from 'react-notifications';
 
-import { Card, CardBody, Container, CardTitle, CardText, CardImg, Col, Row, CardImgOverlay, CardSubtitle, CardFooter } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, Col, Row, CardSubtitle } from 'reactstrap';
 
 class Favoris extends Component {
   constructor(props){
     super(props);
     this.state= {
-      movies:[]
+      movies:[],
+      color: "push-heart",
     }
     this.fullMovie = [];
     this.cardBlock = "";
@@ -17,7 +20,6 @@ class Favoris extends Component {
 
   renderUpdateMovie = (movie) => {
     this.setState({ movies: [...this.state.movies, movie]});
-    console.log(this.state.movies);
   }
 
   componentDidMount() {
@@ -36,7 +38,12 @@ class Favoris extends Component {
   removeMovie = (movieId) => {
     window.localStorage.removeItem(movieId.toString());
     this.setState({movies: _.filter(this.state.movies, (movie) => { return movie.id !== movieId})});
+    this.deleteMovies();
   }
+
+  deleteMovies = () => {
+		NotificationManager.warning('Movie removed!',"", 1000);
+	}
 
   render() {
     return (
@@ -53,7 +60,7 @@ class Favoris extends Component {
                   <CardBody>
                     <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
                     <CardText className="mb-4">
-                      <i className= {`fa fa-heart pull-right mr-3 mt-2`} onClick={ () => {this.removeMovie(movie.id);}}></i>
+                      <i className= {`${this.state.color} fa fa-heart pull-right mr-3`} onClick={ () => {this.removeMovie(movie.id);}}></i>
                       <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                     </CardText>
                     <CardSubtitle className="lead text-white mb-2 ">
@@ -66,34 +73,9 @@ class Favoris extends Component {
               </Row>
             </Card>
             </Col>
-            // <div key={index} className="col-lg-6 col-md-12 col-sm-12 col-xs-12 col-12 p-0">
-            //   <div className="card mt-5 mx-5">
-            //     <div className="row h-100 ">
-            //       <div className="col-lg-5 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0 poster-like">
-            //         <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} className="fav-image h-100 w-100"/>
-            //       </div>
-            //       <div className="col-lg-7 col-md-6 col-sm-6 col-xs-6 col-6 ajust-height p-0 h-100">
-            //         <div className="card-block p-5" id="position">
-            //           <h4 className="card-title">{movie.title}</h4>
-            //           <p className="card-text"> {movie.release_date} {movie.director}</p>
-            //           <p className="card-text d-none d-sm-none d-md-block d-lg-block">{movie.casting}</p>
-            //           <div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
-            //             <p className="card-text">{movie.overview}</p>
-            //           </div>
-            //           <div className="row favoritesRating pb-4 pr-5 mr-0 w-100">
-            //             <i className="fa fa-heart pt-1 pl-3 pr-5 coeur" onClick={() => {this.removeMovie(movie.id);}}></i>
-            //             <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
-            //             </div>
-            //             <div className= "cast">
-            //             <p>Brad Pitt , Nicole Kidman , Jim Carrey ...</p>
-            //             </div>
-            //           </div>
-            //         </div>
-            //       </div>
-            //     </div>
-            //   </div>
           )}
         )}
+        <NotificationContainer/>
       </div>
     )
   }
