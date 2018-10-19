@@ -1,26 +1,21 @@
 .btn, .btn-link, .bg-black {
-    color: #5FD4F4 !important;
-   
+  color: #5FD4F4 !important;
 }
 
 .btn-dark {
 	background-color:#141414 !important;
 	border-color: #525559 !important;
 	margin-left: 3rem !important;
-	
 }
 
 .btn-dark:hover {
 	background-color: #23272b !important;
-
-
 }
 
-@media screen and (min-width: 320px)and (max-width: 576px){
-    .btn-dark{
-        margin-left: 0 !important;
-    }
-
+@media screen and (min-width: 320px) and (max-width: 668px){
+  .btn-dark{
+    margin-left: 0 !important;
+  }
 }
 
 .input-group > .form-control{
@@ -32,10 +27,8 @@
 }
 
 .search {
-    padding-left: 30px !important;
+  padding-left: 30px !important;
 }
-
-
 
 .searchBox {
 	display: flex;
@@ -46,19 +39,20 @@
 	background-color:#141414 !important;
 	border: 1px solid #525559 !important;
 	color: #5FD4F4 !important;
+	border-right: 0px !important;
 	border-left: 0px !important;
+	margin-right: -2px !important;
+	border-radius: 0px !important;
 }
 
 .btn-outline-secondary{
 	border-color:  #525559 !important;
 	border-radius: 0 4px 4px 0 !important;
-	
 }
 
 .btn-outline-secondary:hover{
 	background-color: #23272b !important;
 }
-
 
 .bd-black {
 	opacity: 1 !important;
@@ -70,10 +64,8 @@
 	border-radius: 0 !important;
 }
 
-
 .dropdown-menu {
 	background-color:#141414 !important;
-	
 }
 
 .dropdown-item {
@@ -84,5 +76,6 @@
 	background-color: #23272b !important;
 }
 
-
-
+.modal-dialog {
+	width : 700px;
+}

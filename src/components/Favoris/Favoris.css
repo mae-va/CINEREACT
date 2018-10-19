@@ -1,112 +1,59 @@
 body {
-    background: #000000 !important;
+	background: #000000 !important;
 }
 
 .card {
-    background-color:#141414 !important; 
+  background-color:#141414 !important; 
 }
 
 .poster-like {
- 
-    height: 100%!important;
-    position: relative !important;
-    overflow: hidden !important;
-    border-radius: 7px 0 0 7px !important;
+  height: 100%!important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 7px 0 0 7px !important;
 }
-
-
 
 .card-block {
-
-    color : whitesmoke;
-    border-radius: 0 7px 7px 0 !important;
+  color : whitesmoke;
+  border-radius: 0 7px 7px 0 !important;
 }
 
-
-
-.heart{
-    cursor: pointer;
-    font-size: 25px !important;
-    color: red;
-    position: relative;
-    top: -60px;
-    left: -85px;
-
+.coeur {
+  cursor: pointer;
+  font-size: 25px !important;
+  color: red;
 }
 
-.card-text  {
-  list-style-type:none !important;
-  position: relative;
-  top: -30px;
-  
-}
-
-.card-title {
-    position: relative;
-    top: -30px;
-}
+/*.heart_star {
+  text-align: right;
+  margin-top: 5rem !important;
+  justify-content: space-between !important;
+  position:absolute;
+  bottom:10px;
+}*/
 
 .top {
-    margin-top: 60px;
+  margin-top: 60px;
 }
-
 
 .ajust-height {
-    height : 250px;
+  height : 250px;
+}
+
+@media screen and (max-width:768px)/*IPAD*/{
+  .card-block {
+    font-size: 12px; 
   }
-
-
-.stars{
-position: relative;
-top: 25px !important;
-left: -175px !important;
 }
-
-.cast{
-position: relative;
-top: 30px;
-left: 10px;
-}
-
-  @media screen and (max-width:768px)/*IPAD*/{
-
-
-    .card-block {
-        font-size: 12px; 
-    }
-   
-}  
 
 @media screen and (max-width:520px)/*smartphone*/{
-.ajust-scale {
-        height : 250px
+  .ajust-scale {
+    height : 250px
   }
-
-.card-block {
-        font-size: 12px;     
+  .card-block {
+    font-size: 12px;
   }
-
-#position {
-        padding: 1rem !important ;
+  #position {
+    padding: 1rem !important ;
   }
-
-.heart{
-position: relative;
-top: 2px;
-left: -45px;
 }
-
-.card-title{
-    font-size: 15px;
-}
-
-  
-
-}
-
-
-   
-   
-  
-  
-    

@@ -1,233 +1,147 @@
-.black{
-    background-color:  black;
-    color: #f9f9f7;
-    z-index: 38; 
-    margin-bottom: 0px;
-    }
-/*#717677*/
 
-.poster_column .cross{
-    position: absolute !important;
-    color: #141414 ;
-    text-shadow: 1px 1px 4px #5FD4F4;
-    margin-left: 50px;
-    opacity: 1 !important;
-    font-weight: 200 !important;
-    z-index: 2;
+.actuality-desktop-description {
+  z-index: 20;
 }
 
-
-.movie_poster{
-    width: 100%;
-    max-height: 100vh;
-    position: absolute !important;
-    overflow: hidden;
-    object-fit: cover;
-    object-position: 5% 0;
-    z-index: 1 !important;
-  }
-
-.bloc-actuality{
-    height: 100vh;
+.button-open-overlay {
+  color: #5fd4f4;
+  position: absolute;
+  top:50%;
+  left: 47%;
+  justify-content: center;
+  font-size: 49px !important;
+  text-shadow: 1px 1px 10px #000;
 }
 
-.title{
+.custom-global-container {
+  overflow-y: scroll;
+}
+
+.actuality-container {
+  margin-top: 64px !important;
+}
+
+.custom-overlay-movie {
+  background-color: #252121d9;
+}
+
+.poster_column .cross {
+  position: absolute !important;
+  bottom: 40px !important;
+  right: 50px !important;
+  color: black !important;
+  opacity: 1 !important;
+  font-weight: 200 !important;
+}
+
+.movie_poster {
+  width: 100%;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: 5% 0;
+}
+
+.bloc-actuality {
+  height: 100vh;
+}
+
+.title {
   padding-top: 15%;
   font-size: 3.3em;
   text-transform: uppercase;
- 
 }
 
-
-
-.year{
-    font-size: 1.3em;
-    
+.year {
+  font-size: 1.3em;
 }
 
-.synopsis{
-    font-size: 1.2em;
-    margin-right: 5rem !important;
-    
+.synopsis {
+  font-size: 1.2em;
+  margin-right: 5rem !important;
 }
-
 
 hr {
-    margin-left: 2.1rem !important;
-    margin-right: 9rem !important;
-    background-color: #5FD4F4 !important;
-    
+  margin-left: 2.1rem !important;
+  margin-right: 9rem !important;
+  background-color: #5FD4F4 !important;
 }
 
-.text-danger {
-    font-size : 2rem !important;
+.fa {
+  cursor: pointer;
 }
 
-.fa{
-    cursor: pointer;
+.favoritesRating {
+  justify-content: space-between;
+  margin-right: 8rem !important;
+  position:absolute;
+  bottom:10px;
 }
 
-.favoritesRating{
-    justify-content: space-between;
-    margin-right: 8rem !important;
-    position:absolute;
-    bottom:10px;
-}
-/*--------------- COLOR HEART ICON ---------------------- */
-.no-clicked-icon{
-    color:white;
-    opacity: 0.3;
-    font-size: 2rem !important;
+.no-clicked-icon {
+  color:white;
+  opacity: 0.3;
+  font-size: 2rem !important;
 }
 
-.text-danger{
-    font-size: 2rem !important;
-    color: #fff;
-    opacity: 0.3;
+.push-heart {
+  font-size: 2rem !important;
+  opacity: 0.3;
+  color: rgb(203, 18, 33);
 }
-/*--------------- END COLOR HEART ICON ---------------------- */
 
-
-/*--------------- TOASTER ---------------------- */
 .notification-success {
-    background-color: black !important;
-    color:#5FD4F4 !important;
-    width: 100%;
-    width: 250px !important;
-    border: 2px solid #5FD4F4  !important;
-    position: relative;
-    margin-top: 58px !important;
-   
-  }
+  background-color: black !important;
+  color:#5FD4F4 !important;
+  width: 100%;
+  box-shadow: none !important
+}
+
 .notification-warning {
-    background-color: black !important;
-    color: white !important;
-    width: 250px !important;
-    border: 2px solid #5FD4F4  !important;
-    position: relative;
-    margin-top: 58px !important;
-  }
+  background-color: black !important;
+  color: white !important;
+  box-shadow: none !important
+}
 
-
-/*--------------- END TOASTER ---------------------- */
-
-
-@media screen and (min-width: 900px) {
-.container-overlay {
-    background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)45%)!important; 
+@media screen and (min-width: 500px) { 
+  .container-overlay {
+    margin-top: 1px;
+    background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)57%)!important; 
     z-index:19 !important;
     position:absolute !important;
     height:100%;
     width: 100%;
-    }
+  }
 }
 
-
+@media screen and (max-width: 500px) {
+  .display-3 {
+    font-size: 2.5rem !important;
+  }
+}
 
 @media screen and (max-width: 768px) {
-   .black{
-    margin-bottom: 90px;
-   }
-        .title {
-            margin-top: -100px;
-            padding-bottom: 2% !important;
-            padding-top: 0;
-            font-size: 1em;
-            text-transform: uppercase;
-        }     
-     
-    }
+  .actuality-desktop-description {
+    display: none;
+  }
+  .container-overlay {
+    display: none;
+  }
 
-@media screen and (max-width: 900px) {
-    .collapse-mob{
-        display: none;
-    }
+  .overview-text-actuality {
+    overflow-x: scroll;
+  }
+}
+
+/* @media screen and (max-width: 900px) {
+  .collapse-mob {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 576px){
-    .cross{
-        display: none;
-    }
-}
-
-.mobile-readmore{
-    background-color: black;
-    opacity: 0.8;
-    position: absolute;
-    z-index: 3;
-    height: 100%;
-    margin-bottom: 60px;
-
-}
-
-.container {
-    padding-left: 0px !important;
-}
-
-
-.m-casting {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.7em;
-    color: #F1F1F1;
-
-}
-
-
-.m-synopsis  {
-    font-size: 0.8em;
-}
-
-.m-title{
-    font-size: 2em;
-    text-align: center !important;
-    line-height: 1;
-    margin-top: 5rem !important;
-}
-
-
-.rating-mobile {
-    display: flex;
-    vertical-align: baseline;
-    justify-content: space-between;
-    
-}
-
-.close-icon{
-    position: fixed;
-    bottom: 65px;
-    right: 20px;
-    color: #5FD4F4;
-    opacity: 0.7;
-}
-
-@media screen and (min-width: 768px) and (max-width: 900px){
-    .container {
-        padding-left: 0 !important;
-        max-width: 80% !important;
-        max-height: 65%;
-    }
-
-    .mobile-readmore {
-        margin-top: 200px !important;
-    }
-
-    .m-casting {
-        font-size: 1em;
-    }
-
-    .m-synopsis {
-        font-size: 1.3em;
-    }
-
-    .m-title {
-        font-size: 3em;
-    }
-    
-    
-}
-
-@media screen and (min-width: 900px){
-    .mobile-readmore {
-        display: none;
-    }
-}
+  .cross {
+    display: none;
+  }
+} */
