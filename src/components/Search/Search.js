@@ -5,6 +5,7 @@ import Rating from "react-star-rating-lite";
 import {NotificationManager, NotificationContainer} from 'react-notifications';
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input, Button } from 'reactstrap';
+import { Card, CardBody, Container, CardTitle, CardText, CardImg, Col, Row, CardImgOverlay, CardSubtitle, CardFooter } from 'reactstrap';
 
 class Search extends Component {
 
@@ -162,35 +163,33 @@ class Search extends Component {
             </DropdownMenu>
           </Dropdown>
           <Modal isOpen={this.state.modal} toggle={this.toggleModal} size="lg" backdropClassName="bd-black">
-            <ModalHeader close={CloseBtn} className="bg-black">{`RESULTS FOR ${this.state.query.toUpperCase()}`}</ModalHeader>
+            <ModalHeader close={CloseBtn} className="bg-black">{`Results for ${this.state.query.toUpperCase()}`}</ModalHeader>
             <ModalBody className="bg-black">
               {this.state.movies.map((movie, index) =>{
 							  return(	
-									  <div key={index} className="row top">
-											<div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 p-0">
-												<div className="card mt-5 mx-5">
-													<div className="row h-100 ">
-														<div className="col-lg-5 col-md-6 col-sm-6 col-xs-6 col-6 ajust-scale p-0">
-															<img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} className="fav-image h-100 w-100"/>
-														</div>
-														<div className="col-lg-7 col-md-6 col-sm-6 col-xs-6 col-6 ajust-scale p-0">
-															<div className="card-block p-5" id="position">
-																<h4 className="card-title">{movie.title}</h4>
-																<p className="card-text"> {movie.release_date} {movie.director}</p>
-																<p className="card-text d-none d-sm-none d-md-block d-lg-block"> {movie.casting}</p>
-																<div className="sidebar-box d-none d-sm-none d-md-block d-lg-block">
-																	<p className="card-text">{movie.overview}</p>
-																</div>
-																<div className="item-bottom  mt-5">
-                                  <i className= {`${this.state.color} fa fa-heart pl-5 pr-5`} onClick={() => {this.handleClick(movie.id,movie)}}></i>
-																	<Rating className="stars" value={`${movie.vote_average}`} weight="18"  readonly/>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+                  <Col md="12 nopadding" sm="12 nopadding">
+                    <Card key={index}>
+                      <Row>
+                        <Col md="5">
+                          <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} className="movie-poster-favoris" ></img>
+                        </Col>
+                        <Col md="7" className="actuality-desktop-description">
+                          <CardBody>
+                            <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
+                            <CardText className="mb-4">
+                              <i className= {`fa fa-heart pull-right mr-3 mt-2`} onClick={ () => {this.removeMovie(movie.id);}}></i>
+                              <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
+                            </CardText>
+                            <CardSubtitle className="lead text-white mb-2 ">
+                              {movie.release_date} - {movie.director}
+                            </CardSubtitle>
+                            <CardText className="font-weight-bold font-italic">{movie.casting}</CardText>
+                            <CardText className="mt-4 text-description-favoris">{movie.overview}</CardText>
+                          </CardBody>
+                        </Col>
+                      </Row>
+                    </Card>
+                  </Col>
 									)})
 							  }}
             </ModalBody>
