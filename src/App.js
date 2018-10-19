@@ -12,10 +12,13 @@ class App extends Component {
       movies : [],
       functionUpdateMovie : null
     }
+
     
   }
 
   updateLocalMovie = (func) => {
+    console.log(func)
+
     this.setState({functionUpdateMovie : func});
   }
 
