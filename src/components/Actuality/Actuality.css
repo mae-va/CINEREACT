@@ -109,7 +109,7 @@ hr {
   box-shadow: none !important
 }
 
-@media screen and (min-width: 500px) { 
+@media screen and (min-width: 992px) { 
   .container-overlay {
     margin-top: 1px;
     background-image:-webkit-linear-gradient(0deg, rgb(0, 0, 0, 0)20%, rgb(0, 0, 0, 1)57%)!important; 
@@ -120,6 +120,7 @@ hr {
     margin-top: 65px !important;
   }
 }
+
 
 @media screen and (max-width: 500px) {
   .display-3 {

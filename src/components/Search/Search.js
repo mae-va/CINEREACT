@@ -114,12 +114,10 @@ class Search extends Component {
       this.setState({color:"no-clicked-icon"});
       this.deleteMovies();
     }
-
-      this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite(movieId, movie)});
-    }
+    this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite(movieId, movie)});
+  }
 
 	setFavorite = (movieId, movie) => {
-
     if(this.state.favorite===true){
       this.setItem(movieId, movie);
     }
@@ -171,14 +169,14 @@ class Search extends Component {
                   <Col md="12 nopadding" sm="12 nopadding">
                     <Card key={index}>
                       <Row>
-                        <Col md="5">
+                        <Col lg="5">
                           <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} className="movie-poster-favoris" ></img>
                         </Col>
-                        <Col md="7" className="actuality-desktop-description">
+                        <Col lg="7" className="favoris-desktop-description">
                           <CardBody>
                             <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
                             <CardText className="mb-4">
-                              <i className= {`${this.state.color} fa fa-heart pull-right mr-3 mt-2`} onClick={ () => {this.handleClick();}}></i>
+                              <i className= {`${this.state.color} fa fa-heart pull-right mr-3 mt-2 no-clicked-icon`} onClick={ () => {this.handleClick(movie.id, movie);}}></i>
                               <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                             </CardText>
                             <CardSubtitle className="lead text-white mb-2 ">

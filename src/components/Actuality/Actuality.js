@@ -119,8 +119,8 @@ class Actuality extends Component {
         <div className="container-overlay pl-0"></div>
           <Box pose={this.state.isVisible ? 'hidden' : 'visible'}>
           <Card inverse>
-            <Row className="actuality-container">
-              <Col md="7" className="nopadding">
+            <Row className="actuality-container nopadding">
+              <Col lg="7" className="nopadding">
                 <img src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`} class="movie_poster" ></img>
                 {this.state.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">
                   <CardBody>
@@ -141,7 +141,7 @@ class Actuality extends Component {
                   <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
                 </CardText>
               </Col>
-              <Col md="5" className="actuality-desktop-description pt-5">
+              <Col lg="5" className="actuality-desktop-description pt-5">
                 <CardBody>
                   <CardTitle className="display-3 text-uppercase ">{this.state.movie.title}</CardTitle>
                   <CardText className="my-5">

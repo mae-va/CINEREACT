@@ -53,20 +53,20 @@ class Favoris extends Component {
     }
     else {
       return (
-        <div className="row top">
+        <Row className="row top nopadding">
           {this.state.movies.map((movie,index) =>{
             return(
               <Col md="6 nopadding">
                 <Card key={index}>
-                <Row>
-                  <Col md="5">
+                <Row className="nopadding">
+                  <Col lg="5" className="nopadding">
                     <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} class="movie-poster-favoris" ></img>
                   </Col>
-                  <Col md="7" className="actuality-desktop-description">
+                  <Col lg="7" className="favoris-desktop-description">
                     <CardBody>
                       <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
                       <CardText className="mb-4">
-                        <i className= {`fa fa-heart pull-right mr-3 mt-2`} onClick={ () => {this.removeMovie(movie.id);}}></i>
+                        <i className= {`fa fa-heart pull-right mr-3 mt-2 no-clicked-icon`} onClick={ () => {this.removeMovie(movie.id);}}></i>
                         <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                       </CardText>
                       <CardSubtitle className="lead text-white mb-2 ">
@@ -82,7 +82,7 @@ class Favoris extends Component {
             )
           })
         }
-        </div>
+        </Row>
       );
     }
   }

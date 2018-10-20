@@ -11,12 +11,12 @@ body {
 }
 
 .card {
-  background-color:#141414 !important; 
+  background-color:#000 !important; 
 }
 
 .text-description-favoris {
-  overflow-y: scroll;
-  max-height: 158px;
+  /* overflow-y: scroll;
+  max-height: 158px; */
 }
 
 .movie-poster-favoris {
@@ -52,7 +52,7 @@ body {
 }
 
 .top {
-  margin-top: 60px;
+  margin-top: 64px;
 }
 
 .ajust-height {
@@ -63,8 +63,17 @@ body {
   .card-block {
     font-size: 12px; 
   }
+  .favoris-desktop-description {
+    display: block;
+    height: 515px;
+    overflow: scroll;
+  }
 }
-
+.favoris-desktop-description {
+  height: 515px;
+  overflow: scroll;
+  padding-left: 10px !important;
+}
 @media screen and (max-width:520px)/*smartphone*/{
   .ajust-scale {
     height : 250px
