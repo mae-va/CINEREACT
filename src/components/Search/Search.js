@@ -17,7 +17,8 @@ class Search extends Component {
       modal : false,
       dropdownOpen: false,
       movies : [],
-      select : "0"
+      select : "0",
+      color : "no-clicked-icon"
 		}
     this.card ="";
     this.favorite = false;
@@ -106,10 +107,10 @@ class Search extends Component {
 
   handleClick = (movieId, movie) => {
     if(this.state.color=== "no-clicked-icon"){
-      this.setState({color:"text-danger"});
+      this.setState({color:"push-heart"});
       this.favoriteMovies();
     }
-    else if(this.state.color === "text-danger"){
+    else if(this.state.color === "push-heart"){
       this.setState({color:"no-clicked-icon"});
       this.deleteMovies();
     }
@@ -177,7 +178,7 @@ class Search extends Component {
                           <CardBody>
                             <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
                             <CardText className="mb-4">
-                              <i className= {`fa fa-heart pull-right mr-3 mt-2`} onClick={ () => {this.removeMovie(movie.id);}}></i>
+                              <i className= {`${this.state.color} fa fa-heart pull-right mr-3 mt-2`} onClick={ () => {this.handleClick();}}></i>
                               <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                             </CardText>
                             <CardSubtitle className="lead text-white mb-2 ">
