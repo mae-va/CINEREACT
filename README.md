@@ -5,8 +5,9 @@ We created a simple React App to store movies, get informations on it, get the l
 ## How we made CINEREACT
 
 CINEREACT was made with React JS for sure ;) Using rooting method, our application don't change his URL when you walk away on it. 
-We plugged on themoviedb.rg with its API key. We used the browser's Local Storage to store favorites.
-ES6, Reactstrap, JSX, HTML5 and CSS 3 are here too.
+
+We plugged on themoviedb.rg with its API. We used Firebase to store favorites.
+ES6, Bootstrap, JSX, HTML5 and CSS 3 are here too.
 
 ## Table of contents
 
@@ -20,24 +21,30 @@ ES6, Reactstrap, JSX, HTML5 and CSS 3 are here too.
 ```
 *root*
 |
+├── *Node_modules*
 ├── */Public/*
 ├── */src/*
-│   ├── */App.js/* 
-│   └── *navbar.js
-│   └── *Actuality.js
-│   └── *Favorites.js
-│   ├── *Routes.jsx* front-end routes
-│   ├── *index.html* entry point
-│   ├── *index.jsx* javascript entry point
-│   ├── *style.scss* styling
-│   └── */tests/* contains test environment (Jest + Enzyme)
-│       ├── */__mock__/* contains setup to provide a valid path for imports
-│       ├── */_tests__/* the actual tests
-│       └── *setup.js* setup for enzyme for react 16
-├── *package.json* the whole package.json with every dependency and script, nothing is kept hidden
-├── *.eslintrc* eslint config
-├── *.babelrc* babel config (polyfills)
-├── *webpack.config.js* webpack config, it has a dev and prod environment
+│     └── */Components/* 
+│       |        └── Actuality
+│       |               ├── Actuality.jsx
+│       │               └── Actuality.css  
+│       |        └── Favoris
+│       |               ├── Favoris.jsx
+│       │               └── Favoris.css 
+│       |        └── Navbar
+│       |               ├── Navbar.jsx
+│       │               └── Navbar.css
+│       |        └── Search
+│       |               ├── Search.jsx
+│       │               └── Search.css
+│       |          
+│       ├── App.css
+│       ├── App.jsx
+│       ├── *index.jsx* javascript entry point
+│       └── *index.css*  
+├── *.gitignore*
+├── *package-lock.json*
+├── *package.json*
 └── *README.md* this file
 ```
 
@@ -47,10 +54,9 @@ ES6, Reactstrap, JSX, HTML5 and CSS 3 are here too.
 You can use both npm or yarn, the versions I used to create this project are:
 
 ```
-$ node -v ; npm -v ; yarn -v
-v8.8.1
-5.4.2
-1.2.1
+$ node -v ; npm -v 
+v8.12.0
+6.4.1
 
 ```
 
@@ -68,17 +74,10 @@ n stable
 
 ```
 
-and now you have the latest stable version of node & npm.
-  
-`npm i -g simple-react-app`  to install this package globally, from there you will be able to jumpstart as many boilerplates as you wish.
+and now you have the latest stable version of node&npm.
 
-`simple-react-app folderName`  to create a react boilerplate on the  `folderName`  folder. By default all dependencies are already installed, just  `cd folderName`  and start hacking.
+`npm start`  to start dev server with hot reload, it's live on  `localhost:3000`.
 
-`yarn start`/`npm start`  to start dev server with hot reload, it's on live on  `localhost:3000`.
-
-`yarn run build`/`npm run build`  to build prod bundle, it includes both treeshaking and uglify to optimize the code as much as possible.
-
-`yarn test`/`npm test`  run the tests with Jest and Enzyme, by default the test included only check for the correct render of base components & routes, all are passing.
 
 
 ## Credits
@@ -87,10 +86,10 @@ The CLAP Team created this!
 
 Collaborators:
 
--   Maeva Duran (https://github.com/mae-)
--   Tiphaine Deswarte (https://brennannovak.com/)
--   Antoine Nourris (http://www.smarimccarthy.is/)
--   Matthieu PETIT (https://brennannovak.com/)
+-   Maeva Duran (https://github.com/mae-va)
+-   Tiphaine Deswarte (https://github.com/TiphaineDSW)
+-   Antoine Nourris (https://github.com/awcs)
+-   Matthieu PETIT (https://github.com/MatPlume)
 
 
 This program is a free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation. 
