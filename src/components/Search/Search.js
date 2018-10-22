@@ -7,6 +7,8 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input, Button } from 'reactstrap';
 import { Card, CardBody, Container, CardTitle, CardText, CardImg, Col, Row, CardImgOverlay, CardSubtitle, CardFooter } from 'reactstrap';
 
+import _ from 'underscore';
+
 class Search extends Component {
 
   constructor(props){
@@ -38,10 +40,14 @@ class Search extends Component {
       .then(response => response.json()) 
 			.then(json => {
             this.setState({movies : json.results},() =>{this.getDirectorFromMoviesId()});
+
+              this.setState({})
+
             this.state.movies.map((movie) => {
               return(
               movie.release_date = movie.release_date.slice(0,4),
-              movie.vote_average = Math.round(movie.vote_average/2))
+              movie.vote_average = Math.round(movie.vote_average/2)),
+              movie.heartColor = "no-clicked-icon"
             });
       })
 			.then(() => {this.toggleModal()})
@@ -106,14 +112,22 @@ class Search extends Component {
   }
 
   handleClick = (movieId, movie) => {
-    if(this.state.color=== "no-clicked-icon"){
-      this.setState({color:"push-heart"});
-      this.favoriteMovies();
-    }
-    else if(this.state.color === "push-heart"){
-      this.setState({color:"no-clicked-icon"});
-      this.deleteMovies();
-    }
+  
+    let movies = [...this.state.movies];
+    movies.forEach((element) => {
+      if(element.id === movieId) {
+        if(element.heartColor === "no-clicked-icon"){
+          this.favoriteMovies();
+          element.heartColor = "push-heart";
+        }
+        else if(element.heartColor === "push-heart"){
+          this.deleteMovies();
+          element.heartColor = "no-clicked-icon";
+        }
+      }
+    });
+
+    this.setState({movies: movies});
     this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite(movieId, movie)});
   }
 
@@ -176,7 +190,7 @@ class Search extends Component {
                           <CardBody>
                             <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
                             <CardText className="mb-4">
-                              <i className= {`${this.state.color} fa fa-heart pull-right mr-3 mt-2 no-clicked-icon`} onClick={ () => {this.handleClick(movie.id, movie);}}></i>
+                              <i className={`fa fa-heart pull-right mr-3 mt-2 ${movie.heartColor}`} onClick={ () => {this.handleClick(movie.id, movie);}}></i>
                               <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                             </CardText>
                             <CardSubtitle className="lead text-white mb-2 ">

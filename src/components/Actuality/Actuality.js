@@ -21,7 +21,8 @@ class Actuality extends Component {
       readMore: false,
       color: "no-clicked-icon",
       isVisible : true,
-      cardOverlay: false
+      cardOverlay: false,
+      colorsHeartMovies: []
     }
     this.rate ="";
 		this.favorite = false;
@@ -112,7 +113,7 @@ class Actuality extends Component {
   toggleCardOverlay = () => {
     this.setState({cardOverlay: ! this.state.cardOverlay});
   }
-
+  
   render() {
     return (
       <Container fluid={true} className="custom-global-container">
