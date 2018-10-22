@@ -79,3 +79,17 @@
 .modal-dialog {
 	width : 700px;
 }
+
+@media screen and (max-width: 500px) {
+  .research-desktop-description {
+    display: none;
+	}
+}
+ .research-mobile-description {
+	padding: 0!important;
+}
+ .research-desktop-description{
+	overflow: scroll;
+	height: 515px;
+	padding-left: 10px !important;
+}

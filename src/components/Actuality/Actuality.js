@@ -123,7 +123,7 @@ class Actuality extends Component {
             <Row className="actuality-container nopadding">
               <Col lg="7" className="nopadding">
                 <img src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`} class="movie_poster" ></img>
-                {this.state.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">
+                {this.state.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">{/* OVERLAY*/}
                   <CardBody>
                     <CardTitle className="display-3 text-uppercase ">{this.state.movie.title}</CardTitle>
                     <CardText className="my-5">
@@ -137,12 +137,12 @@ class Actuality extends Component {
                     <CardText className="lead mt-4 overview-text-actuality mb-5">{this.state.movie.overview}</CardText>
                   </CardBody>
                 </CardImgOverlay> : null}
-                <CardText>
+                <CardText>{/* BOUTON OVERLAY*/}
                   {!this.state.cardOverlay ? <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
                   <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
                 </CardText>
               </Col>
-              <Col lg="5" className="actuality-desktop-description pt-5">
+              <Col lg="5" className="actuality-desktop-description pt-5"> {/*VERSION DESKTOP*/}
                 <CardBody>
                   <CardTitle className="display-3 text-uppercase ">{this.state.movie.title}</CardTitle>
                   <CardText className="my-5">

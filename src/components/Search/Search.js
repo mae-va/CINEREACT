@@ -20,7 +20,9 @@ class Search extends Component {
       dropdownOpen: false,
       movies : [],
       select : "0",
-      color : "no-clicked-icon"
+      color : "no-clicked-icon",
+      cardOverlay: false,
+      movie : {}
 		}
     this.card ="";
     this.favorite = false;
@@ -158,7 +160,11 @@ class Search extends Component {
 
 	deleteMovies = () => {
 		NotificationManager.warning('Movie removed!',"", 1000);
-	}
+  }
+  
+  toggleCardOverlay = () => {
+    this.setState({cardOverlay: ! this.state.cardOverlay});
+  }
 
   render(){
 		const CloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px', color: "#5FD4F4" }} onClick={this.toggleModal}>&times;</button>;
@@ -183,21 +189,40 @@ class Search extends Component {
                   <Col md="12 nopadding" sm="12 nopadding">
                     <Card key={index}>
                       <Row>
-                        <Col lg="5">
-                          <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} className="movie-poster-favoris" ></img>
+                      <Col lg="6 research-mobile-description">
+                        <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} className="movie-poster-favoris" />
+                        {this.state.cardOverlay ? 
+                        <CardImgOverlay className="custom-overlay-movie"> {/* OVERLAY*/}
+                          <CardBody>
+                          <CardTitle className="text-uppercase ">{movie.title}</CardTitle>
+                          <CardText className="mb-4">
+                            <i className= {`${movie.heartColor} fa fa-heart pull-right mr-3 mt-2 no-clicked-icon`} onClick={ () => {this.handleClick(movie.id, movie);}}></i>
+                            <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
+                          </CardText>
+                          <CardSubtitle className="lead text-white mb-2 ">
+                            {movie.release_date} - {movie.director}
+                          </CardSubtitle>
+                            <CardText className="font-weight-bold font-italic">{movie.casting}</CardText>
+                            <CardText className="mt-4 text-description-favoris">{movie.overview}</CardText>
+                          </CardBody>
+                          </CardImgOverlay> : null}
+                        <CardText> {/*BOUTON OVERLAY*/}
+                          {!this.state.cardOverlay ? <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
+                          <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-down pull-right button-open-overlay-down"></i> }
+                        </CardText>
                         </Col>
-                        <Col lg="7" className="favoris-desktop-description">
+                        <Col lg="6" className="research-desktop-description"> {/* VERSION DESKTOP*/}
                           <CardBody>
                             <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
-                            <CardText className="mb-4">
-                              <i className={`fa fa-heart pull-right mr-3 mt-2 ${movie.heartColor}`} onClick={ () => {this.handleClick(movie.id, movie);}}></i>
+                            <CardText className="my-5">
+                              <i className= {`${movie.heartColor} fa fa-heart pull-right mr-3`} onClick={ () => {this.handleClick(movie.id, movie)}}></i>
                               <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                             </CardText>
-                            <CardSubtitle className="lead text-white mb-2 ">
+                            <CardSubtitle className="h4 text-white mb-2 ">
                               {movie.release_date} - {movie.director}
                             </CardSubtitle>
                             <CardText className="font-weight-bold font-italic">{movie.casting}</CardText>
-                            <CardText className="mt-4 text-description-favoris">{movie.overview}</CardText>
+                            <CardText className="lead mt-4">{movie.overview}</CardText>
                           </CardBody>
                         </Col>
                       </Row>

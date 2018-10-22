@@ -7,11 +7,22 @@
 .button-open-overlay {
   color: #5fd4f4;
   position: absolute;
-  top:50%;
-  left: 47%;
+  bottom: 10%;
+  right: 10%;
   justify-content: center;
   font-size: 49px !important;
   text-shadow: 1px 1px 10px #000;
+}
+
+.button-open-overlay-down{
+  color: #5fd4f4;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  justify-content: center;
+  font-size: 49px !important;
+  text-shadow: 1px 1px 10px #000;
+  opacity: 0.5;
 }
 
 .custom-global-container {
