@@ -4,7 +4,7 @@ import 'react-notifications/lib/notifications.css';
 import Rating from "react-star-rating-lite";
 import {NotificationManager, NotificationContainer} from 'react-notifications';
 
-import { Card, CardBody, Container, CardTitle, CardText, CardImg, Col, Row, CardImgOverlay, CardSubtitle, CardFooter } from 'reactstrap';
+import { Card, CardBody, Container, CardTitle, CardText, Col, Row, CardImgOverlay, CardSubtitle, CardFooter } from 'reactstrap';
 
 import posed from 'react-pose';
 
@@ -99,7 +99,10 @@ class Actuality extends Component {
 	}
 
   setItem = () => {
-    window.localStorage.setItem(`${this.state.movie.id}`, JSON.stringify(this.state.movie));
+    let movie = this.state.movie;
+    movie.poster_path = "https://image.tmdb.org/t/p/original" + movie.poster_path;
+    console.log(movie.poster_path)
+    window.localStorage.setItem(`${this.state.movie.id}`, JSON.stringify(movie));
   }
 
   removeItem = () => {
@@ -122,7 +125,7 @@ class Actuality extends Component {
           <Card inverse>
             <Row className="actuality-container nopadding">
               <Col lg="7" className="nopadding">
-                <img src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`} class="movie_poster" ></img>
+                <img src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`} alt={this.state.movie.title} className="movie_poster" ></img>
                 {this.state.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">{/* OVERLAY*/}
                   <CardBody>
                     <CardTitle className="display-3 text-uppercase ">{this.state.movie.title}</CardTitle>
@@ -138,8 +141,8 @@ class Actuality extends Component {
                   </CardBody>
                 </CardImgOverlay> : null}
                 <CardText>{/* BOUTON OVERLAY*/}
-                  {!this.state.cardOverlay ? <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
-                  <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
+                {!this.state.cardOverlay ? <i onClick={this.toggleCardOverlay} className="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
+                  <i onClick={this.toggleCardOverlay} className="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
                 </CardText>
               </Col>
               <Col lg="5" className="actuality-desktop-description pt-5"> {/*VERSION DESKTOP*/}

@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import './Favoris.css';
 import 'react-notifications/lib/notifications.css';
+
 import Rating from "react-star-rating-lite";
 import _ from 'underscore';
-import {NotificationManager, NotificationContainer} from 'react-notifications';
+import { NotificationManager } from 'react-notifications';
 
-import { Card, CardBody, CardTitle, CardText, Col, Row, CardSubtitle } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, Col, Row, CardSubtitle, CardImgOverlay } from 'reactstrap';
 
 class Favoris extends Component {
   constructor(props){
@@ -13,6 +14,7 @@ class Favoris extends Component {
     this.state= {
       movies:[],
       color: "push-heart",
+      cardOverlay: false
     }
     this.fullMovie = [];
     this.cardBlock = "";
@@ -22,7 +24,7 @@ class Favoris extends Component {
     this.setState({ movies: [...this.state.movies, movie]});
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.props.updateLocalMovie(this.renderUpdateMovie);
     let values = [];
     let keys = Object.keys(localStorage);
@@ -43,7 +45,11 @@ class Favoris extends Component {
 
   deleteMovies = () => {
 		NotificationManager.warning('Movie removed!',"", 1000);
-	}
+  }
+  
+  toggleCardOverlay = () => {
+    this.setState({cardOverlay: ! this.state.cardOverlay});
+  }
 
   render() {
     if(this.state.movies.length === 0){
@@ -56,11 +62,29 @@ class Favoris extends Component {
         <Row className="row top nopadding">
           {this.state.movies.map((movie,index) =>{
             return(
-              <Col md="6 nopadding">
-                <Card key={index}>
-                <Row className="nopadding">
+              <Col md="6 nopaddingright">
+              <Card key={index}>
+                <Row className="nopaddingright">
                   <Col lg="5" className="nopadding">
-                    <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} class="movie-poster-favoris" ></img>
+                    <img src={`${movie.poster_path}`} alt={movie.title} className="movie-poster-favoris"/>
+                    {this.state.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">
+                      <CardBody>
+                        <CardTitle className="display-3 text-uppercase ">{movie.title}</CardTitle>
+                        <CardText className="my-5">
+                          <i className="fa fa-heart pull-right mr-3 mt-2 no-clicked-icon" onClick={ () => {this.removeMovie(movie.id);}}></i>
+                          <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
+                        </CardText>
+                        <CardSubtitle className="h4 text-white mb-2 ">
+                          {movie.release_date} - {movie.director}
+                        </CardSubtitle>
+                        <CardText className="font-weight-bold font-italic">{movie.casting}</CardText>
+                        <CardText className="lead mt-4 overview-text-actuality mb-5">{movie.overview}</CardText>
+                      </CardBody>
+                    </CardImgOverlay> : null}
+                    <CardText>
+                      {!this.state.cardOverlay ? <i onClick={this.toggleCardOverlay} className="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
+                      <i onClick={this.toggleCardOverlay} className="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
+                    </CardText>
                   </Col>
                   <Col lg="7" className="favoris-desktop-description">
                     <CardBody>
