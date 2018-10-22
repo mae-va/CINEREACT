@@ -52,7 +52,7 @@ body {
 }
 
 .top {
-  margin-top: 64px;
+  margin-top: 64px !important;
 }
 
 .ajust-height {

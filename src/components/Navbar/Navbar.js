@@ -48,9 +48,29 @@ class Navbar extends Component {
           <Modal isOpen={this.state.modal} toggle={this.toggle} >
             <ModalHeader toggle={this.toggle} className="modal-contact">CONTACT</ModalHeader>
             <ModalBody className="modal-contact">
-              <p>Names : Maéva Duran, Matthieu Petit, Tiphaine Deswartes, Antoine Nourris </p>
-              <hr className="mx-5"/>
-              <p>Email address : Contact@simonphilouze.fr </p>
+            <div>  
+                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                <p  className="mr-2">Matthieu Petit</p>
+                <p  className="ml-5">https://github.com/mae-va</p>
+              </div>
+               <hr/>
+              <div> 
+                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                <p  className="ml-5">Maéva Duran</p>
+                <p  className="ml-5">https://github.com/mae-va</p>
+              </div>
+              <hr/>
+              <div> 
+                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                <p  className="ml-5">Antoine Nourris</p>
+                <p  className="ml-5">https://github.com/mae-va</p>
+              </div>
+              <hr/>
+              <div>
+                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                <p  className="ml-5">Tiphaine Deswarte</p>
+                <p  className="ml-5">https://github.com/TiphaineDSW</p>
+              </div>
             </ModalBody>
           </Modal>
         </div>

@@ -7,6 +7,11 @@ h1 {
   color: #F1F1F1;
 }
 
+.profile{
+  width: 44px;
+  height: 44px;
+}
+
 .logo-react {
   font-family: 'Roboto Condensed', sans-serif;
   color: #5FD4F4;
