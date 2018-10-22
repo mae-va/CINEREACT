@@ -1,14 +1,13 @@
 # CINEREACT
 
-We created a simple React app to store movies et register favorites.
-
+We created a simple React App to store movies, get informations on it, get the last well-rated releases and save the favorites movies.
 
 ## How we made CINEREACT
 
 CINEREACT was made with React JS for sure ;) Using rooting method, our application don't change his URL when you walk away on it. 
+
 We plugged on themoviedb.rg with its API. We used Firebase to store favorites.
 ES6, Bootstrap, JSX, HTML5 and CSS 3 are here too.
-
 
 ## Table of contents
 
@@ -83,15 +82,14 @@ and now you have the latest stable version of node&npm.
 
 ## Credits
 
-The CLAP Team created this! I
+The CLAP Team created this! 
 
 Collaborators:
 
 -   Maeva Duran (https://github.com/mae-va)
--   Tiphaine Deswarte (https://brennannovak.com/)
--   Antoine Nourris (http://www.smarimccarthy.is/)
--   Matthieu PETIT (https://brennannovak.com/)
+-   Tiphaine Deswarte (https://github.com/TiphaineDSW)
+-   Antoine Nourris (https://github.com/awcs)
+-   Matthieu PETIT (https://github.com/MatPlume)
 
 
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation. 
+This program is a free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation. 
