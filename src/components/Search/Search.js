@@ -29,11 +29,13 @@ class Search extends Component {
   }
 
   fetchByCategory = () => {
-    if(this.state.select === "0"){
-      this.setState({ methodFetch : "search", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&query=${this.state.query}` },()=>this.researchQuery())
-    }
-    else if(this.state.select === "1"){
-      this.setState({ methodFetch : "discover", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&primary_release_year=${this.state.query}`},()=>this.researchQuery())
+    if(this.state.query.length > 0) {
+      if(this.state.select === "0"){
+        this.setState({ methodFetch : "search", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&query=${this.state.query}` },()=>this.researchQuery())
+      }
+      else if(this.state.select === "1"){
+        this.setState({ methodFetch : "discover", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&primary_release_year=${this.state.query}`},()=>this.researchQuery())
+      }
     }
   }
 
@@ -232,7 +234,7 @@ class Search extends Component {
                     </Card>
                   </Col>
 									)})
-							  }}
+							  }
             </ModalBody>
           </Modal>
         <NotificationContainer/>
