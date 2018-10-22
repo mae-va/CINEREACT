@@ -1,14 +1,12 @@
 # CINEREACT
 
-We created a simple React app to store movies et register favorites.
-
+We created a simple React App to store movies, get informations on it, get the last well-rated releases and save the favorites movies.
 
 ## How we made CINEREACT
 
-CINEREACT was made with React JS for sure ;) Using rooting method, our application don't change is URL when you walk away on it. 
-We plugged on themoviedb.rg with its API. We used Firebase to store favorites.
-ES6, Bootstrap, JSX, HTML5 and CSS 3 are here too.
-
+CINEREACT was made with React JS for sure ;) Using rooting method, our application don't change his URL when you walk away on it. 
+We plugged on themoviedb.rg with its API key. We used the browser's Local Storage to store favorites.
+ES6, Reactstrap, JSX, HTML5 and CSS 3 are here too.
 
 ## Table of contents
 
@@ -46,7 +44,7 @@ ES6, Bootstrap, JSX, HTML5 and CSS 3 are here too.
 
 ## Installation
 
-You can use both npm or yarn, the version I used to create this project are:
+You can use both npm or yarn, the versions I used to create this project are:
 
 ```
 $ node -v ; npm -v ; yarn -v
@@ -70,13 +68,13 @@ n stable
 
 ```
 
-and now you have the latest stable version of node&npm.
-
+and now you have the latest stable version of node & npm.
+  
 `npm i -g simple-react-app`  to install this package globally, from there you will be able to jumpstart as many boilerplates as you wish.
 
 `simple-react-app folderName`  to create a react boilerplate on the  `folderName`  folder. By default all dependencies are already installed, just  `cd folderName`  and start hacking.
 
-`yarn start`/`npm start`  to start dev server with hot reload, it's live on  `localhost:3000`.
+`yarn start`/`npm start`  to start dev server with hot reload, it's on live on  `localhost:3000`.
 
 `yarn run build`/`npm run build`  to build prod bundle, it includes both treeshaking and uglify to optimize the code as much as possible.
 
@@ -85,7 +83,7 @@ and now you have the latest stable version of node&npm.
 
 ## Credits
 
-The CLAP Team created this! I
+The CLAP Team created this! 
 
 Collaborators:
 
@@ -95,5 +93,4 @@ Collaborators:
 -   Matthieu PETIT (https://brennannovak.com/)
 
 
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation. 
+This program is a free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation. 
