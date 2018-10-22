@@ -53,7 +53,8 @@ class Search extends Component {
                 movie.release_date = movie.release_date.slice(0,4),
                 movie.vote_average = Math.round(movie.vote_average/2),
                 movie.heartColor = "no-clicked-icon",
-                movie.poster_path = poster
+                movie.poster_path = poster,
+                movie.cardOverlay = false
               )
             });
       })
@@ -119,16 +120,18 @@ class Search extends Component {
   }
 
   handleClick = (movieId, movie) => {
-  
-    let movies = [...this.state.movies];
+    console.log(movieId)
+    let movies = this.state.movies;
     movies.forEach((element) => {
       if(element.id === movieId) {
         if(element.heartColor === "no-clicked-icon"){
           this.favoriteMovies();
+          element.favorite = true;
           element.heartColor = "push-heart";
         }
         else if(element.heartColor === "push-heart"){
           this.deleteMovies();
+          element.favorite = false;
           element.heartColor = "no-clicked-icon";
         }
       }
@@ -139,25 +142,26 @@ class Search extends Component {
   }
 
 	setFavorite = (movieId, movie) => {
-    if(this.state.favorite===true){
+    if(movie.favorite === true){
       this.setItem(movieId, movie);
     }
-    else if(this.state.favorite===false){
+    else if(movie.favorite === false){
       this.removeItem(movieId);
     }
 	}
 
   setItem = (movieId, movie) => {
-    window.localStorage.setItem(`${movieId}`, JSON.stringify(movie));
-    if(window.location.pathname === "/favoris") {
-      this.props.functionUpdateMovie(movie)
+    if(window.localStorage.getItem(movieId) === null) {
+      window.localStorage.setItem(`${movieId}`, JSON.stringify(movie));
+      if(window.location.pathname === "/favoris") {
+        this.props.functionUpdateMovie(movie)
+      }
     }
   }
 
   removeItem = (movieId) => {
     window.localStorage.removeItem(`${movieId}`);
   }
-
 
   favoriteMovies = () => {
 		NotificationManager.success('Movie added!',"", 1000);
@@ -167,8 +171,14 @@ class Search extends Component {
 		NotificationManager.warning('Movie removed!',"", 1000);
   }
   
-  toggleCardOverlay = () => {
-    this.setState({cardOverlay: ! this.state.cardOverlay});
+  toggleCardOverlay = (movieId) => {
+    let films = this.state.movies;
+    films.forEach((element) => {
+      if(element.id === movieId) {
+        element.cardOverlay = !element.cardOverlay;
+      }
+    });
+    this.setState({movies: films});
   }
 
   render(){
@@ -196,7 +206,7 @@ class Search extends Component {
                       <Row>
                       <Col lg="6 research-mobile-description">
                         <img src={`${movie.poster_path}`} className="movie-poster-favoris" />
-                        {this.state.cardOverlay ? 
+                        {movie.cardOverlay ? 
                         <CardImgOverlay className="custom-overlay-movie"> {/* OVERLAY*/}
                           <CardBody>
                           <CardTitle className="text-uppercase ">{movie.title}</CardTitle>
@@ -212,11 +222,11 @@ class Search extends Component {
                           </CardBody>
                           </CardImgOverlay> : null}
                         <CardText> {/*BOUTON OVERLAY*/}
-                          {!this.state.cardOverlay ? <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
-                          <i onClick={this.toggleCardOverlay} class="fa fa-chevron-circle-down pull-right button-open-overlay-down"></i> }
+                          {!movie.cardOverlay ? <i onClick={() => {this.toggleCardOverlay(movie.id)}} class="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
+                          <i onClick={() => {this.toggleCardOverlay(movie.id)}} class="fa fa-chevron-circle-down pull-right button-open-overlay-down"></i> }
                         </CardText>
                         </Col>
-                        <Col lg="6" className="research-desktop-description"> {/* VERSION DESKTOP*/}
+                        <Col lg="6" className="research-desktop-description d-none d-md-block"> {/* VERSION DESKTOP*/}
                           <CardBody>
                             <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
                             <CardText className="my-5">

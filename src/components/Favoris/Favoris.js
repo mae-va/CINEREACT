@@ -13,8 +13,7 @@ class Favoris extends Component {
     super(props);
     this.state= {
       movies:[],
-      color: "push-heart",
-      cardOverlay: false
+      color: "push-heart"
     }
     this.fullMovie = [];
     this.cardBlock = "";
@@ -34,7 +33,20 @@ class Favoris extends Component {
     values.map((value) =>{
       return(this.fullMovie.push(value))
     })
-    this.setState({ movies: this.fullMovie});
+    this.setState({ movies: this.fullMovie}, () => {
+      let toto = this.state.movies;
+
+      toto.map(movie =>{
+        return (
+          movie.cardOverlay = false
+        )
+      });
+  
+      this.setState({movies: toto}, () => {
+        console.log(this.state.movies)
+      });
+    });
+
   }
 
   removeMovie = (movieId) => {
@@ -47,8 +59,14 @@ class Favoris extends Component {
 		NotificationManager.warning('Movie removed!',"", 1000);
   }
   
-  toggleCardOverlay = () => {
-    this.setState({cardOverlay: ! this.state.cardOverlay});
+  toggleCardOverlay = (movieId) => {
+    let films = this.state.movies;
+    films.forEach((element) => {
+      if(element.id === movieId) {
+        element.cardOverlay = !element.cardOverlay;
+      }
+    });
+    this.setState({movies: films});
   }
 
   render() {
@@ -67,11 +85,11 @@ class Favoris extends Component {
                 <Row className="nopaddingright">
                   <Col lg="5" className="nopadding">
                     <img src={`${movie.poster_path}`} alt={movie.title} className="movie-poster-favoris"/>
-                    {this.state.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">
+                    {movie.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">
                       <CardBody>
                         <CardTitle className="display-3 text-uppercase ">{movie.title}</CardTitle>
                         <CardText className="my-5">
-                          <i className="fa fa-heart pull-right mr-3 mt-2 no-clicked-icon" onClick={ () => {this.removeMovie(movie.id);}}></i>
+                          <i className="fa fa-heart push-heart pull-right mr-3 mt-2" onClick={ () => {this.removeMovie(movie.id);}}></i>
                           <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                         </CardText>
                         <CardSubtitle className="h4 text-white mb-2 ">
@@ -82,15 +100,15 @@ class Favoris extends Component {
                       </CardBody>
                     </CardImgOverlay> : null}
                     <CardText>
-                      {!this.state.cardOverlay ? <i onClick={this.toggleCardOverlay} className="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
-                      <i onClick={this.toggleCardOverlay} className="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
+                      {!movie.cardOverlay ? <i onClick={() => {this.toggleCardOverlay(movie.id)}} className="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
+                      <i onClick={() => {this.toggleCardOverlay(movie.id)}} className="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
                     </CardText>
                   </Col>
-                  <Col lg="7" className="favoris-desktop-description">
+                  <Col lg="7" className="favoris-desktop-description d-none d-md-block">
                     <CardBody>
                       <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
                       <CardText className="mb-4">
-                        <i className= {`fa fa-heart pull-right mr-3 mt-2 no-clicked-icon`} onClick={ () => {this.removeMovie(movie.id);}}></i>
+                        <i className= {`fa fa-heart pull-right mr-3 mt-2 push-heart`} onClick={ () => {this.removeMovie(movie.id);}}></i>
                         <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                       </CardText>
                       <CardSubtitle className="lead text-white mb-2 ">

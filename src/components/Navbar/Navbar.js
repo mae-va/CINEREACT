@@ -50,26 +50,26 @@ class Navbar extends Component {
             <ModalBody className="modal-contact">
             <div>  
                 <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
-                <p  className="mr-2">Matthieu Petit</p>
-                <p  className="ml-5">https://github.com/mae-va</p>
+                <p  className="ml-5">Matthieu Petit</p>
+                <a className="ml-2" href="https://github.com/MatPlume">https://github.com/MatPlume</a>
               </div>
                <hr/>
               <div> 
                 <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Maéva Duran</p>
-                <p  className="ml-5">https://github.com/mae-va</p>
+                <a  className="ml-2" href="https://github.com/mae-va">https://github.com/mae-va</a>
               </div>
               <hr/>
               <div> 
                 <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Antoine Nourris</p>
-                <p  className="ml-5">https://github.com/mae-va</p>
+                <a  className="ml-2" href="https://github.com/awcs">https://github.com/awcs</a>
               </div>
               <hr/>
               <div>
                 <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Tiphaine Deswarte</p>
-                <p  className="ml-5">https://github.com/TiphaineDSW</p>
+                <a  className="ml-2" href= "https://github.com/TiphaineDSW">https://github.com/TiphaineDSW</a>
               </div>
             </ModalBody>
           </Modal>

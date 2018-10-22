@@ -1,9 +1,19 @@
+.push-heart{
+  color: rgb(223, 4, 22);
+}
+
 .fav-phrase{
   font-size: 2rem;
   margin-top: 150px;
   margin-left: 40px;
   color: #525559;
   text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .display-3 {
+    font-size: 2.5rem !important;
+  }
 }
 
 body {
@@ -15,8 +25,8 @@ body {
 }
 
 .text-description-favoris {
-  /* overflow-y: scroll;
-  max-height: 158px; */
+  max-height: 300px !important;
+  overflow-y: scroll;
 }
 
 .movie-poster-favoris {

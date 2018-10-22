@@ -40,13 +40,13 @@ class Actuality extends Component {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.getRandomArbitrary(1,3)}&primary_release_year=2018`)
       .then(response => response.json())
       .then(json => {
-              this.setState({movie : json.results[this.getRandomInt(19)]},() => this.getDirectorFromMovieId());
-						})
+        this.setState({movie : json.results[this.getRandomInt(19)]},() => this.getDirectorFromMovieId());
+			})
       .then(() => {
-              this.setState({movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
-              this.setState({movie : {...this.state.movie,release_date : this.state.movie.release_date.slice(0,4)}});
-              this.rate = <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" className="pull-left" readonly/>
-        })
+        this.setState({movie : {...this.state.movie,vote_average : Math.round(this.state.movie.vote_average/2)}});
+        this.setState({movie : {...this.state.movie,release_date : this.state.movie.release_date.slice(0,4)}});
+        this.rate = <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" className="pull-left" readonly/>
+      })
     setTimeout(() => {this.setState({ isVisible: !this.state.isVisible });}, 500);
   }
 
@@ -54,19 +54,21 @@ class Actuality extends Component {
     fetch(`https://api.themoviedb.org/3/movie/${this.state.movie.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
       .then(response => response.json())
       .then(json =>{
-              this.setState({movie : {...this.state.movie,director : json.crew[0].name}});
-              let results = json.cast.slice(0,4);
-              let fullCast ="";
-              for(let i=0; i<results.length; i++){
-                if(i === 3) {
-                  fullCast+=`${results[i].name}... `;
-                } else {
-                fullCast +=`${results[i].name}, `;
-                }
-              } 
-					    this.setState({movie : {...this.state.movie,casting : fullCast}});
-					    this.forceUpdate();
-            })
+        this.setState({movie : {...this.state.movie,director : json.crew[0].name}});
+        this.setState({movie : {...this.state.movie,poster_path : "https://image.tmdb.org/t/p/original" + this.state.movie.poster_path}});
+
+        let results = json.cast.slice(0,4);
+        let fullCast ="";
+        for(let i=0; i<results.length; i++){
+          if(i === 3) {
+            fullCast+=`${results[i].name}... `;
+          } else {
+          fullCast +=`${results[i].name}, `;
+          }
+        } 
+        this.setState({movie : {...this.state.movie,casting : fullCast}});
+        this.forceUpdate();
+    })
   }
 
   getRandomArbitrary = (min, max) => {
@@ -86,8 +88,11 @@ class Actuality extends Component {
       this.setState({color:"no-clicked-icon"});
       this.deleteMovies();
     }
-      this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite()});
-    }
+
+    this.setState({ favorite: !this.state.favorite }, () => {
+      this.setFavorite();
+    });
+  }
 
 	setFavorite = () => {
     if(this.state.favorite===true){
@@ -99,10 +104,7 @@ class Actuality extends Component {
 	}
 
   setItem = () => {
-    let movie = this.state.movie;
-    movie.poster_path = "https://image.tmdb.org/t/p/original" + movie.poster_path;
-    console.log(movie.poster_path)
-    window.localStorage.setItem(`${this.state.movie.id}`, JSON.stringify(movie));
+    window.localStorage.setItem(`${this.state.movie.id}`, JSON.stringify(this.state.movie));
   }
 
   removeItem = () => {
@@ -125,7 +127,7 @@ class Actuality extends Component {
           <Card inverse>
             <Row className="actuality-container nopadding">
               <Col lg="7" className="nopadding">
-                <img src={`https://image.tmdb.org/t/p/original${this.state.movie.poster_path}`} alt={this.state.movie.title} className="movie_poster" ></img>
+                <img src={`${this.state.movie.poster_path}`} alt={this.state.movie.title} className="movie_poster" ></img>
                 {this.state.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">{/* OVERLAY*/}
                   <CardBody>
                     <CardTitle className="display-3 text-uppercase ">{this.state.movie.title}</CardTitle>
