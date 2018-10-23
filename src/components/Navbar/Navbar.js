@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import Search from '../Search/Search';
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import {  Navbar as Navbarr, Nav, NavItem, NavLink,} from 'reactstrap'
+import {  Navbar as Navbarr, Nav, NavItem, NavLink,} from 'reactstrap';
+
 
 
 class Navbar extends Component {
@@ -18,11 +19,15 @@ class Navbar extends Component {
     this.setState({ modal : !this.state.modal})
   }
 
+  refresh =() => {
+    Router.dispatch(window.location.getCurrentPath(), null);
+  } 
+    
   render(){
     return (
         <div>
           <Navbarr className="top-fixed-navbar" expand="xs">
-            <Link exact to="/">
+            <Link onClick={this.refresh} exact to="/">
               <h1 className="logo-cine">CINE</h1>
               <h1 className="logo-react">REACT</h1>
             </Link>
