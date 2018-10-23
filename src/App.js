@@ -27,7 +27,7 @@ class App extends Component {
       <div>
         <div className="container-fluid">
           <Navbar functionUpdateMovie={this.state.functionUpdateMovie}/>
-          <Route exact path="/" component={Actuality}/>
+          <Route exact path="/" component={Actuality} />
           <Route path="/favoris" render={() => <Favoris updateLocalMovie={this.updateLocalMovie}/>}/>
         </div>
       </div>

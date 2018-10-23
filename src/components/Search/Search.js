@@ -7,7 +7,6 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input, Button } from 'reactstrap';
 import { Card, CardBody, CardTitle, CardText, Col, Row, CardImgOverlay, CardSubtitle } from 'reactstrap';
 
-import _ from 'underscore';
 
 class Search extends Component {
 
@@ -205,7 +204,7 @@ class Search extends Component {
                     <Card key={index}>
                       <Row>
                       <Col lg="6 research-mobile-description">
-                        <img src={`${movie.poster_path}`} className="movie-poster-favoris" />
+                        <img src={`${movie.poster_path}`} className="movie-poster-favoris" alt="movie-poster"/>
                         {movie.cardOverlay ? 
                         <CardImgOverlay className="custom-overlay-movie"> {/* OVERLAY*/}
                           <CardBody>
