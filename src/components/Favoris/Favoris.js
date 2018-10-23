@@ -90,13 +90,13 @@ class Favoris extends Component {
                         <CardTitle className="display-3 text-uppercase ">{movie.title}</CardTitle>
                         <CardText tag="div" className="my-5">
                           <i className="fa fa-heart push-heart pull-right mr-3 mt-2" onClick={ () => {this.removeMovie(movie.id);}}></i>
-                          <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
+                          <Rating value={`${movie.vote_average}`} color="#f4dc42" weight="24" readonly/>
                         </CardText>
                         <CardSubtitle className="h4 text-white mb-2 ">
                           {movie.release_date} - {movie.director}
                         </CardSubtitle>
-                        <CardText tag="div" className="font-weight-bold font-italic">{movie.casting}</CardText>
-                        <CardText tag="div" className="lead mt-4 overview-text-actuality mb-5">{movie.overview}</CardText>
+                        <CardText tag="div" className="font-weight-bold text-white font-italic">{movie.casting}</CardText>
+                        <CardText tag="div" className="lead mt-4 text-white overview-text-actuality mb-5">{movie.overview}</CardText>
                       </CardBody>
                     </CardImgOverlay> : null}
                     <CardText tag="div">

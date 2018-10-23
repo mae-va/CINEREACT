@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import Search from '../Search/Search';
-import { Link, Router } from "react-router-dom";
+import { Link, Router, } from "react-router-dom";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import {  Navbar as Navbarr, Nav, NavItem, NavLink,} from 'reactstrap';
 
@@ -20,14 +20,14 @@ class Navbar extends Component {
   }
 
   refresh =() => {
-    Router.dispatch(window.location.getCurrentPath(), null);
+    Router.dispatch(window.location.getCurrentPath, null);
   } 
     
   render(){
     return (
         <div>
           <Navbarr className="top-fixed-navbar" expand="xs">
-            <Link onClick={this.refresh} exact to="/">
+            <Link onClick={this.refresh} to="/">
               <h1 className="logo-cine">CINE</h1>
               <h1 className="logo-react">REACT</h1>
             </Link>
@@ -53,28 +53,38 @@ class Navbar extends Component {
           <Modal isOpen={this.state.modal} toggle={this.toggle} >
             <ModalHeader toggle={this.toggle} className="modal-contact">CONTACT</ModalHeader>
             <ModalBody className="modal-contact">
-            <div>  
-                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
-                <p  className="ml-5">Matthieu Petit</p>
-                <a className="ml-2 git" href="https://github.com/MatPlume"target="_blank">https://github.com/MatPlume</a>
-              </div>
-               <hr/>
-              <div> 
-                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
-                <p  className="ml-5">Maéva Duran</p>
-                <a  className="ml-2 git" href="https://github.com/mae-va"target="_blank">https://github.com/mae-va</a>
-              </div>
-              <hr/>
-              <div> 
-                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
-                <p  className="ml-5">Antoine Nourris</p>
-                <a  className="ml-2 git" href="https://github.com/awcs"target="_blank">https://github.com/awcs</a>
-              </div>
-              <hr/>
-              <div>
-                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
-                <p  className="ml-5">Tiphaine Deswarte</p>
-                <a  className="ml-2 git" href= "https://github.com/TiphaineDSW" target="_blank">https://github.com/TiphaineDSW</a>
+              <div>           
+                <ul className="list-unstyled">
+                  <li className="media">
+                    <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                    <div className="media-body">
+                      <h5 className="mt-0 mb-1 ml-3">Matthieu Petit</h5>
+                      <a className="ml-3 git" href="https://github.com/MatPlume"target="_blank">https://github.com/MatPlume</a>
+                    </div>
+                  </li>
+                  <li className="media my-4">
+                    <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                    <div className="media-body">
+                      <h5 className="mt-0 mb-1 ml-3">Maéva Duran</h5>
+                      <a  className="ml-3 git" href="https://github.com/mae-va"target="_blank">https://github.com/mae-va</a>
+                    </div>
+                  </li>
+                  <li className="media">
+                    <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                    <div className="media-body">
+                      <h5 className="mt-0 mb-1 ml-3">Antoine Nourris</h5>
+                      <a className="ml-3 git" href="https://github.com/awcs"target="_blank">https://github.com/awcs</a>
+                    </div>
+                  </li>
+                  <br></br>
+                  <li className="media">
+                    <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                    <div className="media-body">
+                      <h5 className="mt-0 mb-1 ml-3">Tiphaine Deswarte</h5>
+                      <a  className="ml-3 git" href= "https://github.com/TiphaineDSW" target="_blank">https://github.com/TiphaineDSW</a>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </ModalBody>
           </Modal>

@@ -138,8 +138,8 @@ class Actuality extends Component {
                     <CardSubtitle className="h4 text-white mb-2 ">
                       {this.state.movie.release_date} - {this.state.movie.director}
                     </CardSubtitle>
-                    <CardText tag="div" className="font-weight-bold font-italic">{this.state.movie.casting}</CardText>
-                    <CardText tag="div" className="lead mt-4 overview-text-actuality mb-5">{this.state.movie.overview}</CardText>
+                    <CardText tag="div" className="font-weight-bold text-white font-italic">{this.state.movie.casting}</CardText>
+                    <CardText tag="div" className="lead mt-4 overview-text-actuality text-white mb-5">{this.state.movie.overview}</CardText>
                   </CardBody>
                 </CardImgOverlay> : null}
                 <CardText tag="div">{/* BOUTON OVERLAY*/}

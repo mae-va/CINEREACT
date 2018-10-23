@@ -210,13 +210,13 @@ class Search extends Component {
                           <CardTitle className="text-uppercase ">{movie.title}</CardTitle>
                           <CardText tag="div" className="mb-4">
                             <i className= {`${movie.heartColor} fa fa-heart pull-right mr-3 mt-2 no-clicked-icon`} onClick={ () => {this.handleClick(movie.id, movie);}}></i>
-                            <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
+                            <Rating value={`${movie.vote_average}`} color="#f4dc42" weight="24" readonly/>
                           </CardText>
                           <CardSubtitle className="lead text-white mb-2 ">
                             {movie.release_date} - {movie.director}
                           </CardSubtitle>
-                            <CardText tag="div" className="font-weight-bold font-italic">{movie.casting}</CardText>
-                            <CardText tag="div" className="mt-4 text-description-favoris">{movie.overview}</CardText>
+                            <CardText tag="div" className="font-weight-bold text-white font-italic">{movie.casting}</CardText>
+                            <CardText tag="div" className="mt-4 text-white text-description-favoris">{movie.overview}</CardText>
                           </CardBody>
                           </CardImgOverlay> : null}
                         <CardText tag="div"> {/*BOUTON OVERLAY*/}
