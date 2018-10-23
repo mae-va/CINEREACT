@@ -4,7 +4,7 @@ import 'react-notifications/lib/notifications.css';
 import Rating from "react-star-rating-lite";
 import {NotificationManager, NotificationContainer} from 'react-notifications';
 
-import { Card, CardBody, Container, CardTitle, CardText, Col, Row, CardImgOverlay, CardSubtitle, CardFooter } from 'reactstrap';
+import { Card, CardBody, Container, CardTitle, CardText, Col, Row, CardImgOverlay, CardSubtitle } from 'reactstrap';
 
 import posed from 'react-pose';
 
@@ -131,18 +131,18 @@ class Actuality extends Component {
                 {this.state.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">{/* OVERLAY*/}
                   <CardBody>
                     <CardTitle className="display-3 text-uppercase ">{this.state.movie.title}</CardTitle>
-                    <CardText className="my-5">
+                    <CardText tag="div" className="my-5">
                       <i className= {`${this.state.color} fa fa-heart pull-right mr-3`} onClick={ () => {this.handleClick()}}></i>
                       {this.rate}
                     </CardText>
                     <CardSubtitle className="h4 text-white mb-2 ">
                       {this.state.movie.release_date} - {this.state.movie.director}
                     </CardSubtitle>
-                    <CardText className="font-weight-bold font-italic">{this.state.movie.casting}</CardText>
-                    <CardText className="lead mt-4 overview-text-actuality mb-5">{this.state.movie.overview}</CardText>
+                    <CardText tag="div" className="font-weight-bold font-italic">{this.state.movie.casting}</CardText>
+                    <CardText tag="div" className="lead mt-4 overview-text-actuality mb-5">{this.state.movie.overview}</CardText>
                   </CardBody>
                 </CardImgOverlay> : null}
-                <CardText>{/* BOUTON OVERLAY*/}
+                <CardText tag="div">{/* BOUTON OVERLAY*/}
                 {!this.state.cardOverlay ? <i onClick={this.toggleCardOverlay} className="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
                   <i onClick={this.toggleCardOverlay} className="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
                 </CardText>
@@ -150,15 +150,15 @@ class Actuality extends Component {
               <Col lg="5" className="actuality-desktop-description pt-5"> {/*VERSION DESKTOP*/}
                 <CardBody>
                   <CardTitle className="display-3 text-uppercase ">{this.state.movie.title}</CardTitle>
-                  <CardText className="my-5">
+                  <CardText tag="div" className="my-5">
                     <i className= {`${this.state.color} fa fa-heart pull-right mr-3`} onClick={ () => {this.handleClick()}}></i>
                     {this.rate}
                   </CardText>
                   <CardSubtitle className="h4 text-white mb-2 ">
                     {this.state.movie.release_date} - {this.state.movie.director}
                   </CardSubtitle>
-                  <CardText className="font-weight-bold font-italic">{this.state.movie.casting}</CardText>
-                  <CardText className="lead mt-4">{this.state.movie.overview}</CardText>
+                  <CardText tag="div" className="font-weight-bold font-italic">{this.state.movie.casting}</CardText>
+                  <CardText tag="div" className="lead mt-4">{this.state.movie.overview}</CardText>
                 </CardBody>
               </Col>
             </Row>

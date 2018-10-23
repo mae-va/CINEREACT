@@ -17,8 +17,6 @@ class App extends Component {
   }
 
   updateLocalMovie = (func) => {
-    console.log(func)
-
     this.setState({functionUpdateMovie : func});
   }
 
@@ -39,4 +37,3 @@ class App extends Component {
 export default App;
 
 // clé API = 762ed8e154d8e7ff207952b1cc7074b0
-

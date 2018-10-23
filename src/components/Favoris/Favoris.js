@@ -42,9 +42,7 @@ class Favoris extends Component {
         )
       });
   
-      this.setState({movies: toto}, () => {
-        console.log(this.state.movies)
-      });
+      this.setState({movies: toto});
     });
 
   }
@@ -72,7 +70,9 @@ class Favoris extends Component {
   render() {
     if(this.state.movies.length === 0){
       return(
-        <p className="fav-phrase">Here, you can add your favorite movies.</p>
+        <div>
+          <p className="fav-phrase">Here, you can add your favorite movies.</p>
+        </div>  
       )
     }
     else {
@@ -80,26 +80,26 @@ class Favoris extends Component {
         <Row className="row top nopadding">
           {this.state.movies.map((movie,index) =>{
             return(
-              <Col md="6 nopaddingright">
-              <Card key={index}>
+              <Col key={index} md="6 nopaddingright">
+              <Card>
                 <Row className="nopaddingright">
                   <Col lg="5" className="nopadding">
                     <img src={`${movie.poster_path}`} alt={movie.title} className="movie-poster-favoris"/>
                     {movie.cardOverlay ? <CardImgOverlay className="custom-overlay-movie">
                       <CardBody>
                         <CardTitle className="display-3 text-uppercase ">{movie.title}</CardTitle>
-                        <CardText className="my-5">
+                        <CardText tag="div" className="my-5">
                           <i className="fa fa-heart push-heart pull-right mr-3 mt-2" onClick={ () => {this.removeMovie(movie.id);}}></i>
                           <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                         </CardText>
                         <CardSubtitle className="h4 text-white mb-2 ">
                           {movie.release_date} - {movie.director}
                         </CardSubtitle>
-                        <CardText className="font-weight-bold font-italic">{movie.casting}</CardText>
-                        <CardText className="lead mt-4 overview-text-actuality mb-5">{movie.overview}</CardText>
+                        <CardText tag="div" className="font-weight-bold font-italic">{movie.casting}</CardText>
+                        <CardText tag="div" className="lead mt-4 overview-text-actuality mb-5">{movie.overview}</CardText>
                       </CardBody>
                     </CardImgOverlay> : null}
-                    <CardText>
+                    <CardText tag="div">
                       {!movie.cardOverlay ? <i onClick={() => {this.toggleCardOverlay(movie.id)}} className="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
                       <i onClick={() => {this.toggleCardOverlay(movie.id)}} className="fa fa-chevron-circle-down pull-right button-open-overlay"></i> }
                     </CardText>
@@ -107,15 +107,15 @@ class Favoris extends Component {
                   <Col lg="7" className="favoris-desktop-description d-none d-md-block">
                     <CardBody>
                       <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
-                      <CardText className="mb-4">
+                      <CardText tag="div" className="mb-4">
                         <i className= {`fa fa-heart pull-right mr-3 mt-2 push-heart`} onClick={ () => {this.removeMovie(movie.id);}}></i>
-                        <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
+                        <Rating value={`${movie.vote_average}`} color="#f4dc42" weight="24" readonly/>
                       </CardText>
                       <CardSubtitle className="lead text-white mb-2 ">
                         {movie.release_date} - {movie.director}
                       </CardSubtitle>
-                      <CardText className="font-weight-bold font-italic">{movie.casting}</CardText>
-                      <CardText className="mt-4 text-description-favoris">{movie.overview}</CardText>
+                      <CardText tag="div" className="font-weight-bold font-italic text-white">{movie.casting}</CardText>
+                      <CardText tag="div" className="mt-4 text-description-favoris text-white">{movie.overview}</CardText>
                     </CardBody>
                   </Col>
                 </Row>

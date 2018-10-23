@@ -7,7 +7,6 @@ import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input, Button } from 'reactstrap';
 import { Card, CardBody, CardTitle, CardText, Col, Row, CardImgOverlay, CardSubtitle } from 'reactstrap';
 
-import _ from 'underscore';
 
 class Search extends Component {
 
@@ -120,7 +119,6 @@ class Search extends Component {
   }
 
   handleClick = (movieId, movie) => {
-    console.log(movieId)
     let movies = this.state.movies;
     movies.forEach((element) => {
       if(element.id === movieId) {
@@ -201,43 +199,43 @@ class Search extends Component {
             <ModalBody className="bg-black">
               {this.state.movies.map((movie, index) =>{
 							  return(	
-                  <Col md="12 nopadding" sm="12 nopadding">
-                    <Card key={index}>
+                  <Col key={index} md="12 nopadding" sm="12 nopadding">
+                    <Card>
                       <Row>
                       <Col lg="6 research-mobile-description">
-                        <img src={`${movie.poster_path}`} className="movie-poster-favoris" />
+                        <img src={`${movie.poster_path}`} alt={movie.title} className="movie-poster-favoris" />
                         {movie.cardOverlay ? 
                         <CardImgOverlay className="custom-overlay-movie"> {/* OVERLAY*/}
                           <CardBody>
                           <CardTitle className="text-uppercase ">{movie.title}</CardTitle>
-                          <CardText className="mb-4">
+                          <CardText tag="div" className="mb-4">
                             <i className= {`${movie.heartColor} fa fa-heart pull-right mr-3 mt-2 no-clicked-icon`} onClick={ () => {this.handleClick(movie.id, movie);}}></i>
                             <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
                           </CardText>
                           <CardSubtitle className="lead text-white mb-2 ">
                             {movie.release_date} - {movie.director}
                           </CardSubtitle>
-                            <CardText className="font-weight-bold font-italic">{movie.casting}</CardText>
-                            <CardText className="mt-4 text-description-favoris">{movie.overview}</CardText>
+                            <CardText tag="div" className="font-weight-bold font-italic">{movie.casting}</CardText>
+                            <CardText tag="div" className="mt-4 text-description-favoris">{movie.overview}</CardText>
                           </CardBody>
                           </CardImgOverlay> : null}
-                        <CardText> {/*BOUTON OVERLAY*/}
-                          {!movie.cardOverlay ? <i onClick={() => {this.toggleCardOverlay(movie.id)}} class="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
-                          <i onClick={() => {this.toggleCardOverlay(movie.id)}} class="fa fa-chevron-circle-down pull-right button-open-overlay-down"></i> }
+                        <CardText tag="div"> {/*BOUTON OVERLAY*/}
+                          {!movie.cardOverlay ? <i onClick={() => {this.toggleCardOverlay(movie.id)}} className="fa fa-chevron-circle-up pull-right button-open-overlay"></i> :
+                          <i onClick={() => {this.toggleCardOverlay(movie.id)}} className="fa fa-chevron-circle-down pull-right button-open-overlay-down"></i> }
                         </CardText>
                         </Col>
                         <Col lg="6" className="research-desktop-description d-none d-md-block"> {/* VERSION DESKTOP*/}
                           <CardBody>
                             <CardTitle className="display-4 text-uppercase ">{movie.title}</CardTitle>
-                            <CardText className="my-5">
+                            <CardText tag="div" className="my-5">
                               <i className= {`${movie.heartColor} fa fa-heart pull-right mr-3`} onClick={ () => {this.handleClick(movie.id, movie)}}></i>
-                              <Rating value={movie.vote_average} color="#f4dc42" weight="24" readonly/>
+                              <Rating value={`${movie.vote_average}`} color="#f4dc42" weight="24" readonly/>
                             </CardText>
                             <CardSubtitle className="h4 text-white mb-2 ">
                               {movie.release_date} - {movie.director}
                             </CardSubtitle>
-                            <CardText className="font-weight-bold font-italic">{movie.casting}</CardText>
-                            <CardText className="lead mt-4">{movie.overview}</CardText>
+                            <CardText tag="div" className="font-weight-bold font-italic text-white">{movie.casting}</CardText>
+                            <CardText tag="div" className="lead mt-4  text-white">{movie.overview}</CardText>
                           </CardBody>
                         </Col>
                       </Row>

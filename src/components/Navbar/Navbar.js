@@ -22,7 +22,7 @@ class Navbar extends Component {
     return (
         <div>
           <Navbarr className="top-fixed-navbar" expand="xs">
-            <Link exact to="/">
+            <Link to ="/">
               <h1 className="logo-cine">CINE</h1>
               <h1 className="logo-react">REACT</h1>
             </Link>
@@ -49,25 +49,25 @@ class Navbar extends Component {
             <ModalHeader toggle={this.toggle} className="modal-contact">CONTACT</ModalHeader>
             <ModalBody className="modal-contact">
             <div>  
-                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Matthieu Petit</p>
                 <a className="ml-2" href="https://github.com/MatPlume">https://github.com/MatPlume</a>
               </div>
                <hr/>
               <div> 
-                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Maéva Duran</p>
                 <a  className="ml-2" href="https://github.com/mae-va">https://github.com/mae-va</a>
               </div>
               <hr/>
               <div> 
-                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Antoine Nourris</p>
                 <a  className="ml-2" href="https://github.com/awcs">https://github.com/awcs</a>
               </div>
               <hr/>
               <div>
-                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Tiphaine Deswarte</p>
                 <a  className="ml-2" href= "https://github.com/TiphaineDSW">https://github.com/TiphaineDSW</a>
               </div>
