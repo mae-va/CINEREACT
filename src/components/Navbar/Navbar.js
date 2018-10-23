@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import Search from '../Search/Search';
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import {  Navbar as Navbarr, Nav, NavItem, NavLink,} from 'reactstrap'
+import {  Navbar as Navbarr, Nav, NavItem, NavLink,} from 'reactstrap';
+
 
 
 class Navbar extends Component {
@@ -18,11 +19,15 @@ class Navbar extends Component {
     this.setState({ modal : !this.state.modal})
   }
 
+  refresh =() => {
+    Router.dispatch(window.location.getCurrentPath(), null);
+  } 
+    
   render(){
     return (
         <div>
           <Navbarr className="top-fixed-navbar" expand="xs">
-            <Link to ="/">
+            <Link onClick={this.refresh} exact to="/">
               <h1 className="logo-cine">CINE</h1>
               <h1 className="logo-react">REACT</h1>
             </Link>
@@ -51,25 +56,25 @@ class Navbar extends Component {
             <div>  
                 <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Matthieu Petit</p>
-                <a className="ml-2" href="https://github.com/MatPlume">https://github.com/MatPlume</a>
+                <a className="ml-2 git" href="https://github.com/MatPlume"target="_blank">https://github.com/MatPlume</a>
               </div>
                <hr/>
               <div> 
                 <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Maéva Duran</p>
-                <a  className="ml-2" href="https://github.com/mae-va">https://github.com/mae-va</a>
+                <a  className="ml-2 git" href="https://github.com/mae-va"target="_blank">https://github.com/mae-va</a>
               </div>
               <hr/>
               <div> 
                 <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Antoine Nourris</p>
-                <a  className="ml-2" href="https://github.com/awcs">https://github.com/awcs</a>
+                <a  className="ml-2 git" href="https://github.com/awcs"target="_blank">https://github.com/awcs</a>
               </div>
               <hr/>
               <div>
                 <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} alt="profil pic" className="rounded-circle profile pull-left"></img>
                 <p  className="ml-5">Tiphaine Deswarte</p>
-                <a  className="ml-2" href= "https://github.com/TiphaineDSW">https://github.com/TiphaineDSW</a>
+                <a  className="ml-2 git" href= "https://github.com/TiphaineDSW" target="_blank">https://github.com/TiphaineDSW</a>
               </div>
             </ModalBody>
           </Modal>
