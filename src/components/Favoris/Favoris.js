@@ -5,6 +5,8 @@ import 'react-notifications/lib/notifications.css';
 import Rating from "react-star-rating-lite";
 import _ from 'underscore';
 import { NotificationManager } from 'react-notifications';
+import ScrollUpButton from 'react-scroll-up-button';
+
 
 import { Card, CardBody, CardTitle, CardText, Col, Row, CardSubtitle, CardImgOverlay } from 'reactstrap';
 
@@ -78,6 +80,7 @@ class Favoris extends Component {
     else {
       return (
         <Row className="row top nopadding">
+          <ScrollUpButton style={{width: 45, height: 25}} ToggledStyle={{right: 100}}/>
           {this.state.movies.map((movie,index) =>{
             return(
               <Col key={index} md="6 nopaddingright">
