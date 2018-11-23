@@ -12,13 +12,13 @@
 	background-color: #23272b !important;
 }
 
-@media screen and (min-width: 320px) and (max-width: 668px){
+@media screen and (min-width: 320px) and (max-width: 668px) {
   .btn-dark{
     margin-left: 0 !important;
   }
 }
 
-.input-group > .form-control{
+.input-group > .form-control {
 	flex: 0.5 1 auto !important;
 }
 
@@ -45,12 +45,12 @@
 	border-radius: 0px !important;
 }
 
-.btn-outline-secondary{
+.btn-outline-secondary {
 	border-color:  #525559 !important;
 	border-radius: 0 4px 4px 0 !important;
 }
 
-.btn-outline-secondary:hover{
+.btn-outline-secondary:hover {
 	background-color: #23272b !important;
 }
 
@@ -88,7 +88,7 @@
  .research-mobile-description {
 	padding: 0!important;
 }
- .research-desktop-description{
+ .research-desktop-description {
 	overflow: scroll;
 	height: 515px;
 	padding-left: 10px !important;

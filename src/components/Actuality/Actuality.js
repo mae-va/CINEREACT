@@ -3,9 +3,7 @@ import './Actuality.css';
 import 'react-notifications/lib/notifications.css';
 import Rating from "react-star-rating-lite";
 import {NotificationManager, NotificationContainer} from 'react-notifications';
-
 import { Card, CardBody, Container, CardTitle, CardText, Col, Row, CardImgOverlay, CardSubtitle } from 'reactstrap';
-
 import posed from 'react-pose';
 
 const Box = posed.div({
@@ -14,7 +12,7 @@ const Box = posed.div({
 });
 
 class Actuality extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       movie : {},
@@ -23,18 +21,18 @@ class Actuality extends Component {
       isVisible : true,
       cardOverlay: false,
       colorsHeartMovies: []
-    }
+    };
     this.rate ="";
 		this.favorite = false;
-  }
+  };
 
   favoriteMovies = () => {
 		NotificationManager.success('Movie added!',"", 1000);
-	}
+	};
 
 	deleteMovies = () => {
 		NotificationManager.warning('Movie removed!',"", 1000);
-	}
+	};
 
   componentDidMount() {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=762ed8e154d8e7ff207952b1cc7074b0&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${this.getRandomArbitrary(1,3)}&primary_release_year=2018`)
@@ -48,7 +46,7 @@ class Actuality extends Component {
         this.rate = <Rating value={`${this.state.movie.vote_average}`} color="#f4dc42" className="pull-left" readonly/>
       })
     setTimeout(() => {this.setState({ isVisible: !this.state.isVisible });}, 500);
-  }
+  };
 
   getDirectorFromMovieId = () => {
     fetch(`https://api.themoviedb.org/3/movie/${this.state.movie.id}/credits?api_key=762ed8e154d8e7ff207952b1cc7074b0`)
@@ -69,15 +67,15 @@ class Actuality extends Component {
         this.setState({movie : {...this.state.movie,casting : fullCast}});
         this.forceUpdate();
     })
-  }
+  };
 
   getRandomArbitrary = (min, max) => {
     return Math.random() * (max - min) + min;
-  }
+  };
 
   getRandomInt = (max) => {
     return Math.floor(Math.random() * Math.floor(max)); 
-  }
+  };
 
   handleClick = () => {
     if(this.state.color=== "no-clicked-icon"){
@@ -92,7 +90,7 @@ class Actuality extends Component {
     this.setState({ favorite: !this.state.favorite }, () => {
       this.setFavorite();
     });
-  }
+  };
 
 	setFavorite = () => {
     if(this.state.favorite===true){
@@ -101,23 +99,23 @@ class Actuality extends Component {
     else if(this.state.favorite===false){
       this.removeItem();
     }
-	}
+	};
 
   setItem = () => {
     window.localStorage.setItem(`${this.state.movie.id}`, JSON.stringify(this.state.movie));
-  }
+  };
 
   removeItem = () => {
     window.localStorage.removeItem(`${this.state.movie.id}`);
-  }
+  };
 
   toggleReadMore = () => {
     this.setState({readMore: !this.state.readMore});
-  }
+  };
 
   toggleCardOverlay = () => {
     this.setState({cardOverlay: ! this.state.cardOverlay});
-  }
+  };
   
   render() {
     return (
@@ -167,7 +165,7 @@ class Actuality extends Component {
         <NotificationContainer/>
       </Container>
     );
-  }
-}
+  };
+};
 
 export default Actuality;

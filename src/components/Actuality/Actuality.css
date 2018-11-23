@@ -14,7 +14,7 @@
   text-shadow: 1px 1px 10px #000;
 }
 
-.button-open-overlay-down{
+.button-open-overlay-down {
   color: #5fd4f4;
   position: absolute;
   bottom: 10%;
@@ -161,15 +161,3 @@ hr {
   }
 
 }
-
-/* @media screen and (max-width: 900px) {
-  .collapse-mob {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 576px){
-  .cross {
-    display: none;
-  }
-} */
