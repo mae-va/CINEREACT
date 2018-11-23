@@ -22,10 +22,10 @@ class Search extends Component {
       color : [],
       cardOverlay: false,
       movie : {}
-		}
+		};
     this.card ="";
     this.favorite = false;
-  }
+  };
 
   fetchByCategory = () => {
     if(this.state.query.length > 0) {
@@ -36,7 +36,7 @@ class Search extends Component {
         this.setState({ methodFetch : "discover", targetFetch : "movie", filmFetch :"&sort_by=popularity.desc&include_adult=false&include_video=false", queryFetch :`&primary_release_year=${this.state.query}`},()=>this.researchQuery())
       }
     }
-  }
+  };
 
   researchQuery = () =>{
     fetch(`https://api.themoviedb.org/3/${this.state.methodFetch}/${this.state.targetFetch}?api_key=762ed8e154d8e7ff207952b1cc7074b0&${this.state.filmFetch}&page=1${this.state.queryFetch}`)
@@ -58,7 +58,7 @@ class Search extends Component {
             });
       })
 			.then(() => {this.toggleModal()})
-  }
+  };
 
   getDirectorFromMoviesId = () => {
     this.state.movies.map(movie =>{
@@ -85,11 +85,11 @@ class Search extends Component {
       })
     )})
     
-  }
+  };
 
   inputChange = (event) => {
-    this.setState({query: event.target.value })
-  }
+    this.setState({query: event.target.value });
+  };
 
   changeValue= (e) => {
     if(e.target.value === "0"){
@@ -98,25 +98,25 @@ class Search extends Component {
     else if(e.target.value === "1"){
       this.setState({category: "Year ", select : "1" });
     }
-  }
+  };
 
   toggle = () => {
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen
     }));
-  }
+  };
 
   toggleModal = () => {
     this.setState({
       modal: !this.state.modal
     });
-  }
+  };
 
   handleKeyPress = (target) => {
     if(target.charCode === 13){
       this.fetchByCategory();
     }
-  }
+  };
 
   handleClick = (movieId, movie) => {
     let movies = this.state.movies;
@@ -137,7 +137,7 @@ class Search extends Component {
 
     this.setState({movies: movies});
     this.setState({ favorite: !this.state.favorite }, () => {this.setFavorite(movieId, movie)});
-  }
+  };
 
 	setFavorite = (movieId, movie) => {
     if(movie.favorite === true){
@@ -146,7 +146,7 @@ class Search extends Component {
     else if(movie.favorite === false){
       this.removeItem(movieId);
     }
-	}
+	};
 
   setItem = (movieId, movie) => {
     if(window.localStorage.getItem(movieId) === null) {
@@ -155,19 +155,19 @@ class Search extends Component {
         this.props.functionUpdateMovie(movie)
       }
     }
-  }
+  };
 
   removeItem = (movieId) => {
     window.localStorage.removeItem(`${movieId}`);
-  }
+  };
 
   favoriteMovies = () => {
 		NotificationManager.success('Movie added!',"", 1000);
-	}
+	};
 
 	deleteMovies = () => {
 		NotificationManager.warning('Movie removed!',"", 1000);
-  }
+  };
   
   toggleCardOverlay = (movieId) => {
     let films = this.state.movies;
@@ -177,7 +177,7 @@ class Search extends Component {
       }
     });
     this.setState({movies: films});
-  }
+  };
 
   render(){
 		const CloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px', color: "#5FD4F4" }} onClick={this.toggleModal}>&times;</button>;
@@ -247,8 +247,8 @@ class Search extends Component {
           </Modal>
         <NotificationContainer/>
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default Search;

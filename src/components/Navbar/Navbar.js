@@ -3,25 +3,23 @@ import './Navbar.css';
 import Search from '../Search/Search';
 import { Link, Router, } from "react-router-dom";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
-import {  Navbar as Navbarr, Nav, NavItem, NavLink,} from 'reactstrap';
-
-
+import {  Navbar as Navbarr, Nav, NavItem, NavLink } from 'reactstrap';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       modal : false
-    }
-  }
+    };
+  };
 
   toggle = () =>{
-    this.setState({ modal : !this.state.modal})
-  }
+    this.setState({ modal : !this.state.modal});
+  };
 
   refresh =() => {
     Router.dispatch(window.location.getCurrentPath, null);
-  } 
+  };
     
   render(){
     return (
@@ -63,21 +61,21 @@ class Navbar extends Component {
                     </div>
                   </li>
                   <li className="media my-4">
-                    <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                    <img src ={process.env.PUBLIC_URL + './images/Maeva.jpg'} className="rounded-circle profile pull-left"></img>
                     <div className="media-body">
                       <h5 className="mt-0 mb-1 ml-3">Maéva Duran</h5>
                       <a  className="ml-3 git" href="https://github.com/mae-va" rel="noopener noreferrer" target="_blank">https://github.com/mae-va</a>
                     </div>
                   </li>
                   <li className="media mb-4">
-                    <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                    <img src ={process.env.PUBLIC_URL + './images/Antoine.jpg'} className="rounded-circle profile pull-left"></img>
                     <div className="media-body">
                       <h5 className="mt-0 mb-1 ml-3">Antoine Nourris</h5>
                       <a className="ml-3 git" href="https://github.com/awcs" rel="noopener noreferrer" target="_blank">https://github.com/awcs</a>
                     </div>
                   </li>
                   <li className="media">
-                    <img src ={process.env.PUBLIC_URL + './images/Matthieu.jpg'} className="rounded-circle profile pull-left"></img>
+                    <img src ={process.env.PUBLIC_URL + './images/Tiphaine.jpg'} className="rounded-circle profile pull-left"></img>
                     <div className="media-body">
                       <h5 className="mt-0 mb-1 ml-3">Tiphaine Deswarte</h5>
                       <a  className="ml-3 git" href= "https://github.com/TiphaineDSW" rel="noopener noreferrer" target="_blank">https://github.com/TiphaineDSW</a>
@@ -88,8 +86,8 @@ class Navbar extends Component {
             </ModalBody>
           </Modal>
         </div>
-      )
-    }
-  }
+      );
+    };
+  };
 
 export default Navbar;

@@ -1,15 +1,15 @@
-.push-heart{
+.push-heart {
   color: rgb(223, 4, 22);
 }
 
-.fav-phrase{
+.fav-phrase {
   font-size: 2rem;
   margin-top: 150px;
   color: #525559;
   text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) { 
   .display-3 {
     font-size: 2.5rem !important;
   }
@@ -68,7 +68,7 @@ body {
   height : 250px;
 }
 
-@media screen and (max-width:768px)/*IPAD*/{
+@media screen and (max-width:768px) {
   .card-block {
     font-size: 12px; 
   }
@@ -83,7 +83,7 @@ body {
   overflow: scroll;
   padding-left: 10px !important;
 }
-@media screen and (max-width:520px)/*smartphone*/{
+@media screen and (max-width:520px) {
   .ajust-scale {
     height : 250px
   }

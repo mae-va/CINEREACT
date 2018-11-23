@@ -11,14 +11,12 @@ class App extends Component {
     this.state = {
       movies : [],
       functionUpdateMovie : null
-    }
-
-    
-  }
+    };
+  };
 
   updateLocalMovie = (func) => {
     this.setState({functionUpdateMovie : func});
-  }
+  };
 
   render() {
     return (
@@ -30,10 +28,7 @@ class App extends Component {
         </div>
       </div>
     );
-  }
-}
-
+  };
+};
 
 export default App;
-
-// clé API = 762ed8e154d8e7ff207952b1cc7074b0

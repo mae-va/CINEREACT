@@ -2,7 +2,7 @@ html, body {
   max-width: 100%;
 }
 
-.container-fluid{
+.container-fluid {
   margin:0 !important;
   padding: 0 !important;
 }
@@ -13,7 +13,7 @@ p {
   
 }
 
-.title, .m-title, .card-title  {
+.title, .m-title, .card-title {
   font-family: 'Roboto Condensed', sans-serif;
   color: #F1F1F1;
 }

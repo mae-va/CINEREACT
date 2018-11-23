@@ -1,13 +1,10 @@
 import React, {Component} from "react";
 import './Favoris.css';
 import 'react-notifications/lib/notifications.css';
-
 import Rating from "react-star-rating-lite";
 import _ from 'underscore';
 import { NotificationManager } from 'react-notifications';
 import ScrollUpButton from 'react-scroll-up-button';
-
-
 import { Card, CardBody, CardTitle, CardText, Col, Row, CardSubtitle, CardImgOverlay } from 'reactstrap';
 
 class Favoris extends Component {
@@ -19,11 +16,11 @@ class Favoris extends Component {
     }
     this.fullMovie = [];
     this.cardBlock = "";
-  }
+  };
 
   renderUpdateMovie = (movie) => {
     this.setState({ movies: [...this.state.movies, movie]});
-  }
+  };
 
   componentDidMount = () => {
     this.props.updateLocalMovie(this.renderUpdateMovie);
@@ -47,17 +44,17 @@ class Favoris extends Component {
       this.setState({movies: toto});
     });
 
-  }
+  };
 
   removeMovie = (movieId) => {
     window.localStorage.removeItem(movieId.toString());
     this.setState({movies: _.filter(this.state.movies, (movie) => { return movie.id !== movieId})});
     this.deleteMovies();
-  }
+  };
 
   deleteMovies = () => {
 		NotificationManager.warning('Movie removed!',"", 1000);
-  }
+  };
   
   toggleCardOverlay = (movieId) => {
     let films = this.state.movies;
@@ -67,7 +64,7 @@ class Favoris extends Component {
       }
     });
     this.setState({movies: films});
-  }
+  };
 
   render() {
     if(this.state.movies.length === 0){
@@ -129,8 +126,8 @@ class Favoris extends Component {
         }
         </Row>
       );
-    }
-  }
-}
+    };
+  };
+};
 
 export default Favoris;
